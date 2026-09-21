@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Revista Digital ABRAMAN Mulher • Versão Impressão / PDF A4</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        
+# -*- coding: utf-8 -*-
+"""
+Print / A4 PDF Builder for Cartilha Comitê Feminino ABRAMAN
+Embeds all real images and sets exact A4 pagination
+"""
+
+def generate_print_magazine():
+    css_print = """
     @page {
         size: A4 portrait;
         margin: 0;
@@ -396,27 +393,20 @@
         color: #E11D48;
         font-size: 10.5px;
     }
-    
-    </style>
-</head>
-<body>
-    <div class="print-bar">
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-print" style="color: #FB7185; font-size: 18px;"></i>
-            <strong>Revista Digital: Comitê Feminino ABRAMAN • Exportação PDF A4</strong>
-        </div>
-        <button class="print-btn" onclick="window.print()">
-            <i class="fa-solid fa-download"></i> Imprimir / Salvar em PDF (Ctrl + P)
-        </button>
-    </div>
+    """
 
-    <div class="print-container">
-        
+    # Pages for A4 Print
+    pages_print = []
+
+    # Page 1: Capa (Full Bleed)
+    pages_print.append("""
     <div class="mag-page full-bleed-cover">
         <img src="ChatGPT Image Aug 31, 2026, 07_59_24 PM.png" alt="Capa Oficial" class="cover-img">
     </div>
-    
+    """)
 
+    # Page 2: Institucional
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header">
@@ -450,8 +440,10 @@
             </div>
         </div>
     </div>
-    
+    """)
 
+    # Page 3: Sumário
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header">
@@ -483,8 +475,10 @@
             </div>
         </div>
     </div>
-    
+    """)
 
+    # Page 4: Cap 1
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 01</span><span>Visão Estratégica</span></div>
@@ -508,8 +502,10 @@
             <div class="page-editorial-footer"><span>Capítulo 01 • Por que esta cartilha?</span><span class="page-number-tag">04</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 5: Cap 2 com Foto Oficial
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 02</span><span>Conceitos Fundamentais</span></div>
@@ -530,8 +526,10 @@
             <div class="page-editorial-footer"><span>Capítulo 02 • Entendendo a Diversidade</span><span class="page-number-tag">05</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 6: Cap 3 com Imagem Oficial
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 03</span><span>Impacto Setorial</span></div>
@@ -554,8 +552,10 @@
             <div class="page-editorial-footer"><span>Capítulo 03 • Diversidade na Manutenção</span><span class="page-number-tag">06</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 7: Cap 4 Números
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 04</span><span>Panorama de Dados</span></div>
@@ -578,8 +578,10 @@
             <div class="page-editorial-footer"><span>Capítulo 04 • Diversidade em Números</span><span class="page-number-tag">07</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 8: Cap 5 Desafios
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 05</span><span>Desafios Cotidianos (1/2)</span></div>
@@ -599,8 +601,10 @@
             <div class="page-editorial-footer"><span>Capítulo 05 • Desafios das Mulheres</span><span class="page-number-tag">08</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 9: Cap 5 Liderança
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 05</span><span>Ações Práticas (2/2)</span></div>
@@ -631,8 +635,10 @@
             <div class="page-editorial-footer"><span>Capítulo 05 • Liderança Inclusiva</span><span class="page-number-tag">09</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 10: Cap 6 Carreira
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 06</span><span>Carreira & Sucessão</span></div>
@@ -656,8 +662,10 @@
             <div class="page-editorial-footer"><span>Capítulo 06 • Desenvolvimento Profissional</span><span class="page-number-tag">10</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 11: Cap 7 Maternidade com Fotos Reais
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 07</span><span>Parentalidade & Retenção</span></div>
@@ -681,8 +689,10 @@
             <div class="page-editorial-footer"><span>Capítulo 07 • Maternidade</span><span class="page-number-tag">11</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 12: Cap 8 Maternidade Atípica com Fotos Reais
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 08</span><span>Inclusão Especializada</span></div>
@@ -704,8 +714,10 @@
             <div class="page-editorial-footer"><span>Capítulo 08 • Maternidade Atípica</span><span class="page-number-tag">12</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 13: Cap 9 Barreiras Físicas
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 09</span><span>Infraestrutura & Segurança</span></div>
@@ -730,8 +742,10 @@
             <div class="page-editorial-footer"><span>Capítulo 09 • Barreiras Físicas</span><span class="page-number-tag">13</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 14: Cap 10 Barreiras Culturais
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 10</span><span>Cultura Organizacional</span></div>
@@ -751,8 +765,10 @@
             <div class="page-editorial-footer"><span>Capítulo 10 • Barreiras Culturais</span><span class="page-number-tag">14</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 15: Cap 11 Microagressões
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 11</span><span>Relações & Respeito</span></div>
@@ -774,8 +790,10 @@
             <div class="page-editorial-footer"><span>Capítulo 11 • Microagressões</span><span class="page-number-tag">15</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 16: Cap 12 Aliados
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulo 12</span><span>Alianças & Liderança</span></div>
@@ -800,8 +818,10 @@
             <div class="page-editorial-footer"><span>Capítulo 12 • Homens como Aliados</span><span class="page-number-tag">16</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 17: Cap 13 & 14 com Banner Oficial
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Capítulos 13 & 14</span><span>Visão Institucional</span></div>
@@ -820,8 +840,10 @@
             <div class="page-editorial-footer"><span>Capítulos 13 e 14 • O Papel do Comitê & Futuro</span><span class="page-number-tag">17</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 18: Palavras Finais
+    pages_print.append("""
     <div class="mag-page">
         <div class="page-inner">
             <div class="page-editorial-header"><span>Mensagem Final</span><span>Encerramento</span></div>
@@ -836,12 +858,51 @@
             <div class="page-editorial-footer"><span>Comitê Feminino ABRAMAN • Palavras Finais</span><span class="page-number-tag">18</span></div>
         </div>
     </div>
-    
+    """)
 
+    # Page 19: Contracapa (Full Bleed)
+    pages_print.append("""
     <div class="mag-page full-bleed-cover">
         <img src="ChatGPT Image Aug 30, 2026, 10_42_56 AM.png" alt="Contracapa Oficial" class="cover-img">
     </div>
-    
+    """)
+
+    joined_print_pages = "\n".join(pages_print)
+
+    html_print_doc = f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Revista Digital ABRAMAN Mulher • Versão Impressão / PDF A4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        {css_print}
+    </style>
+</head>
+<body>
+    <div class="print-bar">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-print" style="color: #FB7185; font-size: 18px;"></i>
+            <strong>Revista Digital: Comitê Feminino ABRAMAN • Exportação PDF A4</strong>
+        </div>
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-download"></i> Imprimir / Salvar em PDF (Ctrl + P)
+        </button>
+    </div>
+
+    <div class="print-container">
+        {joined_print_pages}
     </div>
 </body>
 </html>
+"""
+
+    with open("print_magazine.html", "w", encoding="utf-8") as f:
+        f.write(html_print_doc)
+    print("Updated print_magazine.html with all real images and A4 formatting!")
+
+if __name__ == '__main__':
+    generate_print_magazine()

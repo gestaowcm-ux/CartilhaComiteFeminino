@@ -1,20 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 Double-Page Magazine Spread Generator for Cartilha Comitê Feminino ABRAMAN
-Implements:
-1. 2-page spread book layout (Modo Revista) with realistic spine shadows, perspective, and page-spread transitions
-2. Continuous single/stacked scroll mode (Modo Leitura)
-3. TTS Audio Narration (Ouvir) for current spread
-4. Dynamic Drawer Table of Contents (Sumário)
-5. Interactive reflection checklists with localStorage persistence
-6. Zoom, Fullscreen, and A4 print integration
+Includes all real photos and illustrations extracted from CARTILHA_Proposta 2.pdf / docx!
 """
 
 import os
 import sys
 
 def build_spread_magazine():
-    # CSS definitions
     css_content = """
         :root {
             --abraman-navy: #0B192C;
@@ -263,7 +256,7 @@ def build_spread_magazine():
             color: var(--text-dark);
             width: 50%;
             height: 100%;
-            padding: 30px 36px;
+            padding: 28px 34px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -340,7 +333,7 @@ def build_spread_magazine():
             align-items: center;
             border-bottom: 1.5px solid var(--rose-200);
             padding-bottom: 8px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .header-left-tag {
@@ -384,21 +377,21 @@ def build_spread_magazine():
 
         .chapter-title {
             font-family: var(--font-heading);
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 800;
             color: var(--abraman-navy);
             line-height: 1.25;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             letter-spacing: -0.3px;
         }
 
         .section-subtitle {
             font-family: var(--font-heading);
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--rose-600);
-            margin-top: 12px;
-            margin-bottom: 8px;
+            margin-top: 10px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -407,33 +400,66 @@ def build_spread_magazine():
         .quote-highlight {
             background: linear-gradient(135deg, #FFF1F2 0%, #FAF5FF 100%);
             border-left: 4px solid var(--rose-500);
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: 0 8px 8px 0;
-            margin: 12px 0;
+            margin: 10px 0;
             position: relative;
         }
 
         .quote-highlight p {
             font-family: var(--font-serif);
-            font-size: 13px;
+            font-size: 12.5px;
             font-style: italic;
             color: var(--abraman-navy);
             line-height: 1.5;
         }
 
         p.editorial-lead {
-            font-size: 12.5px;
-            line-height: 1.6;
+            font-size: 12px;
+            line-height: 1.55;
             color: #334155;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: justify;
+        }
+
+        /* Editorial Image Wrappers */
+        .editorial-img-card {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin: 10px 0;
+            transition: transform 0.2s ease;
+        }
+
+        .editorial-img-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .editorial-img-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .editorial-img-caption {
+            font-size: 10px;
+            color: #64748B;
+            padding: 6px 10px;
+            background: #F8FAFC;
+            border-top: 1px solid #E2E8F0;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Action Boxes */
         .action-box {
             border-radius: 8px;
-            padding: 12px 16px;
-            margin: 12px 0;
+            padding: 10px 14px;
+            margin: 10px 0;
         }
 
         .action-box.box-leadership {
@@ -466,15 +492,15 @@ def build_spread_magazine():
         .action-box.box-key-message .box-title {
             color: var(--rose-300);
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            padding-bottom: 6px;
-            margin-bottom: 8px;
+            padding-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .action-box.box-key-message p {
             color: #F8FAFC;
-            font-size: 12.5px;
+            font-size: 12px;
             font-weight: 500;
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
         .action-box.box-reflection {
@@ -489,36 +515,36 @@ def build_spread_magazine():
 
         .box-title {
             font-family: var(--font-heading);
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             display: flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .action-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
 
         .action-list li {
-            font-size: 11.5px;
-            line-height: 1.45;
+            font-size: 11px;
+            line-height: 1.4;
             color: var(--text-dark);
             display: flex;
             align-items: flex-start;
-            gap: 8px;
+            gap: 6px;
         }
 
         .action-list li i.list-bullet {
             color: var(--rose-500);
             margin-top: 3px;
-            font-size: 9px;
+            font-size: 8px;
             flex-shrink: 0;
         }
 
@@ -526,8 +552,8 @@ def build_spread_magazine():
         .checklist-item {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
-            padding: 5px 8px;
+            gap: 6px;
+            padding: 4px 6px;
             border-radius: 4px;
             transition: background 0.2s ease;
             cursor: pointer;
@@ -541,8 +567,8 @@ def build_spread_magazine():
         .checklist-item input[type="checkbox"] {
             appearance: none;
             -webkit-appearance: none;
-            width: 15px;
-            height: 15px;
+            width: 14px;
+            height: 14px;
             border: 2px solid #D97706;
             border-radius: 3px;
             outline: none;
@@ -562,7 +588,7 @@ def build_spread_magazine():
             content: "✔";
             position: absolute;
             color: white;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: bold;
             top: 50%;
             left: 50%;
@@ -570,33 +596,33 @@ def build_spread_magazine():
         }
 
         .checklist-item label {
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: 500;
             color: #78350F;
             cursor: pointer;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         /* Info Cards & Grids */
         .cards-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 10px 0;
+            gap: 8px;
+            margin: 8px 0;
         }
 
         .cards-grid-3 {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-            margin: 10px 0;
+            gap: 6px;
+            margin: 8px 0;
         }
 
         .info-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
             border-radius: 6px;
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-top: 3px solid var(--rose-400);
         }
 
@@ -604,33 +630,33 @@ def build_spread_magazine():
             display: flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .info-card-icon {
-            width: 22px;
-            height: 22px;
-            border-radius: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
             background: var(--rose-100);
             color: var(--rose-600);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: bold;
             flex-shrink: 0;
         }
 
         .info-card-title {
             font-family: var(--font-heading);
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: 700;
             color: var(--abraman-navy);
         }
 
         .info-card p {
-            font-size: 11px;
-            line-height: 1.45;
+            font-size: 10.5px;
+            line-height: 1.4;
             color: var(--text-muted);
         }
 
@@ -638,17 +664,17 @@ def build_spread_magazine():
         .stat-banner {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             background: linear-gradient(135deg, var(--rose-50) 0%, #FFFFFF 100%);
             border: 1.5px dashed var(--rose-300);
             border-radius: 8px;
-            padding: 12px;
-            margin: 12px 0;
+            padding: 10px;
+            margin: 10px 0;
         }
 
         .stat-number {
             font-family: var(--font-heading);
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 900;
             color: var(--rose-600);
             line-height: 1;
@@ -656,25 +682,25 @@ def build_spread_magazine():
         }
 
         .stat-desc {
-            font-size: 11.5px;
-            line-height: 1.45;
+            font-size: 11px;
+            line-height: 1.4;
             color: var(--abraman-navy);
         }
 
         .broken-rung-diagram {
             background: #0B192C;
             border-radius: 8px;
-            padding: 14px;
+            padding: 12px;
             color: white;
-            margin: 12px 0;
+            margin: 10px 0;
         }
 
         .broken-rung-title {
             font-family: var(--font-heading);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 800;
             color: var(--rose-400);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
             text-transform: uppercase;
         }
@@ -682,18 +708,18 @@ def build_spread_magazine():
         .rung-bars {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .rung-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .rung-label {
-            width: 140px;
-            font-size: 10.5px;
+            width: 130px;
+            font-size: 10px;
             color: #CBD5E1;
             text-align: right;
             flex-shrink: 0;
@@ -701,9 +727,9 @@ def build_spread_magazine():
 
         .rung-progress-track {
             flex: 1;
-            height: 16px;
+            height: 14px;
             background: rgba(255, 255, 255, 0.12);
-            border-radius: 8px;
+            border-radius: 7px;
             overflow: hidden;
         }
 
@@ -712,8 +738,8 @@ def build_spread_magazine():
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 8px;
-            font-size: 10px;
+            padding-right: 6px;
+            font-size: 9.5px;
             font-weight: 800;
             color: white;
         }
@@ -722,11 +748,11 @@ def build_spread_magazine():
         .page-editorial-footer {
             margin-top: auto;
             border-top: 1px solid #E2E8F0;
-            padding-top: 8px;
+            padding-top: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 10px;
+            font-size: 9.5px;
             color: #64748B;
         }
 
@@ -734,7 +760,7 @@ def build_spread_magazine():
             font-family: var(--font-heading);
             font-weight: 800;
             color: var(--rose-600);
-            font-size: 11px;
+            font-size: 10.5px;
         }
 
         /* Bottom Spread Bar */
@@ -1002,7 +1028,6 @@ def build_spread_magazine():
         }
     """
 
-    # Spreads HTML definitions
     spreads_html = []
 
     # SPREAD 0: CAPA OFICIAL (Single Page)
@@ -1029,38 +1054,38 @@ def build_spread_magazine():
 
             <div style="text-align: center; margin-bottom: 12px;">
                 <span class="chapter-badge"><i class="fa-solid fa-award"></i> Guia Oficial de Boas Práticas</span>
-                <h1 class="chapter-title" style="font-size: 17px; margin-bottom: 4px;">Diversidade de Gênero na Manutenção e Gestão de Ativos</h1>
-                <p style="font-size: 11px; font-weight: 700; color: var(--rose-600); text-transform: uppercase;">Guia para Lideranças e Organizações</p>
-                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 6px; font-size: 10.5px; font-weight: 700; color: var(--abraman-navy);">
+                <h1 class="chapter-title" style="font-size: 16.5px; margin-bottom: 4px;">Diversidade de Gênero na Manutenção e Gestão de Ativos</h1>
+                <p style="font-size: 10.5px; font-weight: 700; color: var(--rose-600); text-transform: uppercase;">Guia para Lideranças e Organizações</p>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 4px; font-size: 10px; font-weight: 700; color: var(--abraman-navy);">
                     <span><i class="fa-solid fa-users"></i> Comitê Feminino</span>
                     <span>•</span>
                     <span><i class="fa-solid fa-hand-holding-heart"></i> Subcomitê DIA</span>
                 </div>
             </div>
 
-            <div class="action-box box-leadership" style="margin-bottom: 10px;">
+            <div class="action-box box-leadership" style="margin-bottom: 8px;">
                 <div class="box-title"><i class="fa-solid fa-landmark"></i> Mensagem da Presidente da ABRAMAN</div>
-                <p class="editorial-lead" style="font-size: 11.5px; margin-bottom: 6px;">
-                    A manutenção e a gestão de ativos vivem um momento de transformação impulsionado pela inovação, pela digitalização e pelo desenvolvimento de pessoas. Nesse cenário, ampliar a diversidade de perspectivas é fundamental para fortalecer a capacidade das organizações de responder aos desafios atuais e futuros.
+                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
+                    A manutenção e a gestão de ativos vivem um momento de transformação impulsionado pela inovação, pela digitalização e pelo desenvolvimento de pessoas. Nesse cenário, ampliar a diversidade de perspectivas é fundamental para responder aos desafios atuais e futuros.
                 </p>
-                <p class="editorial-lead" style="font-size: 11.5px; margin-bottom: 6px;">
-                    Acreditamos que promover ambientes inclusivos significa criar condições para que talentos diversos possam contribuir plenamente para a segurança, a confiabilidade e a sustentabilidade dos nossos ativos.
+                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
+                    Promover ambientes inclusivos significa criar condições para que talentos diversos contribuam plenamente para a segurança, confiabilidade e sustentabilidade dos nossos ativos.
                 </p>
-                <p class="editorial-lead" style="font-size: 11.5px; font-weight: 600; color: var(--abraman-blue);">
-                    Esta cartilha representa mais um passo do compromisso da ABRAMAN com a valorização das pessoas, o fortalecimento das lideranças e a construção de um setor cada vez mais preparado para o futuro.
+                <p class="editorial-lead" style="font-size: 11px; font-weight: 600; color: var(--abraman-blue);">
+                    Esta cartilha representa mais um passo da ABRAMAN com a valorização das pessoas e o fortalecimento das lideranças.
                 </p>
             </div>
 
             <div class="action-box box-best-practices">
                 <div class="box-title"><i class="fa-solid fa-comments"></i> Mensagem do Comitê Feminino</div>
-                <p class="editorial-lead" style="font-size: 11.5px; margin-bottom: 6px;">
-                    O Comitê Feminino da ABRAMAN nasceu com o propósito de ampliar a participação das mulheres na manutenção e na gestão de ativos, promovendo espaços de diálogo, desenvolvimento profissional e compartilhamento de experiências.
+                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
+                    O Comitê Feminino da ABRAMAN nasceu com o propósito de ampliar a participação feminina na gestão de ativos, promovendo espaços de diálogo e desenvolvimento.
                 </p>
-                <p class="editorial-lead" style="font-size: 11.5px; margin-bottom: 6px;">
-                    Por meio do Subcomitê DIA, buscamos estimular reflexões e disseminar boas práticas que contribuam para ambientes de trabalho mais inclusivos, respeitosos e colaborativos.
+                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
+                    Por meio do Subcomitê DIA, buscamos estimular reflexões e disseminar práticas que construam ambientes de trabalho mais inclusivos, colaborativos e preparados para o futuro.
                 </p>
-                <p class="editorial-lead" style="font-size: 11.5px; font-weight: 600; color: var(--rose-700);">
-                    Construir ambientes mais diversos é uma responsabilidade compartilhada e um caminho para organizações preparadas para o futuro.
+                <p class="editorial-lead" style="font-size: 11px; font-weight: 600; color: var(--rose-700);">
+                    Construir ambientes mais diversos é uma responsabilidade compartilhada por todo o setor.
                 </p>
             </div>
 
@@ -1078,9 +1103,9 @@ def build_spread_magazine():
             </div>
 
             <span class="chapter-badge"><i class="fa-solid fa-compass"></i> Sumário Executivo</span>
-            <h2 class="chapter-title" style="margin-bottom: 12px; font-size: 18px;">Conteúdo da Cartilha</h2>
+            <h2 class="chapter-title" style="margin-bottom: 10px; font-size: 17px;">Conteúdo da Cartilha</h2>
 
-            <div class="cards-grid-2" style="gap: 8px;">
+            <div class="cards-grid-2" style="gap: 6px;">
                 <div class="info-card" onclick="goToSpread(2)" style="cursor: pointer;">
                     <div class="info-card-header">
                         <span class="info-card-icon">01</span>
@@ -1187,9 +1212,9 @@ def build_spread_magazine():
     """
     spreads_html.append(s1)
 
-    # SPREAD 2: PÁGS 04 E 05 (Cap. 1 e Cap. 2)
+    # SPREAD 2: PÁGS 04 E 05 (Cap. 1 e Cap. 2 com foto oficial de Diversidade)
     s2 = """
-    <!-- SPREAD 2: PÁGINAS 04 E 05 (CAP. 1 E CAP. 2) -->
+    <!-- SPREAD 2: PÁGINAS 04 E 05 (CAP. 1 E CAP. 2 COM FOTO) -->
     <div class="spread-container" id="spread-2">
         <!-- PÁGINA 04: ESQUERDA (CAPÍTULO 1) -->
         <section class="magazine-page page-left">
@@ -1210,32 +1235,32 @@ def build_spread_magazine():
             </p>
 
             <!-- Infográfico 4 Pilares -->
-            <div style="background: linear-gradient(135deg, var(--rose-50) 0%, #FFFFFF 100%); border: 1px solid var(--rose-200); border-radius: 8px; padding: 12px; margin: 10px 0;">
-                <h4 style="font-family: var(--font-heading); color: var(--rose-700); font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; text-align: center;">
-                    <i class="fa-solid fa-layer-group"></i> Pilares Estratégicos
+            <div style="background: linear-gradient(135deg, var(--rose-50) 0%, #FFFFFF 100%); border: 1px solid var(--rose-200); border-radius: 8px; padding: 10px; margin: 8px 0;">
+                <h4 style="font-family: var(--font-heading); color: var(--rose-700); font-size: 10.5px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; text-align: center;">
+                    <i class="fa-solid fa-layer-group"></i> Pilares Estratégicos na Gestão de Ativos
                 </h4>
-                <div class="cards-grid-2" style="margin: 0; gap: 8px;">
-                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 8px; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-lightbulb" style="color: var(--rose-500); font-size: 16px;"></i>
-                        <span style="font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">Inovação Contínua</span>
+                <div class="cards-grid-2" style="margin: 0; gap: 6px;">
+                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 5px 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-lightbulb" style="color: var(--rose-500); font-size: 14px;"></i>
+                        <span style="font-size: 10px; font-weight: 600; color: var(--abraman-navy);">Inovação Contínua</span>
                     </div>
-                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 8px; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-shield-halved" style="color: var(--abraman-blue); font-size: 16px;"></i>
-                        <span style="font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">Segurança Operacional</span>
+                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 5px 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--abraman-blue); font-size: 14px;"></i>
+                        <span style="font-size: 10px; font-weight: 600; color: var(--abraman-navy);">Segurança Operacional</span>
                     </div>
-                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 8px; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-gears" style="color: var(--abraman-cyan); font-size: 16px;"></i>
-                        <span style="font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">Confiabilidade de Ativos</span>
+                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 5px 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-gears" style="color: var(--abraman-cyan); font-size: 14px;"></i>
+                        <span style="font-size: 10px; font-weight: 600; color: var(--abraman-navy);">Confiabilidade de Ativos</span>
                     </div>
-                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 8px; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-heart-pulse" style="color: var(--emerald-600); font-size: 16px;"></i>
-                        <span style="font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">Valorização Humana</span>
+                    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 5px 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-heart-pulse" style="color: var(--emerald-600); font-size: 14px;"></i>
+                        <span style="font-size: 10px; font-weight: 600; color: var(--abraman-navy);">Valorização Humana</span>
                     </div>
                 </div>
             </div>
 
             <p class="editorial-lead">
-                Esta cartilha foi desenvolvida pelo <strong>Subcomitê DIA</strong> do Comitê Feminino da ABRAMAN com o propósito de incentivar reflexões e compartilhar práticas que contribuam para que a diversidade seja compreendida como uma estratégia viva para fortalecer pessoas, processos e resultados.
+                Esta cartilha foi desenvolvida pelo <strong>Subcomitê DIA</strong> do Comitê Feminino da ABRAMAN com o propósito de incentivar reflexões e compartilhar práticas para que a diversidade fortaleça pessoas, processos e resultados.
             </p>
 
             <div class="action-box box-key-message" style="margin-top: auto;">
@@ -1249,7 +1274,7 @@ def build_spread_magazine():
             </div>
         </section>
 
-        <!-- PÁGINA 05: DIREITA (CAPÍTULO 2) -->
+        <!-- PÁGINA 05: DIREITA (CAPÍTULO 2 COM FOTO OFICIAL) -->
         <section class="magazine-page page-right">
             <div class="page-editorial-header">
                 <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 02</span>
@@ -1263,14 +1288,21 @@ def build_spread_magazine():
                 <strong>Diversidade de gênero</strong> refere-se ao reconhecimento e ao respeito às diferentes identidades e expressões de gênero, assegurando oportunidades de participação, desenvolvimento e crescimento profissional.
             </p>
 
-            <div class="section-subtitle"><i class="fa-solid fa-cubes"></i> Conceitos Complementares</div>
-            <div class="cards-grid-2" style="gap: 8px; margin: 8px 0;">
+            <!-- Foto Oficial Extraída da Proposta -->
+            <div class="editorial-img-card">
+                <img src="assets/img_cap2_diversidade.jpg" alt="Diversidade e Inclusão na Prática">
+                <div class="editorial-img-caption">
+                    <i class="fa-solid fa-camera"></i> Mulheres e Liderança Técnica na Gestão de Ativos
+                </div>
+            </div>
+
+            <div class="cards-grid-2" style="gap: 6px; margin: 6px 0;">
                 <div class="info-card">
                     <div class="info-card-header">
                         <span class="info-card-icon"><i class="fa-solid fa-users"></i></span>
                         <h4 class="info-card-title">Diversidade</h4>
                     </div>
-                    <p>Presença de diferentes características e trajetórias.<br><em>"Quem faz parte?"</em></p>
+                    <p>Presença de diferentes trajetórias. <em>"Quem faz parte?"</em></p>
                 </div>
 
                 <div class="info-card">
@@ -1278,7 +1310,7 @@ def build_spread_magazine():
                         <span class="info-card-icon"><i class="fa-solid fa-door-open"></i></span>
                         <h4 class="info-card-title">Inclusão</h4>
                     </div>
-                    <p>Condições para participar ativamente das decisões.<br><em>"Quem participa?"</em></p>
+                    <p>Condições para participar ativamente. <em>"Quem participa?"</em></p>
                 </div>
 
                 <div class="info-card">
@@ -1286,7 +1318,7 @@ def build_spread_magazine():
                         <span class="info-card-icon"><i class="fa-solid fa-scale-balanced"></i></span>
                         <h4 class="info-card-title">Equidade</h4>
                     </div>
-                    <p>Apoio compatível com as necessidades de cada pessoa.</p>
+                    <p>Apoio compatível com necessidades reais de cada pessoa.</p>
                 </div>
 
                 <div class="info-card">
@@ -1294,20 +1326,7 @@ def build_spread_magazine():
                         <span class="info-card-icon"><i class="fa-solid fa-universal-access"></i></span>
                         <h4 class="info-card-title">Acessibilidade</h4>
                     </div>
-                    <p>Eliminação de barreiras físicas, comunicacionais e atitudinais.</p>
-                </div>
-            </div>
-
-            <!-- Síntese Visual -->
-            <div style="background: linear-gradient(135deg, #0B192C 0%, #1E3A8A 100%); border-radius: 8px; padding: 12px; color: white; margin-top: auto;">
-                <div style="font-family: var(--font-heading); font-size: 11px; font-weight: 800; color: var(--rose-300); text-transform: uppercase; margin-bottom: 6px;">
-                    <i class="fa-solid fa-sparkles"></i> Em Síntese:
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
-                    <div>🌸 <strong>Diversidade:</strong> convidar.</div>
-                    <div>🤝 <strong>Inclusão:</strong> participar.</div>
-                    <div>⚖️ <strong>Equidade:</strong> desenvolver.</div>
-                    <div>💖 <strong>Pertencimento:</strong> valorizar.</div>
+                    <p>Eliminação de barreiras físicas e comunicacionais.</p>
                 </div>
             </div>
 
@@ -1320,11 +1339,11 @@ def build_spread_magazine():
     """
     spreads_html.append(s2)
 
-    # SPREAD 3: PÁGS 06 E 07 (Cap. 3 e Cap. 4)
+    # SPREAD 3: PÁGS 06 E 07 (Cap. 3 com ilustração técnica & Cap. 4 com Broken Rung)
     s3 = """
-    <!-- SPREAD 3: PÁGINAS 06 E 07 (CAP. 3 E CAP. 4) -->
+    <!-- SPREAD 3: PÁGINAS 06 E 07 (CAP. 3 COM IMAGEM & CAP. 4 DADOS) -->
     <div class="spread-container" id="spread-3">
-        <!-- PÁGINA 06: ESQUERDA (CAPÍTULO 3) -->
+        <!-- PÁGINA 06: ESQUERDA (CAPÍTULO 3 COM ILUSTRAÇÃO) -->
         <section class="magazine-page page-left">
             <div class="page-editorial-header">
                 <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 03</span>
@@ -1332,45 +1351,30 @@ def build_spread_magazine():
             </div>
 
             <span class="chapter-badge"><i class="fa-solid fa-industry"></i> Relevância Operacional</span>
-            <h2 class="chapter-title">Diversidade na Manutenção & Gestão de Ativos</h2>
+            <h2 class="chapter-title">Diversidade na Manutenção & Ativos</h2>
 
-            <div class="section-subtitle"><i class="fa-solid fa-crosshairs"></i> Por que este tema importa?</div>
             <p class="editorial-lead">
                 Os setores de manutenção e gestão de ativos desempenham papel estratégico na continuidade operacional das organizações. Suas decisões influenciam diretamente a disponibilidade dos ativos, a segurança das pessoas, a gestão de riscos e os custos operacionais.
             </p>
 
-            <p class="editorial-lead">
-                Promover a diversidade de gênero nesse contexto fortalece a capacidade das organizações de reunir diferentes formas de pensar, analisar problemas sob múltiplas perspectivas e tomar decisões mais consistentes.
-            </p>
-
-            <div class="cards-grid-2" style="margin: 10px 0;">
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-brain"></i></span>
-                        <h4 class="info-card-title">Resolução Complexa</h4>
-                    </div>
-                    <p>Equipes diversas apresentam maior criatividade e melhor gestão de riscos.</p>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-chart-line"></i></span>
-                        <h4 class="info-card-title">Vantagem Técnica</h4>
-                    </div>
-                    <p>Perspectivas múltiplas qualificam decisões críticas em campo.</p>
+            <!-- Imagem Técnica Extraída da Proposta -->
+            <div class="editorial-img-card">
+                <img src="assets/img_cap3_manutencao.png" alt="Engenharia e Gestão de Ativos">
+                <div class="editorial-img-caption">
+                    <i class="fa-solid fa-gear"></i> Excelência Técnica e Multidisciplinaridade na Manutenção
                 </div>
             </div>
 
-            <div class="action-box box-reflection">
+            <div class="action-box box-reflection" style="margin: 6px 0;">
                 <div class="box-title"><i class="fa-solid fa-magnifying-glass"></i> Para refletir</div>
-                <p style="font-size: 12px; font-weight: 600; color: #78350F;">
+                <p style="font-size: 11px; font-weight: 600; color: #78350F;">
                     "Sua organização possui diversidade suficiente para enfrentar problemas complexos sob diferentes perspectivas?"
                 </p>
             </div>
 
             <div class="action-box box-key-message" style="margin-top: auto;">
                 <div class="box-title"><i class="fa-solid fa-quote-left"></i> Mensagem-chave</div>
-                <p style="font-size: 12.5px; text-align: center; font-weight: 700;">
+                <p style="font-size: 11.5px; text-align: center; font-weight: 700;">
                     "A diversidade fortalece pessoas. Pessoas fortalecem processos. Processos fortalecem resultados."
                 </p>
             </div>
@@ -1381,7 +1385,7 @@ def build_spread_magazine():
             </div>
         </section>
 
-        <!-- PÁGINA 07: DIREITA (CAPÍTULO 4) -->
+        <!-- PÁGINA 07: DIREITA (CAPÍTULO 4 - NÚMEROS & BROKEN RUNG) -->
         <section class="magazine-page page-right">
             <div class="page-editorial-header">
                 <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 04</span>
@@ -1394,7 +1398,7 @@ def build_spread_magazine():
             <div class="stat-banner">
                 <div class="stat-number">-20,9%</div>
                 <div class="stat-desc">
-                    <strong style="color: var(--rose-700); font-size: 12.5px; display: block; margin-bottom: 2px;">Diferença Salarial no Brasil</strong>
+                    <strong style="color: var(--rose-700); font-size: 12px; display: block; margin-bottom: 2px;">Diferença Salarial no Brasil</strong>
                     Segundo o <em>3º Relatório de Transparência Salarial</em> (Governo Federal / RAIS 2024), mulheres recebem em média <strong>20,9% menos</strong> em empresas com 100+ empregados.
                 </div>
             </div>
@@ -1402,7 +1406,7 @@ def build_spread_magazine():
             <!-- Broken Rung -->
             <div class="broken-rung-diagram">
                 <div class="broken-rung-title"><i class="fa-solid fa-stairs"></i> O Fenômeno "Broken Rung" (Degrau Quebrado)</div>
-                <p style="font-size: 10.5px; color: #CBD5E1; text-align: center; margin-bottom: 10px;">
+                <p style="font-size: 10px; color: #CBD5E1; text-align: center; margin-bottom: 8px;">
                     Estudo <em>Women in the Workplace</em> (McKinsey & LeanIn.Org):
                 </p>
 
@@ -1436,7 +1440,7 @@ def build_spread_magazine():
 
             <div class="section-subtitle"><i class="fa-solid fa-lightbulb"></i> O que esses números revelam?</div>
             <p class="editorial-lead">
-                Demonstram que a barreira não está na competência das profissionais, mas nos obstáculos que surgem logo no início da trajetória de liderança.
+                Demonstram que a barreira não está na competência das profissionais, mas nos obstáculos que surgem logo no início da trajetória de ascensão gerencial.
             </p>
 
             <div class="page-editorial-footer">
@@ -1448,7 +1452,7 @@ def build_spread_magazine():
     """
     spreads_html.append(s3)
 
-    # SPREAD 4: PÁGS 08 E 09 (Cap. 5 Parte 1 e Parte 2)
+    # SPREAD 4: PÁGS 08 E 09 (Cap. 5 Desafios e Liderança)
     s4 = """
     <!-- SPREAD 4: PÁGINAS 08 E 09 (CAPÍTULO 5 - DESAFIOS E LIDERANÇA) -->
     <div class="spread-container" id="spread-4">
@@ -1533,20 +1537,20 @@ def build_spread_magazine():
             <span class="chapter-badge"><i class="fa-solid fa-user-tie"></i> Práticas de Liderança</span>
             <h2 class="chapter-title">Liderança Inclusiva & Boas Práticas</h2>
 
-            <div class="action-box box-leadership" style="margin-bottom: 8px;">
+            <div class="action-box box-leadership" style="margin-bottom: 6px;">
                 <div class="box-title"><i class="fa-solid fa-handshake"></i> Liderança Inclusiva na Prática</div>
                 <ul class="action-list">
-                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Distribuir oportunidades com base em competências;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Distribuir oportunidades com base em competências e desempenho;</li>
                     <li><i class="fa-solid fa-circle-check list-bullet"></i> Estimular a participação técnica de todas e dar feedbacks objetivos;</li>
-                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Agir rápido contra comportamentos discriminatórios.</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Agir rapidamente diante de comportamentos discriminatórios.</li>
                 </ul>
             </div>
 
-            <div class="action-box box-best-practices" style="margin-bottom: 8px;">
-                <div class="box-title"><i class="fa-solid fa-building"></i> Boas Práticas para Organizações</div>
+            <div class="action-box box-best-practices" style="margin-bottom: 6px;">
+                <div class="box-title"><i class="fa-solid fa-building"></i> Boas Práticas Organizacionais</div>
                 <ul class="action-list">
                     <li><i class="fa-solid fa-check list-bullet"></i> Processos transparentes de recrutamento e promoção;</li>
-                    <li><i class="fa-solid fa-check list-bullet"></i> Capacitação contínua sobre liderança inclusiva e canais seguros.</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Capacitação contínua sobre vieses e liderança inclusiva.</li>
                 </ul>
             </div>
 
@@ -1580,9 +1584,9 @@ def build_spread_magazine():
     """
     spreads_html.append(s4)
 
-    # SPREAD 5: PÁGS 10 E 11 (Cap. 6 e Cap. 7)
+    # SPREAD 5: PÁGS 10 E 11 (Cap. 6 Carreira & Cap. 7 Maternidade com Fotos Reais)
     s5 = """
-    <!-- SPREAD 5: PÁGINAS 10 E 11 (CAP. 6 E CAP. 7) -->
+    <!-- SPREAD 5: PÁGINAS 10 E 11 (CAP. 6 CARREIRA & CAP. 7 MATERNIDADE COM FOTOS) -->
     <div class="spread-container" id="spread-5">
         <!-- PÁGINA 10: ESQUERDA (CAPÍTULO 6) -->
         <section class="magazine-page page-left">
@@ -1599,17 +1603,17 @@ def build_spread_magazine():
             </div>
 
             <div class="section-subtitle"><i class="fa-solid fa-rocket"></i> O que impulsiona uma carreira?</div>
-            <div class="cards-grid-2" style="gap: 8px; margin-bottom: 10px;">
-                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 600; color: var(--abraman-navy);">
+            <div class="cards-grid-2" style="gap: 6px; margin-bottom: 8px;">
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 5px 8px; font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">
                     <i class="fa-solid fa-diagram-project" style="color: var(--rose-500);"></i> Projetos estratégicos & campo
                 </div>
-                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 600; color: var(--abraman-navy);">
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 5px 8px; font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">
                     <i class="fa-solid fa-graduation-cap" style="color: var(--rose-500);"></i> Treinamentos e certificações
                 </div>
-                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 600; color: var(--abraman-navy);">
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 5px 8px; font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">
                     <i class="fa-solid fa-user-group" style="color: var(--rose-500);"></i> Mentoria & patrocínio
                 </div>
-                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 600; color: var(--abraman-navy);">
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 6px; padding: 5px 8px; font-size: 10.5px; font-weight: 600; color: var(--abraman-navy);">
                     <i class="fa-solid fa-sliders" style="color: var(--rose-500);"></i> Critérios transparentes
                 </div>
             </div>
@@ -1636,7 +1640,7 @@ def build_spread_magazine():
             </div>
         </section>
 
-        <!-- PÁGINA 11: DIREITA (CAPÍTULO 7) -->
+        <!-- PÁGINA 11: DIREITA (CAPÍTULO 7 COM FOTOS OFICIAIS DE MATERNIDADE) -->
         <section class="magazine-page page-right">
             <div class="page-editorial-header">
                 <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 07</span>
@@ -1645,33 +1649,31 @@ def build_spread_magazine():
 
             <span class="chapter-badge"><i class="fa-solid fa-person-breastfeeding"></i> Acolhimento</span>
             <h2 class="chapter-title">Maternidade</h2>
-            <p style="font-size: 12px; font-weight: 700; color: var(--rose-600); margin-top: -6px; margin-bottom: 8px;">
+            <p style="font-size: 11.5px; font-weight: 700; color: var(--rose-600); margin-top: -6px; margin-bottom: 6px;">
                 Valorizando pessoas e preservando talentos
             </p>
 
-            <div class="quote-highlight">
+            <div class="quote-highlight" style="padding: 8px 12px; margin: 6px 0;">
                 <p>"A maternidade não reduz o potencial de uma profissional. Organizações inclusivas reconhecem diferentes momentos da vida sem limitar oportunidades."</p>
             </div>
 
-            <div class="action-box box-best-practices" style="margin-bottom: 8px;">
-                <div class="box-title"><i class="fa-solid fa-heart"></i> Boas Práticas Organizacionais</div>
-                <ul class="action-list">
-                    <li><i class="fa-solid fa-check list-bullet"></i> Programas de retorno e salas de apoio à amamentação;</li>
-                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Suporte Psicológico</strong> para gestantes e mães no retorno;</li>
-                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Corresponsabilidade parental</strong> valorizando a participação dos pais.</li>
-                </ul>
+            <!-- Grid com as Fotos Reais da Proposta -->
+            <div class="cards-grid-2" style="margin: 6px 0; gap: 6px;">
+                <div class="editorial-img-card" style="margin: 0;">
+                    <img src="assets/img_cap7_maternidade_1.jpg" alt="Acolhimento à Maternidade" style="height: 100px; object-fit: cover;">
+                </div>
+                <div class="editorial-img-card" style="margin: 0;">
+                    <img src="assets/img_cap7_maternidade_2.jpg" alt="Preservação de Talentos" style="height: 100px; object-fit: cover;">
+                </div>
             </div>
 
-            <div class="action-box box-reflection">
-                <div class="box-title"><i class="fa-solid fa-clipboard-check"></i> Para refletir — Sua organização:</div>
-                <div class="checklist-item" onclick="toggleCheck('c7_1')">
-                    <input type="checkbox" id="c7_1">
-                    <label for="c7_1">Acompanha o retorno após licença-maternidade?</label>
-                </div>
-                <div class="checklist-item" onclick="toggleCheck('c7_2')">
-                    <input type="checkbox" id="c7_2">
-                    <label for="c7_2">Possui acolhimento e suporte emocional estruturado?</label>
-                </div>
+            <div class="action-box box-best-practices" style="margin: 6px 0; padding: 8px 10px;">
+                <div class="box-title" style="font-size: 11px;"><i class="fa-solid fa-heart"></i> Boas Práticas Organizacionais</div>
+                <ul class="action-list">
+                    <li><i class="fa-solid fa-check list-bullet"></i> Programas de retorno e salas de amamentação;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Suporte Psicológico</strong> no retorno ao trabalho;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Corresponsabilidade parental</strong> valorizando os pais.</li>
+                </ul>
             </div>
 
             <div class="page-editorial-footer">
@@ -1683,11 +1685,11 @@ def build_spread_magazine():
     """
     spreads_html.append(s5)
 
-    # SPREAD 6: PÁGS 12 E 13 (Cap. 8 e Cap. 9)
+    # SPREAD 6: PÁGS 12 E 13 (Cap. 8 Maternidade Atípica com Fotos Reais & Cap. 9 Barreiras Físicas)
     s6 = """
-    <!-- SPREAD 6: PÁGINAS 12 E 13 (CAP. 8 E CAP. 9) -->
+    <!-- SPREAD 6: PÁGINAS 12 E 13 (CAP. 8 MATERNIDADE ATÍPICA COM FOTOS & CAP. 9) -->
     <div class="spread-container" id="spread-6">
-        <!-- PÁGINA 12: ESQUERDA (CAPÍTULO 8) -->
+        <!-- PÁGINA 12: ESQUERDA (CAPÍTULO 8 COM FOTOS OFICIAIS) -->
         <section class="magazine-page page-left">
             <div class="page-editorial-header">
                 <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 08</span>
@@ -1697,32 +1699,25 @@ def build_spread_magazine():
             <span class="chapter-badge"><i class="fa-solid fa-hands-holding-child"></i> Equidade Real</span>
             <h2 class="chapter-title">Maternidade Atípica</h2>
 
-            <div class="quote-highlight">
-                <p>"Equidade começa quando compreendemos que pessoas diferentes enfrentam desafios diferentes e precisam de apoios distintos para desenvolver seu potencial."</p>
+            <div class="quote-highlight" style="padding: 8px 12px; margin: 6px 0;">
+                <p>"Equidade começa quando compreendemos que pessoas diferentes enfrentam desafios diferentes e precisam de apoios distintos."</p>
             </div>
 
             <p class="editorial-lead">
-                Refere-se à experiência de mães que cuidam de filhos com deficiência, neurodivergência ou doenças crônicas que demandam terapias e rotinas adaptadas.
+                Refere-se à experiência de mães que cuidam de filhos com deficiência, neurodivergência ou doenças crônicas que demandam terapias e cuidados específicos.
             </p>
 
-            <div class="cards-grid-2" style="margin: 8px 0;">
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-ear-listen"></i></span>
-                        <h4 class="info-card-title">Escuta Ativa</h4>
-                    </div>
-                    <p>Construção conjunta de soluções e flexibilidade responsável.</p>
+            <!-- Grid com as Fotos Reais de Maternidade Atípica da Proposta -->
+            <div class="cards-grid-2" style="margin: 6px 0; gap: 6px;">
+                <div class="editorial-img-card" style="margin: 0;">
+                    <img src="assets/img_cap8_maternidade_atipica_1.jpg" alt="Maternidade Atípica e Apoio" style="height: 100px; object-fit: cover;">
                 </div>
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-hand-holding-heart"></i></span>
-                        <h4 class="info-card-title">Apoio Emocional</h4>
-                    </div>
-                    <p>Assistência psicológica e capacitação das lideranças.</p>
+                <div class="editorial-img-card" style="margin: 0;">
+                    <img src="assets/img_cap8_maternidade_atipica_2.jpg" alt="Apoio e Cuidados Especiais" style="height: 100px; object-fit: cover;">
                 </div>
             </div>
 
-            <div class="action-box box-reflection">
+            <div class="action-box box-reflection" style="margin-top: 6px;">
                 <div class="box-title"><i class="fa-solid fa-clipboard-check"></i> Para refletir:</div>
                 <div class="checklist-item" onclick="toggleCheck('c8_1')">
                     <input type="checkbox" id="c8_1">
@@ -1740,7 +1735,7 @@ def build_spread_magazine():
             </div>
         </section>
 
-        <!-- PÁGINA 13: DIREITA (CAPÍTULO 9) -->
+        <!-- PÁGINA 13: DIREITA (CAPÍTULO 9 - BARREIRAS FÍSICAS) -->
         <section class="magazine-page page-right">
             <div class="page-editorial-header">
                 <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 09</span>
@@ -1784,7 +1779,7 @@ def build_spread_magazine():
     """
     spreads_html.append(s6)
 
-    # SPREAD 7: PÁGS 14 E 15 (Cap. 10 e Cap. 11)
+    # SPREAD 7: PÁGS 14 E 15 (Cap. 10 Barreiras Culturais & Cap. 11 Microagressões)
     s7 = """
     <!-- SPREAD 7: PÁGINAS 14 E 15 (CAP. 10 E CAP. 11) -->
     <div class="spread-container" id="spread-7">
@@ -1886,7 +1881,7 @@ def build_spread_magazine():
     """
     spreads_html.append(s7)
 
-    # SPREAD 8: PÁGS 16 E 17 (Cap. 12 e Cap. 13/14)
+    # SPREAD 8: PÁGS 16 E 17 (Cap. 12 Aliados & Cap. 13/14 Comitê e Futuro)
     s8 = """
     <!-- SPREAD 8: PÁGINAS 16 E 17 (CAP. 12 E CAP. 13/14) -->
     <div class="spread-container" id="spread-8">
@@ -1956,7 +1951,7 @@ def build_spread_magazine():
                 <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 8px; padding: 10px;">
                     <span class="chapter-badge" style="margin-bottom: 4px;"><i class="fa-solid fa-network-wired"></i> Cap. 13</span>
                     <h4 style="font-size: 12px; color: var(--abraman-navy); margin-bottom: 4px;">Comitê Feminino & DIA</h4>
-                    <p style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">
+                    <p style="font-size: 10.5px; line-height: 1.4; color: var(--text-muted);">
                         Espaço de diálogo e capacitação que promove pesquisas e eventos no setor industrial.
                     </p>
                 </div>
@@ -1964,15 +1959,15 @@ def build_spread_magazine():
                 <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 10px;">
                     <span class="chapter-badge" style="background: white; border-color: var(--abraman-blue); color: var(--abraman-navy); margin-bottom: 4px;"><i class="fa-solid fa-bullseye"></i> Cap. 14</span>
                     <h4 style="font-size: 12px; color: var(--abraman-navy); margin-bottom: 4px;">Compromisso Futuro</h4>
-                    <p style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">
+                    <p style="font-size: 10.5px; line-height: 1.4; color: var(--text-muted);">
                         Transformação cultural contínua em prol da sustentabilidade dos ativos.
                     </p>
                 </div>
             </div>
 
-            <!-- Banner do Comitê Feminino -->
-            <div style="border-radius: 8px; overflow: hidden; margin: 8px 0; border: 1px solid #CBD5E1;">
-                <img src="BannerFeminino.jpg" alt="Comitê Feminino ABRAMAN" style="width: 100%; height: auto; display: block;">
+            <!-- Banner Oficial do Comitê Feminino -->
+            <div class="editorial-img-card" style="margin: 8px 0;">
+                <img src="BannerFeminino.jpg" alt="Comitê Feminino ABRAMAN">
             </div>
 
             <div class="action-box box-best-practices" style="margin-top: auto;">
@@ -2035,27 +2030,27 @@ def build_spread_magazine():
                 <span class="header-right-meta" style="color: #CBD5E1;">ABRAMAN</span>
             </div>
 
-            <div style="text-align: center; margin: 20px 0;">
-                <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--rose-500), var(--abraman-blue)); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 0 25px rgba(244, 63, 94, 0.6);">
+            <div style="text-align: center; margin: 18px 0;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--rose-500), var(--abraman-blue)); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 0 25px rgba(244, 63, 94, 0.6);">
                     <i class="fa-solid fa-venus"></i>
                 </div>
-                <h2 style="font-family: var(--font-heading); font-size: 20px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;">
+                <h2 style="font-family: var(--font-heading); font-size: 19px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;">
                     Comitê Feminino <span style="color: var(--rose-400);">ABRAMAN</span>
                 </h2>
-                <p style="font-size: 12px; font-weight: 600; color: var(--rose-200); text-transform: uppercase; letter-spacing: 1.5px;">
+                <p style="font-size: 11px; font-weight: 600; color: var(--rose-200); text-transform: uppercase; letter-spacing: 1.5px;">
                     Subcomitê Diversidade, Inclusão e Acessibilidade (DIA)
                 </p>
             </div>
 
-            <div style="background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(253, 164, 175, 0.25); border-radius: 10px; padding: 20px; margin: 10px 0; backdrop-filter: blur(8px);">
-                <p style="font-family: var(--font-serif); font-size: 14px; font-style: italic; text-align: center; line-height: 1.6; color: #FFFFFF;">
+            <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(253, 164, 175, 0.25); border-radius: 10px; padding: 18px; margin: 8px 0; backdrop-filter: blur(8px);">
+                <p style="font-family: var(--font-serif); font-size: 13.5px; font-style: italic; text-align: center; line-height: 1.55; color: #FFFFFF;">
                     "A transformação cultural é feita de atitudes, respeito e oportunidades. Promover a diversidade é investir no futuro da gestão de ativos."
                 </p>
             </div>
 
-            <div style="margin-top: auto; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 14px;">
-                <div style="font-size: 11.5px; font-weight: 700; color: #FFFFFF;">Associação Brasileira de Manutenção e Gestão de Ativos</div>
-                <div style="font-size: 10.5px; color: #94A3B8; margin-top: 2px;">Junte-se a nós nesta jornada de transformação e excelência.</div>
+            <div style="margin-top: auto; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 12px;">
+                <div style="font-size: 11px; font-weight: 700; color: #FFFFFF;">Associação Brasileira de Manutenção e Gestão de Ativos</div>
+                <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Junte-se a nós nesta jornada de transformação e excelência.</div>
             </div>
 
             <div class="page-editorial-footer" style="border-top: 1px solid rgba(255, 255, 255, 0.15); color: #CBD5E1;">
@@ -2474,14 +2469,13 @@ def build_spread_magazine():
 </html>
 """
 
-    # Writing out files
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_main_spread)
-    print("Updated index.html with 2-page magazine spread!")
+    print("Updated index.html with all extracted images and 2-page spread!")
 
     with open("Cartilha Comitê versão WEB.html", "w", encoding="utf-8") as f:
         f.write(html_main_spread)
-    print("Updated Cartilha Comitê versão WEB.html with 2-page magazine spread!")
+    print("Updated Cartilha Comitê versão WEB.html!")
 
 if __name__ == '__main__':
     build_spread_magazine()
