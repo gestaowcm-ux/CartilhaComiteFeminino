@@ -942,7 +942,7 @@ def generate_html_files():
     # ---------------- PAGE 1: CAPA (Full Bleed) ----------------
     p1 = """
     <div class="mag-page full-bleed-cover active-page" id="page-1" data-page="1" data-title="Capa Oficial">
-        <img src="ChatGPT Image Aug 30, 2026, 10_42_56 AM.png" alt="Capa - Diversidade de Gênero na Manutenção e Gestão de Ativos - ABRAMAN" class="cover-img">
+        <img src="ChatGPT Image Aug 31, 2026, 07_59_24 PM.png" alt="Capa - Diversidade de Gênero na Manutenção e Gestão de Ativos - ABRAMAN" class="cover-img">
     </div>
     """
     pages_html.append(p1)
@@ -2191,7 +2191,7 @@ def generate_html_files():
     # ---------------- PAGE 19: CONTRACAPA (Full Bleed) ----------------
     p19 = """
     <div class="mag-page full-bleed-cover" id="page-19" data-page="19" data-title="Contracapa">
-        <img src="ChatGPT Image Aug 31, 2026, 07_59_24 PM.png" alt="Contracapa - Comitê Feminino ABRAMAN" class="cover-img">
+        <img src="ChatGPT Image Aug 30, 2026, 10_42_56 AM.png" alt="Contracapa - Comitê Feminino ABRAMAN" class="cover-img">
     </div>
     """
     pages_html.append(p19)
