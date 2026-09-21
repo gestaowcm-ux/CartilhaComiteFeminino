@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revista Digital: Diversidade de Gênero na Manutenção e Gestão de Ativos • ABRAMAN</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        
+# -*- coding: utf-8 -*-
+"""
+Double-Page Magazine Spread Generator for Cartilha Comitê Feminino ABRAMAN
+Implements:
+1. 2-page spread book layout (Modo Revista) with realistic spine shadows, perspective, and page-spread transitions
+2. Continuous single/stacked scroll mode (Modo Leitura)
+3. TTS Audio Narration (Ouvir) for current spread
+4. Dynamic Drawer Table of Contents (Sumário)
+5. Interactive reflection checklists with localStorage persistence
+6. Zoom, Fullscreen, and A4 print integration
+"""
+
+import os
+import sys
+
+def build_spread_magazine():
+    # CSS definitions
+    css_content = """
         :root {
             --abraman-navy: #0B192C;
             --abraman-dark-blue: #060D1A;
@@ -995,101 +1000,24 @@
                 display: none;
             }
         }
-    
-    </style>
-</head>
-<body>
+    """
 
-    <!-- Header Navigation -->
-    <header class="top-nav">
-        <div class="nav-brand">
-            <div class="brand-badge-icon"><i class="fa-solid fa-venus"></i></div>
-            <div class="brand-text-wrap">
-                <span class="brand-title">ABRAMAN MULHER</span>
-                <span class="brand-subtitle">Comitê Feminino • Subcomitê DIA</span>
-            </div>
-        </div>
+    # Spreads HTML definitions
+    spreads_html = []
 
-        <div class="nav-controls">
-            <button class="nav-btn" onclick="toggleTOC()" title="Abrir Sumário Interativo">
-                <i class="fa-solid fa-bars"></i> <span class="btn-text">Sumário</span>
-            </button>
-
-            <button class="nav-btn" id="btnMode" onclick="toggleMode()" title="Alternar entre visualização de Revista 2 Páginas e Leitura Contínua">
-                <i class="fa-solid fa-scroll"></i> <span class="btn-text">Modo Leitura</span>
-            </button>
-
-            <button class="nav-btn" id="btnTTS" onclick="toggleTTS()" title="Ler em voz alta o spread atual (Áudio TTS)">
-                <i class="fa-solid fa-volume-high"></i> <span class="btn-text">Ouvir</span>
-            </button>
-
-            <div class="nav-button-group">
-                <button class="nav-btn" onclick="zoomIn()" title="Aumentar Zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
-                <button class="nav-btn" onclick="zoomOut()" title="Diminuir Zoom"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
-                <button class="nav-btn" onclick="resetZoom()" title="Zoom 100%"><i class="fa-solid fa-rotate-right"></i></button>
-            </div>
-
-            <button class="nav-btn" onclick="toggleFullscreen()" title="Modo Tela Cheia">
-                <i class="fa-solid fa-expand"></i>
-            </button>
-
-            <a href="print_magazine.html" target="_blank" class="nav-btn primary" title="Versão A4 para Salvar em PDF ou Imprimir">
-                <i class="fa-solid fa-file-pdf"></i> <span class="btn-text">Gerar PDF</span>
-            </a>
-        </div>
-    </header>
-
-    <!-- Floating Arrow Navigators -->
-    <button class="floating-nav nav-prev" id="arrowPrev" onclick="prevSpread()" title="Spread Anterior (Seta Esquerda)">
-        <i class="fa-solid fa-chevron-left"></i>
-    </button>
-    <button class="floating-nav nav-next" id="arrowNext" onclick="nextSpread()" title="Próximo Spread (Seta Direita / Espaço)">
-        <i class="fa-solid fa-chevron-right"></i>
-    </button>
-
-    <!-- Table of Contents Drawer -->
-    <div class="toc-backdrop" id="tocBackdrop" onclick="closeTOC()"></div>
-    <aside class="toc-drawer" id="tocDrawer">
-        <div class="toc-header">
-            <h3><i class="fa-solid fa-book-bookmark"></i> Sumário da Revista</h3>
-            <button class="toc-close-btn" onclick="closeTOC()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <ul class="toc-list">
-            <li><a href="javascript:goToSpread(0)"><span>Capa Oficial</span> <span>Pág. 01</span></a></li>
-            <li><a href="javascript:goToSpread(1)"><span>Apresentação & Sumário Geral</span> <span>Págs. 02-03</span></a></li>
-            <li><a href="javascript:goToSpread(2)"><span>Cap. 1 & 2: Por que a Cartilha & Conceitos</span> <span>Págs. 04-05</span></a></li>
-            <li><a href="javascript:goToSpread(3)"><span>Cap. 3 & 4: Manutenção & Dados em Números</span> <span>Págs. 06-07</span></a></li>
-            <li><a href="javascript:goToSpread(4)"><span>Cap. 5: Desafios & Liderança Inclusiva</span> <span>Págs. 08-09</span></a></li>
-            <li><a href="javascript:goToSpread(5)"><span>Cap. 6 & 7: Carreira & Maternidade</span> <span>Págs. 10-11</span></a></li>
-            <li><a href="javascript:goToSpread(6)"><span>Cap. 8 & 9: Maternidade Atípica & Barreiras Físicas</span> <span>Págs. 12-13</span></a></li>
-            <li><a href="javascript:goToSpread(7)"><span>Cap. 10 & 11: Barreiras Culturais & Microagressões</span> <span>Págs. 14-15</span></a></li>
-            <li><a href="javascript:goToSpread(8)"><span>Cap. 12, 13 & 14: Aliados, Comitê & Futuro</span> <span>Págs. 16-17</span></a></li>
-            <li><a href="javascript:goToSpread(9)"><span>Palavras Finais & Manifesto Institucional</span> <span>Págs. 18-19</span></a></li>
-            <li><a href="javascript:goToSpread(10)"><span>Contracapa Oficial</span> <span>Pág. 20</span></a></li>
-        </ul>
-    </aside>
-
-    <!-- TTS Audio Status Bar -->
-    <div class="tts-status-bar" id="ttsBar">
-        <i class="fa-solid fa-circle-waveform-lines fa-fade" style="color: var(--rose-400); font-size: 16px;"></i>
-        <span>Reproduzindo narração por voz das páginas atuais...</span>
-        <button onclick="stopTTS()" style="background: none; border: none; color: #CBD5E1; cursor: pointer; margin-left: 8px;">
-            <i class="fa-solid fa-circle-xmark"></i>
-        </button>
-    </div>
-
-    <!-- Magazine Main Viewport / Stage -->
-    <main class="magazine-stage">
-        <div class="magazine-book">
-            
+    # SPREAD 0: CAPA OFICIAL (Single Page)
+    s0 = """
     <!-- SPREAD 0: CAPA OFICIAL (Full Bleed) -->
     <div class="spread-container active" id="spread-0">
         <section class="magazine-page page-single full-image-page">
             <img src="ChatGPT Image Aug 31, 2026, 07_59_24 PM.png" alt="Capa - Diversidade de Gênero na Manutenção e Gestão de Ativos - ABRAMAN">
         </section>
     </div>
-    
+    """
+    spreads_html.append(s0)
 
+    # SPREAD 1: PÁGS 02 E 03 (Mensagens Institucionais & Sumário Geral)
+    s1 = """
     <!-- SPREAD 1: PÁGINAS 02 E 03 (MENSAGENS & SUMÁRIO) -->
     <div class="spread-container" id="spread-1">
         <!-- PÁGINA 02: ESQUERDA -->
@@ -1256,8 +1184,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s1)
 
+    # SPREAD 2: PÁGS 04 E 05 (Cap. 1 e Cap. 2)
+    s2 = """
     <!-- SPREAD 2: PÁGINAS 04 E 05 (CAP. 1 E CAP. 2) -->
     <div class="spread-container" id="spread-2">
         <!-- PÁGINA 04: ESQUERDA (CAPÍTULO 1) -->
@@ -1386,8 +1317,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s2)
 
+    # SPREAD 3: PÁGS 06 E 07 (Cap. 3 e Cap. 4)
+    s3 = """
     <!-- SPREAD 3: PÁGINAS 06 E 07 (CAP. 3 E CAP. 4) -->
     <div class="spread-container" id="spread-3">
         <!-- PÁGINA 06: ESQUERDA (CAPÍTULO 3) -->
@@ -1511,8 +1445,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s3)
 
+    # SPREAD 4: PÁGS 08 E 09 (Cap. 5 Parte 1 e Parte 2)
+    s4 = """
     <!-- SPREAD 4: PÁGINAS 08 E 09 (CAPÍTULO 5 - DESAFIOS E LIDERANÇA) -->
     <div class="spread-container" id="spread-4">
         <!-- PÁGINA 08: ESQUERDA (DESAFIOS) -->
@@ -1640,8 +1577,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s4)
 
+    # SPREAD 5: PÁGS 10 E 11 (Cap. 6 e Cap. 7)
+    s5 = """
     <!-- SPREAD 5: PÁGINAS 10 E 11 (CAP. 6 E CAP. 7) -->
     <div class="spread-container" id="spread-5">
         <!-- PÁGINA 10: ESQUERDA (CAPÍTULO 6) -->
@@ -1740,8 +1680,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s5)
 
+    # SPREAD 6: PÁGS 12 E 13 (Cap. 8 e Cap. 9)
+    s6 = """
     <!-- SPREAD 6: PÁGINAS 12 E 13 (CAP. 8 E CAP. 9) -->
     <div class="spread-container" id="spread-6">
         <!-- PÁGINA 12: ESQUERDA (CAPÍTULO 8) -->
@@ -1838,8 +1781,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s6)
 
+    # SPREAD 7: PÁGS 14 E 15 (Cap. 10 e Cap. 11)
+    s7 = """
     <!-- SPREAD 7: PÁGINAS 14 E 15 (CAP. 10 E CAP. 11) -->
     <div class="spread-container" id="spread-7">
         <!-- PÁGINA 14: ESQUERDA (CAPÍTULO 10) -->
@@ -1937,8 +1883,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s7)
 
+    # SPREAD 8: PÁGS 16 E 17 (Cap. 12 e Cap. 13/14)
+    s8 = """
     <!-- SPREAD 8: PÁGINAS 16 E 17 (CAP. 12 E CAP. 13/14) -->
     <div class="spread-container" id="spread-8">
         <!-- PÁGINA 16: ESQUERDA (CAPÍTULO 12) -->
@@ -2040,8 +1989,11 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s8)
 
+    # SPREAD 9: PÁGS 18 E 19 (Palavras Finais & Respiro / Manifesto Institucional)
+    s9 = """
     <!-- SPREAD 9: PÁGINAS 18 E 19 (PALAVRAS FINAIS & MANIFESTO INSTITUCIONAL) -->
     <div class="spread-container" id="spread-9">
         <!-- PÁGINA 18: ESQUERDA (PALAVRAS FINAIS) -->
@@ -2112,40 +2064,24 @@
             </div>
         </section>
     </div>
-    
+    """
+    spreads_html.append(s9)
 
+    # SPREAD 10: CONTRACAPA OFICIAL (Single Page)
+    s10 = """
     <!-- SPREAD 10: CONTRACAPA OFICIAL (Full Bleed) -->
     <div class="spread-container" id="spread-10">
         <section class="magazine-page page-single full-image-page">
             <img src="ChatGPT Image Aug 30, 2026, 10_42_56 AM.png" alt="Contracapa - Comitê Feminino ABRAMAN">
         </section>
     </div>
-    
-        </div>
-    </main>
+    """
+    spreads_html.append(s10)
 
-    <!-- Bottom Spread Bar -->
-    <footer class="spread-bottom-bar">
-        <div class="spread-indicator-label" id="spreadIndicatorLabel">
-            Capa Oficial • Comitê Feminino ABRAMAN
-        </div>
+    all_spreads_joined = "\n".join(spreads_html)
 
-        <div class="spread-dots-wrap">
-            <button class="spread-dot active" onclick="goToSpread(0)">Capa</button>
-            <button class="spread-dot" onclick="goToSpread(1)">Págs 02-03</button>
-            <button class="spread-dot" onclick="goToSpread(2)">Págs 04-05</button>
-            <button class="spread-dot" onclick="goToSpread(3)">Págs 06-07</button>
-            <button class="spread-dot" onclick="goToSpread(4)">Págs 08-09</button>
-            <button class="spread-dot" onclick="goToSpread(5)">Págs 10-11</button>
-            <button class="spread-dot" onclick="goToSpread(6)">Págs 12-13</button>
-            <button class="spread-dot" onclick="goToSpread(7)">Págs 14-15</button>
-            <button class="spread-dot" onclick="goToSpread(8)">Págs 16-17</button>
-            <button class="spread-dot" onclick="goToSpread(9)">Págs 18-19</button>
-            <button class="spread-dot" onclick="goToSpread(10)">Contracapa</button>
-        </div>
-    </footer>
-
-    
+    # JavaScript logic
+    js_spread_logic = """
     <script>
         let currentSpread = 0;
         const totalSpreads = 11;
@@ -2407,6 +2343,145 @@
             }
         }
     </script>
+    """
+
+    # Full Document Assembly
+    html_main_spread = f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Digital: Diversidade de Gênero na Manutenção e Gestão de Ativos • ABRAMAN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <style>
+        {css_content}
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="top-nav">
+        <div class="nav-brand">
+            <div class="brand-badge-icon"><i class="fa-solid fa-venus"></i></div>
+            <div class="brand-text-wrap">
+                <span class="brand-title">ABRAMAN MULHER</span>
+                <span class="brand-subtitle">Comitê Feminino • Subcomitê DIA</span>
+            </div>
+        </div>
+
+        <div class="nav-controls">
+            <button class="nav-btn" onclick="toggleTOC()" title="Abrir Sumário Interativo">
+                <i class="fa-solid fa-bars"></i> <span class="btn-text">Sumário</span>
+            </button>
+
+            <button class="nav-btn" id="btnMode" onclick="toggleMode()" title="Alternar entre visualização de Revista 2 Páginas e Leitura Contínua">
+                <i class="fa-solid fa-scroll"></i> <span class="btn-text">Modo Leitura</span>
+            </button>
+
+            <button class="nav-btn" id="btnTTS" onclick="toggleTTS()" title="Ler em voz alta o spread atual (Áudio TTS)">
+                <i class="fa-solid fa-volume-high"></i> <span class="btn-text">Ouvir</span>
+            </button>
+
+            <div class="nav-button-group">
+                <button class="nav-btn" onclick="zoomIn()" title="Aumentar Zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                <button class="nav-btn" onclick="zoomOut()" title="Diminuir Zoom"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button class="nav-btn" onclick="resetZoom()" title="Zoom 100%"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+
+            <button class="nav-btn" onclick="toggleFullscreen()" title="Modo Tela Cheia">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+
+            <a href="print_magazine.html" target="_blank" class="nav-btn primary" title="Versão A4 para Salvar em PDF ou Imprimir">
+                <i class="fa-solid fa-file-pdf"></i> <span class="btn-text">Gerar PDF</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Floating Arrow Navigators -->
+    <button class="floating-nav nav-prev" id="arrowPrev" onclick="prevSpread()" title="Spread Anterior (Seta Esquerda)">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="floating-nav nav-next" id="arrowNext" onclick="nextSpread()" title="Próximo Spread (Seta Direita / Espaço)">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Table of Contents Drawer -->
+    <div class="toc-backdrop" id="tocBackdrop" onclick="closeTOC()"></div>
+    <aside class="toc-drawer" id="tocDrawer">
+        <div class="toc-header">
+            <h3><i class="fa-solid fa-book-bookmark"></i> Sumário da Revista</h3>
+            <button class="toc-close-btn" onclick="closeTOC()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="javascript:goToSpread(0)"><span>Capa Oficial</span> <span>Pág. 01</span></a></li>
+            <li><a href="javascript:goToSpread(1)"><span>Apresentação & Sumário Geral</span> <span>Págs. 02-03</span></a></li>
+            <li><a href="javascript:goToSpread(2)"><span>Cap. 1 & 2: Por que a Cartilha & Conceitos</span> <span>Págs. 04-05</span></a></li>
+            <li><a href="javascript:goToSpread(3)"><span>Cap. 3 & 4: Manutenção & Dados em Números</span> <span>Págs. 06-07</span></a></li>
+            <li><a href="javascript:goToSpread(4)"><span>Cap. 5: Desafios & Liderança Inclusiva</span> <span>Págs. 08-09</span></a></li>
+            <li><a href="javascript:goToSpread(5)"><span>Cap. 6 & 7: Carreira & Maternidade</span> <span>Págs. 10-11</span></a></li>
+            <li><a href="javascript:goToSpread(6)"><span>Cap. 8 & 9: Maternidade Atípica & Barreiras Físicas</span> <span>Págs. 12-13</span></a></li>
+            <li><a href="javascript:goToSpread(7)"><span>Cap. 10 & 11: Barreiras Culturais & Microagressões</span> <span>Págs. 14-15</span></a></li>
+            <li><a href="javascript:goToSpread(8)"><span>Cap. 12, 13 & 14: Aliados, Comitê & Futuro</span> <span>Págs. 16-17</span></a></li>
+            <li><a href="javascript:goToSpread(9)"><span>Palavras Finais & Manifesto Institucional</span> <span>Págs. 18-19</span></a></li>
+            <li><a href="javascript:goToSpread(10)"><span>Contracapa Oficial</span> <span>Pág. 20</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- TTS Audio Status Bar -->
+    <div class="tts-status-bar" id="ttsBar">
+        <i class="fa-solid fa-circle-waveform-lines fa-fade" style="color: var(--rose-400); font-size: 16px;"></i>
+        <span>Reproduzindo narração por voz das páginas atuais...</span>
+        <button onclick="stopTTS()" style="background: none; border: none; color: #CBD5E1; cursor: pointer; margin-left: 8px;">
+            <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Magazine Main Viewport / Stage -->
+    <main class="magazine-stage">
+        <div class="magazine-book">
+            {all_spreads_joined}
+        </div>
+    </main>
+
+    <!-- Bottom Spread Bar -->
+    <footer class="spread-bottom-bar">
+        <div class="spread-indicator-label" id="spreadIndicatorLabel">
+            Capa Oficial • Comitê Feminino ABRAMAN
+        </div>
+
+        <div class="spread-dots-wrap">
+            <button class="spread-dot active" onclick="goToSpread(0)">Capa</button>
+            <button class="spread-dot" onclick="goToSpread(1)">Págs 02-03</button>
+            <button class="spread-dot" onclick="goToSpread(2)">Págs 04-05</button>
+            <button class="spread-dot" onclick="goToSpread(3)">Págs 06-07</button>
+            <button class="spread-dot" onclick="goToSpread(4)">Págs 08-09</button>
+            <button class="spread-dot" onclick="goToSpread(5)">Págs 10-11</button>
+            <button class="spread-dot" onclick="goToSpread(6)">Págs 12-13</button>
+            <button class="spread-dot" onclick="goToSpread(7)">Págs 14-15</button>
+            <button class="spread-dot" onclick="goToSpread(8)">Págs 16-17</button>
+            <button class="spread-dot" onclick="goToSpread(9)">Págs 18-19</button>
+            <button class="spread-dot" onclick="goToSpread(10)">Contracapa</button>
+        </div>
+    </footer>
+
+    {js_spread_logic}
 </body>
 </html>
+"""
+
+    # Writing out files
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_main_spread)
+    print("Updated index.html with 2-page magazine spread!")
+
+    with open("Cartilha Comitê versão WEB.html", "w", encoding="utf-8") as f:
+        f.write(html_main_spread)
+    print("Updated Cartilha Comitê versão WEB.html with 2-page magazine spread!")
+
+if __name__ == '__main__':
+    build_spread_magazine()
