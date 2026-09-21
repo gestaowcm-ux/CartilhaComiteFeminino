@@ -1,0 +1,2982 @@
+# -*- coding: utf-8 -*-
+"""
+Full Generator for Cartilha Comitê Feminino ABRAMAN
+"""
+
+css_common = """
+:root {
+    --navy-950: #060D1A;
+    --navy-900: #0B192C;
+    --navy-800: #1E3E62;
+    --navy-700: #1E3A8A;
+    --navy-600: #2563EB;
+    
+    --rose-50: #FFF1F2;
+    --rose-100: #FFE4E6;
+    --rose-200: #FECDD3;
+    --rose-300: #FDA4AF;
+    --rose-400: #FB7185;
+    --rose-500: #F43F5E;
+    --rose-600: #E11D48;
+    --rose-700: #BE123C;
+
+    --cyan-500: #06B6D4;
+    --cyan-600: #0891B2;
+    --cyan-50: #ECFEFF;
+
+    --amber-500: #F59E0B;
+    --amber-50: #FFFBEB;
+
+    --emerald-600: #059669;
+    --emerald-50: #ECFDF5;
+
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-300: #CBD5E1;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1E293B;
+    --gray-900: #0F172A;
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 25px rgba(244, 63, 94, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--navy-950);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(225, 29, 72, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.2) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(11, 25, 44, 1) 0%, rgba(6, 13, 26, 1) 100%);
+    color: var(--gray-800);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(11, 25, 44, 0.8);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(244, 63, 94, 0.4);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(244, 63, 94, 0.7);
+}
+
+/* Header / Navigation Bar */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(6, 13, 26, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(253, 164, 175, 0.2);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-logo-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-icon-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--rose-500), var(--navy-700));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.4);
+}
+
+.brand-title-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-main-title {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.brand-sub-title {
+    font-size: 11px;
+    color: var(--rose-300);
+    font-weight: 500;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-ctrl {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(253, 164, 175, 0.25);
+    color: #FFFFFF;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-ctrl:hover {
+    background: rgba(244, 63, 94, 0.2);
+    border-color: var(--rose-400);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+.btn-ctrl.active {
+    background: var(--rose-500);
+    border-color: var(--rose-600);
+    color: #FFFFFF;
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
+}
+
+.btn-ctrl.btn-accent {
+    background: linear-gradient(135deg, var(--rose-600), var(--rose-500));
+    border-color: var(--rose-400);
+    color: white;
+    font-weight: 700;
+}
+.btn-ctrl.btn-accent:hover {
+    background: linear-gradient(135deg, var(--rose-500), var(--rose-400));
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
+}
+
+.page-indicator-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--rose-200);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Main Container */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 80px;
+    position: relative;
+}
+
+/* Magazine Viewer Frame */
+.magazine-viewport {
+    width: 100%;
+    max-width: 960px;
+    min-height: 1200px;
+    position: relative;
+    perspective: 1500px;
+}
+
+/* Page Card Structure */
+.mag-page {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    display: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mag-page.active-page {
+    display: block;
+    animation: fadeInPage 0.35s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.995);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Continuous Scroll Mode */
+body.mode-scroll .mag-page {
+    display: block !important;
+    animation: none;
+    margin-bottom: 40px;
+}
+
+/* Cover & Backcover Full Bleed */
+.mag-page.full-bleed-cover {
+    padding: 0 !important;
+    background: #000;
+    min-height: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mag-page.full-bleed-cover img.cover-img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Standard Editorial Page Layout */
+.page-inner {
+    padding: 48px 56px;
+    color: var(--gray-800);
+    position: relative;
+    min-height: 1100px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Page Top Header Bar (Editorial Style) */
+.page-editorial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid var(--rose-200);
+    padding-bottom: 12px;
+    margin-bottom: 32px;
+}
+
+.header-left-tag {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--rose-600);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-right-meta {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy-800);
+    letter-spacing: 0.5px;
+}
+
+/* Chapter Title & Numbering */
+.chapter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--rose-50), #FFF);
+    border-left: 4px solid var(--rose-500);
+    border-top: 1px solid var(--rose-200);
+    border-right: 1px solid var(--rose-200);
+    border-bottom: 1px solid var(--rose-200);
+    padding: 6px 14px;
+    border-radius: 0 6px 6px 0;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--rose-700);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.chapter-title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--navy-900);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--rose-600);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Quotes */
+.quote-highlight {
+    background: linear-gradient(135deg, #FFF1F2 0%, #FAF5FF 100%);
+    border-left: 5px solid var(--rose-500);
+    padding: 20px 24px;
+    border-radius: 0 12px 12px 0;
+    margin: 24px 0;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.quote-highlight::before {
+    content: "“";
+    font-family: var(--font-serif);
+    font-size: 60px;
+    color: var(--rose-300);
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.quote-highlight p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--navy-900);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* Typography & Paragraphs */
+p.editorial-lead {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--gray-800);
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+p.editorial-lead:last-child {
+    margin-bottom: 0;
+}
+
+/* Infographic Cards & Grids */
+.cards-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.cards-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.info-card {
+    background: #FFFFFF;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    border-top: 3px solid var(--rose-400);
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-top-color: var(--rose-600);
+}
+
+.info-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.info-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--rose-100);
+    color: var(--rose-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.info-card-title {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy-900);
+}
+
+.info-card p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--gray-700);
+}
+
+/* Action Boxes: Liderança, Boas Práticas, Mensagem-Chave */
+.action-box {
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.action-box.box-leadership {
+    background: linear-gradient(135deg, #EFF6FF 0%, #F8FAFC 100%);
+    border: 1px solid #BFDBFE;
+    border-left: 5px solid var(--navy-700);
+}
+
+.action-box.box-leadership .box-title {
+    color: var(--navy-800);
+}
+
+.action-box.box-best-practices {
+    background: linear-gradient(135deg, var(--rose-50) 0%, #FFFFFF 100%);
+    border: 1px solid var(--rose-200);
+    border-left: 5px solid var(--rose-500);
+}
+
+.action-box.box-best-practices .box-title {
+    color: var(--rose-700);
+}
+
+.action-box.box-key-message {
+    background: linear-gradient(135deg, #0B192C 0%, #1E3A8A 100%);
+    color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(253, 164, 175, 0.3);
+}
+
+.action-box.box-key-message .box-title {
+    color: var(--rose-300);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.action-box.box-key-message p {
+    color: #F8FAFC;
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.action-box.box-reflection {
+    background: linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 100%);
+    border: 1px solid #FDE68A;
+    border-left: 5px solid var(--amber-500);
+}
+
+.action-box.box-reflection .box-title {
+    color: #92400E;
+}
+
+.box-title {
+    font-family: var(--font-heading);
+    font-size: 14.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.action-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action-list li {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.action-list li i.list-bullet {
+    color: var(--rose-500);
+    margin-top: 4px;
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+/* Interactive Reflection Checklist */
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checklist-item:hover {
+    background: rgba(245, 158, 11, 0.15);
+}
+
+.checklist-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #D97706;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background: white;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s ease;
+}
+
+.checklist-item input[type="checkbox"]:checked {
+    background: #D97706;
+    border-color: #B45309;
+}
+
+.checklist-item input[type="checkbox"]:checked::after {
+    content: "✔";
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checklist-item label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #78350F;
+    cursor: pointer;
+    line-height: 1.45;
+}
+
+/* Data / Infographic Visual Elements */
+.stat-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, var(--rose-50) 0%, #FFFFFF 100%);
+    border: 2px dashed var(--rose-300);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--rose-600);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.stat-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--navy-900);
+    font-weight: 500;
+}
+
+.broken-rung-diagram {
+    background: #0B192C;
+    border-radius: 12px;
+    padding: 24px;
+    color: white;
+    margin: 20px 0;
+    box-shadow: var(--shadow-lg);
+}
+
+.broken-rung-title {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--rose-400);
+    margin-bottom: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rung-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rung-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rung-label {
+    width: 170px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #CBD5E1;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.rung-progress-track {
+    flex: 1;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 11px;
+    overflow: hidden;
+    position: relative;
+}
+
+.rung-progress-fill {
+    height: 100%;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    color: white;
+}
+
+/* Page Footer / Pagination */
+.page-editorial-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--gray-200);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--gray-600);
+}
+
+.page-editorial-footer .footer-title {
+    font-weight: 600;
+    color: var(--navy-800);
+}
+
+.page-editorial-footer .page-number-tag {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: var(--rose-600);
+    font-size: 13px;
+}
+
+/* Floating Navigation Arrows */
+.floating-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(11, 25, 44, 0.9);
+    border: 2px solid rgba(253, 164, 175, 0.3);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 900;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+}
+
+.floating-nav:hover {
+    background: var(--rose-600);
+    border-color: #FFFFFF;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(244, 63, 94, 0.6);
+}
+
+.floating-nav.nav-prev {
+    left: 20px;
+}
+
+.floating-nav.nav-next {
+    right: 20px;
+}
+
+body.mode-scroll .floating-nav {
+    display: none !important;
+}
+
+/* Table of Contents Drawer */
+.toc-drawer {
+    position: fixed;
+    top: 0;
+    left: -380px;
+    width: 360px;
+    height: 100vh;
+    background: #0B192C;
+    border-right: 1px solid rgba(253, 164, 175, 0.3);
+    z-index: 2000;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.toc-drawer.open {
+    left: 0;
+}
+
+.toc-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toc-header h3 {
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toc-close-btn {
+    background: transparent;
+    border: none;
+    color: #CBD5E1;
+    font-size: 20px;
+    cursor: pointer;
+}
+.toc-close-btn:hover {
+    color: var(--rose-400);
+}
+
+.toc-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.toc-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.toc-list li a:hover {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.3);
+    color: #FFFFFF;
+    transform: translateX(4px);
+}
+
+.toc-list li a.active {
+    background: var(--rose-600);
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.toc-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.toc-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Audio Player Overlay / Bar */
+.tts-status-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0B192C;
+    border: 1px solid var(--rose-400);
+    padding: 8px 18px;
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 1500;
+    box-shadow: var(--shadow-xl);
+}
+
+.tts-status-bar.playing {
+    display: flex;
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(244, 63, 94, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(244, 63, 94, 0.8); }
+}
+
+/* Responsive Rules */
+@media (max-width: 820px) {
+    .page-inner {
+        padding: 30px 24px;
+    }
+    .floating-nav {
+        display: none;
+    }
+    .brand-sub-title {
+        display: none;
+    }
+    .chapter-title {
+        font-size: 22px;
+    }
+    .app-header {
+        padding: 8px 12px;
+    }
+    .btn-ctrl span.btn-text {
+        display: none;
+    }
+}
+"""
+
+def generate_html_files():
+    # Reading pages and structure
+    pages_html = []
+    
+    # ---------------- PAGE 1: CAPA (Full Bleed) ----------------
+    p1 = """
+    <div class="mag-page full-bleed-cover active-page" id="page-1" data-page="1" data-title="Capa Oficial">
+        <img src="ChatGPT Image Aug 30, 2026, 10_42_56 AM.png" alt="Capa - Diversidade de Gênero na Manutenção e Gestão de Ativos - ABRAMAN" class="cover-img">
+    </div>
+    """
+    pages_html.append(p1)
+
+    # ---------------- PAGE 2: INSTITUCIONAL & APRESENTAÇÃO ----------------
+    p2 = """
+    <div class="mag-page" id="page-2" data-page="2" data-title="Mensagens Institucionais">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-ribbon"></i> ABRAMAN Mulher • DIA</span>
+                <span class="header-right-meta">Apresentação Institucional</span>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 24px;">
+                <span class="chapter-badge"><i class="fa-solid fa-award"></i> Guia Oficial de Boas Práticas</span>
+                <h1 class="chapter-title" style="font-size: 24px; margin-bottom: 8px;">Diversidade de Gênero na Manutenção e Gestão de Ativos</h1>
+                <p style="font-size: 14px; font-weight: 600; color: var(--rose-600); text-transform: uppercase; letter-spacing: 1px;">Guia de Boas Práticas para Lideranças e Organizações</p>
+                <div style="display: flex; justify-content: center; gap: 16px; margin-top: 10px; font-size: 12.5px; font-weight: 700; color: var(--navy-800);">
+                    <span><i class="fa-solid fa-users"></i> Comitê Feminino ABRAMAN</span>
+                    <span>•</span>
+                    <span><i class="fa-solid fa-hand-holding-heart"></i> Subcomitê Diversidade, Inclusão e Acessibilidade (DIA)</span>
+                </div>
+            </div>
+
+            <div class="action-box box-leadership" style="margin-bottom: 20px;">
+                <div class="box-title"><i class="fa-solid fa-landmark"></i> Mensagem da Presidente da ABRAMAN</div>
+                <p class="editorial-lead" style="font-size: 14px; margin-bottom: 10px;">
+                    A manutenção e a gestão de ativos vivem um momento de transformação impulsionado pela inovação, pela digitalização e pelo desenvolvimento de pessoas. Nesse cenário, ampliar a diversidade de perspectivas é fundamental para fortalecer a capacidade das organizações de responder aos desafios atuais e futuros.
+                </p>
+                <p class="editorial-lead" style="font-size: 14px; margin-bottom: 10px;">
+                    Acreditamos que promover ambientes inclusivos significa criar condições para que talentos diversos possam contribuir plenamente para a segurança, a confiabilidade e a sustentabilidade dos nossos ativos.
+                </p>
+                <p class="editorial-lead" style="font-size: 14px; font-weight: 600; color: var(--navy-800);">
+                    Esta cartilha representa mais um passo do compromisso da ABRAMAN com a valorização das pessoas, o fortalecimento das lideranças e a construção de um setor cada vez mais preparado para o futuro.
+                </p>
+            </div>
+
+            <div class="action-box box-best-practices">
+                <div class="box-title"><i class="fa-solid fa-comments"></i> Mensagem do Comitê Feminino</div>
+                <p class="editorial-lead" style="font-size: 14px; margin-bottom: 10px;">
+                    O Comitê Feminino da ABRAMAN nasceu com o propósito de ampliar a participação das mulheres na manutenção e na gestão de ativos, promovendo espaços de diálogo, desenvolvimento profissional e compartilhamento de experiências.
+                </p>
+                <p class="editorial-lead" style="font-size: 14px; margin-bottom: 10px;">
+                    Por meio do Subcomitê Diversidade, Inclusão e Acessibilidade (DIA), buscamos estimular reflexões e disseminar boas práticas que contribuam para ambientes de trabalho mais inclusivos, respeitosos e colaborativos.
+                </p>
+                <p class="editorial-lead" style="font-size: 14px; margin-bottom: 10px;">
+                    Esta cartilha é resultado desse compromisso coletivo. Mais do que apresentar conceitos, ela convida líderes, profissionais e organizações a refletirem sobre como pequenas mudanças de comportamento e decisões estruturadas podem fortalecer equipes, impulsionar a inovação e ampliar oportunidades para todos.
+                </p>
+                <p class="editorial-lead" style="font-size: 14px; font-weight: 600; color: var(--rose-700);">
+                    Construir ambientes mais diversos é uma responsabilidade compartilhada e um caminho para organizações mais preparadas para enfrentar os desafios do futuro.
+                </p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Comitê Feminino ABRAMAN • Subcomitê DIA</span>
+                <span class="page-number-tag">02</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p2)
+
+    # ---------------- PAGE 3: SUMÁRIO GERAL ----------------
+    p3 = """
+    <div class="mag-page" id="page-3" data-page="3" data-title="Sumário da Revista">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-list-ol"></i> Índice da Publicação</span>
+                <span class="header-right-meta">Guia de Conteúdo</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-compass"></i> Sumário Executivo</span>
+            <h2 class="chapter-title" style="margin-bottom: 24px;">Conteúdo da Cartilha</h2>
+
+            <div class="cards-grid-2" style="gap: 12px;">
+                <div class="info-card" onclick="goToPage(4)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">01</span>
+                        <h4 class="info-card-title">Por que esta cartilha?</h4>
+                    </div>
+                    <p>O contexto de transformação estratégica na engenharia e gestão de ativos.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(5)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">02</span>
+                        <h4 class="info-card-title">Entendendo a Diversidade de Gênero</h4>
+                    </div>
+                    <p>Diversidade, Inclusão, Equidade, Acessibilidade e Pertencimento.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(6)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">03</span>
+                        <h4 class="info-card-title">Diversidade na Manutenção & Ativos</h4>
+                    </div>
+                    <p>Por que este tema importa e seu impacto na tomada de decisões.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(7)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">04</span>
+                        <h4 class="info-card-title">Diversidade de Gênero em Números</h4>
+                    </div>
+                    <p>Diferenças salariais e o fenômeno "Broken Rung" (Degrau Quebrado).</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(8)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">05</span>
+                        <h4 class="info-card-title">Os Desafios das Mulheres</h4>
+                    </div>
+                    <p>Obstáculos frequentes, liderança inclusiva e boas práticas corporativas.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(10)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">06</span>
+                        <h4 class="info-card-title">Desenvolvimento & Carreira</h4>
+                    </div>
+                    <p>Fatores de propulsão e critérios transparentes de promoção e sucessão.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(11)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">07</span>
+                        <h4 class="info-card-title">Maternidade</h4>
+                    </div>
+                    <p>Construindo ambientes que valorizam pessoas e preservam talentos.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(12)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">08</span>
+                        <h4 class="info-card-title">Maternidade Atípica</h4>
+                    </div>
+                    <p>Apoio a mães de filhos com deficiência ou necessidades específicas.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(13)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">09</span>
+                        <h4 class="info-card-title">Barreiras Físicas no Trabalho</h4>
+                    </div>
+                    <p>EPIs adaptados, ergonomia, vestiários e infraestrutura acessível.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(14)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">10</span>
+                        <h4 class="info-card-title">Barreiras Culturais</h4>
+                    </div>
+                    <p>Superando preconceitos inconscientes e transformando decisões.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(15)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">11</span>
+                        <h4 class="info-card-title">Microagressões</h4>
+                    </div>
+                    <p>Como identificar, evitar e intervir respeitosamente no dia a dia.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(16)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">12</span>
+                        <h4 class="info-card-title">Homens como Aliados</h4>
+                    </div>
+                    <p>O papel ativo da liderança masculina na transformação da cultura.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(17)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">13/14</span>
+                        <h4 class="info-card-title">O Papel do Comitê & Futuro</h4>
+                    </div>
+                    <p>Compromisso com o futuro da manutenção e gestão de ativos.</p>
+                </div>
+
+                <div class="info-card" onclick="goToPage(18)" style="cursor: pointer;">
+                    <div class="info-card-header">
+                        <span class="info-card-icon">★</span>
+                        <h4 class="info-card-title">Palavras Finais</h4>
+                    </div>
+                    <p>Um convite à reflexão e à ação em prol da equidade no setor.</p>
+                </div>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Comitê Feminino ABRAMAN • Subcomitê DIA</span>
+                <span class="page-number-tag">03</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p3)
+
+    # ---------------- PAGE 4: CAPÍTULO 1 ----------------
+    p4 = """
+    <div class="mag-page" id="page-4" data-page="4" data-title="Capítulo 1: Por que esta cartilha?">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 01</span>
+                <span class="header-right-meta">Visão Estratégica</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-flag"></i> Introdução</span>
+            <h2 class="chapter-title">Por que esta cartilha?</h2>
+
+            <p class="editorial-lead">
+                As organizações vivem um momento de profundas transformações. Novas tecnologias, mudanças no perfil da força de trabalho, maior complexidade operacional e a necessidade crescente de inovação exigem ambientes capazes de reunir diferentes conhecimentos, experiências e perspectivas.
+            </p>
+
+            <p class="editorial-lead">
+                Nesse contexto, a diversidade de gênero deixa de ser apenas uma pauta relacionada à responsabilidade social para tornar-se um <strong>elemento estratégico</strong> para o fortalecimento das organizações.
+            </p>
+
+            <p class="editorial-lead">
+                No setor de manutenção e gestão de ativos, onde segurança, confiabilidade e excelência operacional são prioridades permanentes, construir equipes diversas significa ampliar a capacidade de análise, estimular soluções inovadoras e fortalecer a tomada de decisão.
+            </p>
+
+            <!-- Infográfico Visual dos 4 Pilares -->
+            <div style="background: linear-gradient(135deg, var(--rose-50) 0%, #FFFFFF 100%); border: 1.5px solid var(--rose-200); border-radius: 12px; padding: 22px; margin: 24px 0;">
+                <h4 style="font-family: var(--font-heading); color: var(--rose-700); font-size: 14.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; text-align: center;">
+                    <i class="fa-solid fa-layer-group"></i> Pilares da Transformação na Gestão de Ativos
+                </h4>
+                <div class="cards-grid-2" style="margin: 0; gap: 12px;">
+                    <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+                        <i class="fa-solid fa-lightbulb" style="font-size: 24px; color: var(--rose-500);"></i>
+                        <div>
+                            <strong style="color: var(--navy-900); font-size: 13.5px; display: block;">Inovação Contínua</strong>
+                            <span style="font-size: 12px; color: var(--gray-600);">Soluções multidisciplinares para desafios técnicos</span>
+                        </div>
+                    </div>
+                    <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+                        <i class="fa-solid fa-shield-halved" style="font-size: 24px; color: var(--navy-700);"></i>
+                        <div>
+                            <strong style="color: var(--navy-900); font-size: 13.5px; display: block;">Segurança Operacional</strong>
+                            <span style="font-size: 12px; color: var(--gray-600);">Visão abrangente na identificação e mitigação de riscos</span>
+                        </div>
+                    </div>
+                    <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+                        <i class="fa-solid fa-gears" style="font-size: 24px; color: var(--cyan-600);"></i>
+                        <div>
+                            <strong style="color: var(--navy-900); font-size: 13.5px; display: block;">Confiabilidade dos Ativos</strong>
+                            <span style="font-size: 12px; color: var(--gray-600);">Tomada de decisão consistente e qualificada</span>
+                        </div>
+                    </div>
+                    <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+                        <i class="fa-solid fa-heart-pulse" style="font-size: 24px; color: var(--emerald-600);"></i>
+                        <div>
+                            <strong style="color: var(--navy-900); font-size: 13.5px; display: block;">Valorização Humana</strong>
+                            <span style="font-size: 12px; color: var(--gray-600);">Cultura inclusiva, engajamento e retenção de talentos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="editorial-lead">
+                Esta cartilha foi desenvolvida pelo <strong>Subcomitê Diversidade, Inclusão e Acessibilidade (DIA)</strong>, do Comitê Feminino da ABRAMAN, com o objetivo de promover conhecimento, incentivar reflexões e compartilhar práticas que contribuam para ambientes mais inclusivos.
+            </p>
+
+            <p class="editorial-lead">
+                Ao longo dos próximos capítulos serão apresentados conceitos fundamentais, dados, desafios, exemplos e recomendações voltadas às lideranças e às organizações, sempre considerando a realidade da manutenção, da engenharia e da gestão de ativos.
+            </p>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-bullseye"></i> Nosso Propósito</div>
+                <p>Contribuir para que a diversidade seja compreendida não apenas como um valor organizacional, mas como uma estratégia viva para fortalecer <strong>pessoas, processos e resultados</strong>.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 01 • Por que esta cartilha?</span>
+                <span class="page-number-tag">04</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p4)
+
+    # ---------------- PAGE 5: CAPÍTULO 2 ----------------
+    p5 = """
+    <div class="mag-page" id="page-5" data-page="5" data-title="Capítulo 2: Entendendo a Diversidade de Gênero">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 02</span>
+                <span class="header-right-meta">Conceitos Fundamentais</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-book-open"></i> Fundamentos</span>
+            <h2 class="chapter-title">Entendendo a Diversidade de Gênero</h2>
+
+            <div class="section-subtitle"><i class="fa-solid fa-circle-info"></i> Entenda o tema</div>
+            <p class="editorial-lead">
+                As organizações são formadas por pessoas com diferentes histórias, experiências, competências e perspectivas. Essa diversidade representa uma fonte de aprendizado, inovação e desenvolvimento quando encontra um ambiente capaz de valorizar as diferenças e promover oportunidades equitativas.
+            </p>
+
+            <p class="editorial-lead">
+                <strong>Diversidade de gênero</strong> refere-se ao reconhecimento e ao respeito às diferentes identidades e expressões de gênero, assegurando que todas as pessoas tenham oportunidades de participação, desenvolvimento e crescimento profissional.
+            </p>
+
+            <p class="editorial-lead">
+                Mais do que ampliar a representatividade, promover a diversidade significa construir ambientes em que as diferenças sejam reconhecidas como um fator que fortalece a colaboração, a criatividade e a qualidade das decisões. Quando diferentes perspectivas são consideradas, as organizações ampliam sua capacidade de compreender problemas complexos, identificar riscos e desenvolver soluções mais completas.
+            </p>
+
+            <div class="section-subtitle"><i class="fa-solid fa-cubes"></i> Diversidade, Inclusão, Equidade, Acessibilidade e Pertencimento</div>
+            <p class="editorial-lead" style="font-size: 13.5px; margin-bottom: 12px;">Embora frequentemente utilizados em conjunto, esses conceitos possuem significados complementares:</p>
+
+            <div class="cards-grid-2" style="gap: 12px; margin: 12px 0;">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-users"></i></span>
+                        <h4 class="info-card-title">Diversidade</h4>
+                    </div>
+                    <p>Refere-se à presença de pessoas com diferentes características, experiências, identidades e trajetórias.<br><strong>Pergunta-chave:</strong> <em>"Quem faz parte da organização?"</em></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-door-open"></i></span>
+                        <h4 class="info-card-title">Inclusão</h4>
+                    </div>
+                    <p>Significa criar condições para que todas as pessoas participem ativamente dos processos, das decisões e das oportunidades.<br><strong>Pergunta-chave:</strong> <em>"Quem consegue participar?"</em></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                        <h4 class="info-card-title">Equidade</h4>
+                    </div>
+                    <p>Reconhece que diferentes pessoas necessitam de formas distintas de apoio para alcançar oportunidades equivalentes. Tratar todos de forma igual nem sempre é justiça.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-universal-access"></i></span>
+                        <h4 class="info-card-title">Acessibilidade</h4>
+                    </div>
+                    <p>Eliminação de barreiras físicas, comunicacionais, tecnológicas e atitudinais. Beneficia todos os profissionais e gera ambientes seguros e eficientes.</p>
+                </div>
+            </div>
+
+            <!-- Síntese Editorial de Impacto -->
+            <div style="background: linear-gradient(135deg, #0B192C 0%, #1E3A8A 100%); border-radius: 10px; padding: 18px 22px; color: white; margin-top: 14px;">
+                <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 800; color: var(--rose-300); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">
+                    <i class="fa-solid fa-sparkles"></i> Em Resumo:
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; font-size: 13px;">
+                    <div>🌸 <strong>Diversidade:</strong> convidar para a equipe.</div>
+                    <div>🤝 <strong>Inclusão:</strong> garantir que participem.</div>
+                    <div>⚖️ <strong>Equidade:</strong> condições para se desenvolver.</div>
+                    <div>💖 <strong>Pertencimento:</strong> sentir-se valorizada.</div>
+                </div>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 02 • Entendendo a Diversidade de Gênero</span>
+                <span class="page-number-tag">05</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p5)
+
+    # ---------------- PAGE 6: CAPÍTULO 3 ----------------
+    p6 = """
+    <div class="mag-page" id="page-6" data-page="6" data-title="Capítulo 3: Diversidade na Manutenção e Gestão de Ativos">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 03</span>
+                <span class="header-right-meta">Impacto Setorial</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-industry"></i> Relevância Operacional</span>
+            <h2 class="chapter-title">Diversidade de Gênero na Manutenção e Gestão de Ativos</h2>
+
+            <div class="section-subtitle"><i class="fa-solid fa-crosshairs"></i> Por que este tema importa?</div>
+            <p class="editorial-lead">
+                Os setores de manutenção, engenharia e gestão de ativos desempenham papel estratégico na continuidade operacional das organizações. Suas decisões influenciam diretamente a disponibilidade dos ativos, a segurança das pessoas, a gestão de riscos, os custos operacionais e a sustentabilidade dos negócios.
+            </p>
+
+            <p class="editorial-lead">
+                Historicamente, essas áreas foram compostas predominantemente por profissionais do sexo masculino. Embora esse cenário venha mudando gradualmente, a participação feminina ainda permanece reduzida em diversas funções técnicas, operacionais e de liderança.
+            </p>
+
+            <p class="editorial-lead">
+                Promover a diversidade de gênero nesse contexto não significa apenas ampliar a representatividade feminina. <strong>Significa fortalecer a capacidade das organizações de reunir diferentes formas de pensar</strong>, analisar problemas sob múltiplas perspectivas e desenvolver soluções mais inovadoras para desafios cada vez mais complexos.
+            </p>
+
+            <div class="cards-grid-2" style="margin: 20px 0;">
+                <div class="info-card" style="border-top-color: var(--navy-700);">
+                    <div class="info-card-header">
+                        <span class="info-card-icon" style="background: var(--gray-100); color: var(--navy-800);"><i class="fa-solid fa-brain"></i></span>
+                        <h4 class="info-card-title">Resolução de Problemas Complexos</h4>
+                    </div>
+                    <p>Estudos internacionais comprovam que equipes diversas apresentam maior criatividade, melhor gestão de riscos e decisões técnicas mais consistentes.</p>
+                </div>
+
+                <div class="info-card" style="border-top-color: var(--rose-500);">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-chart-line"></i></span>
+                        <h4 class="info-card-title">Diferencial Competitivo</h4>
+                    </div>
+                    <p>Onde pequenas decisões geram impactos diretos sobre confiabilidade e custos, ampliar perspectivas é vital para a competitividade.</p>
+                </div>
+            </div>
+
+            <div class="action-box box-reflection">
+                <div class="box-title"><i class="fa-solid fa-magnifying-glass"></i> Para refletir</div>
+                <p style="font-size: 15px; font-weight: 600; color: #78350F; line-height: 1.5;">
+                    "Sua organização possui diversidade suficiente para enfrentar problemas complexos sob diferentes perspectivas?"
+                </p>
+            </div>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-quote-left"></i> Mensagem-chave</div>
+                <p style="font-size: 16px; text-align: center; font-weight: 700; color: #FFFFFF;">
+                    "A diversidade fortalece pessoas. Pessoas fortalecem processos. Processos fortalecem resultados."
+                </p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 03 • Diversidade na Manutenção e Gestão de Ativos</span>
+                <span class="page-number-tag">06</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p6)
+
+    # ---------------- PAGE 7: CAPÍTULO 4 ----------------
+    p7 = """
+    <div class="mag-page" id="page-7" data-page="7" data-title="Capítulo 4: Diversidade de Gênero em Números">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 04</span>
+                <span class="header-right-meta">Panorama de Dados</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-chart-pie"></i> Estatísticas & Evidências</span>
+            <h2 class="chapter-title">Diversidade de Gênero em Números</h2>
+
+            <p class="editorial-lead">
+                Os desafios relacionados à diversidade de gênero podem ser observados por meio de indicadores que revelam diferenças importantes na remuneração, na ocupação de cargos de liderança e nas oportunidades de desenvolvimento profissional. Esses dados demonstram que a promoção da equidade ainda representa um desafio para organizações de diferentes setores, incluindo a manutenção e a gestão de ativos.
+            </p>
+
+            <!-- Banner Diferença Salarial -->
+            <div class="stat-banner">
+                <div class="stat-number">-20,9%</div>
+                <div class="stat-desc">
+                    <strong style="color: var(--rose-700); font-size: 15px; display: block; margin-bottom: 4px;">Diferença Salarial no Brasil</strong>
+                    Segundo o <em>3º Relatório de Transparência Salarial e Critérios Remuneratórios</em> (Governo Federal / RAIS 2024), as mulheres recebem em média <strong>20,9% menos</strong> do que os homens em empresas com 100 ou mais empregados.
+                </div>
+            </div>
+
+            <!-- Infográfico Broken Rung -->
+            <div class="broken-rung-diagram">
+                <div class="broken-rung-title"><i class="fa-solid fa-stairs"></i> O Fenômeno "Broken Rung" (Degrau Quebrado)</div>
+                <p style="font-size: 12.5px; color: #CBD5E1; text-align: center; margin-bottom: 16px;">
+                    Estudo <em>Women in the Workplace</em> (McKinsey & Company e LeanIn.Org):
+                </p>
+
+                <div class="rung-bars">
+                    <div class="rung-item">
+                        <div class="rung-label">Homens promovidos a gestor:</div>
+                        <div class="rung-progress-track">
+                            <div class="rung-progress-fill" style="width: 100%; background: var(--navy-600);">100</div>
+                        </div>
+                    </div>
+                    <div class="rung-item">
+                        <div class="rung-label">Mulheres promovidas:</div>
+                        <div class="rung-progress-track">
+                            <div class="rung-progress-fill" style="width: 81%; background: var(--rose-500);">81</div>
+                        </div>
+                    </div>
+                    <div class="rung-item">
+                        <div class="rung-label">Mulheres Negras promovidas:</div>
+                        <div class="rung-progress-track">
+                            <div class="rung-progress-fill" style="width: 53%; background: var(--rose-700);">53</div>
+                        </div>
+                    </div>
+                    <div class="rung-item">
+                        <div class="rung-label">Alta Liderança Feminina:</div>
+                        <div class="rung-progress-track">
+                            <div class="rung-progress-fill" style="width: 29%; background: var(--amber-500);">Apenas 29%</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 11.5px; color: #94A3B8; margin-top: 12px; text-align: center; font-style: italic;">
+                    Evidencia que a principal barreira à ascensão profissional ocorre logo no início da trajetória gerencial.
+                </div>
+            </div>
+
+            <div class="section-subtitle"><i class="fa-solid fa-lightbulb"></i> O que esses números revelam?</div>
+            <p class="editorial-lead">
+                Os indicadores demonstram que o desafio da diversidade de gênero não está relacionado à competência das profissionais, mas às barreiras que influenciam sua trajetória ao longo da carreira. Para organizações de manutenção e gestão de ativos, investir em equidade significa ampliar o acesso a talentos, fortalecer a inovação e construir equipes mais preparadas para responder aos desafios técnicos e estratégicos.
+            </p>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 04 • Diversidade de Gênero em Números</span>
+                <span class="page-number-tag">07</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p7)
+
+    # ---------------- PAGE 8: CAPÍTULO 5 (PARTE 1) ----------------
+    p8 = """
+    <div class="mag-page" id="page-8" data-page="8" data-title="Capítulo 5: Desafios das Mulheres no Ambiente de Trabalho">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 05</span>
+                <span class="header-right-meta">Desafios Cotidianos (1/2)</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-person-dress-burst"></i> Barreiras Estruturais</span>
+            <h2 class="chapter-title">Os Desafios das Mulheres no Ambiente de Trabalho</h2>
+
+            <div class="quote-highlight">
+                <p>"Os maiores desafios para a equidade de gênero nem sempre são visíveis. Muitos estão presentes nas decisões cotidianas, nas oportunidades que deixam de ser oferecidas e nos vieses que influenciam a forma como avaliamos pessoas e potencial."</p>
+            </div>
+
+            <div class="section-subtitle"><i class="fa-solid fa-circle-info"></i> Entenda o tema</div>
+            <p class="editorial-lead">
+                Na manutenção e gestão de ativos, as barreiras tornam-se ainda mais evidentes por se tratar de um setor historicamente masculino, com atividades operacionais e industriais que durante anos foram associadas predominantemente aos homens.
+            </p>
+
+            <p class="editorial-lead">
+                Reconhecer essas barreiras não significa apontar culpados. Significa compreender que muitos dos obstáculos existentes são resultado de construções históricas e culturais e que podem ser transformados por meio de liderança, políticas organizacionais e mudanças de comportamento.
+            </p>
+
+            <div class="section-subtitle"><i class="fa-solid fa-triangle-exclamation"></i> Os Desafios Mais Frequentes</div>
+            <div class="cards-grid-3" style="gap: 10px; margin-top: 10px;">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-user-minus"></i></span>
+                        <h5 class="info-card-title">Representatividade Reduzida</h5>
+                    </div>
+                    <p>Pouca presença feminina em campo, reduzindo redes de apoio e referências.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-tags"></i></span>
+                        <h5 class="info-card-title">Estereótipos de Gênero</h5>
+                    </div>
+                    <p>Crenças sobre quais funções seriam "mais adequadas" para homens ou mulheres.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-eye-slash"></i></span>
+                        <h5 class="info-card-title">Viés Inconsciente</h5>
+                    </div>
+                    <p>Atalhos mentais que influenciam avaliações sem intenção deliberada de discriminar.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-stairs"></i></span>
+                        <h5 class="info-card-title">Desigualdade de Oportunidades</h5>
+                    </div>
+                    <p>Acesso desequilibrado a projetos estratégicos, campo e liderança.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-baby"></i></span>
+                        <h5 class="info-card-title">Maternidade e Cuidado</h5>
+                    </div>
+                    <p>Pressupostos equivocados sobre disponibilidade para viagens e projetos.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-shield-heart"></i></span>
+                        <h5 class="info-card-title">Barreiras Físicas e Culturais</h5>
+                    </div>
+                    <p>Falta de EPIs adaptados, microagressões e resistência à liderança feminina.</p>
+                </div>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 05 • Desafios das Mulheres no Trabalho</span>
+                <span class="page-number-tag">08</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p8)
+
+    # ---------------- PAGE 9: CAPÍTULO 5 (PARTE 2) ----------------
+    p9 = """
+    <div class="mag-page" id="page-9" data-page="9" data-title="Capítulo 5: Liderança Inclusiva e Ações">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 05</span>
+                <span class="header-right-meta">Ações Práticas (2/2)</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-user-tie"></i> Práticas de Liderança</span>
+            <h2 class="chapter-title">Liderança Inclusiva e Boas Práticas</h2>
+
+            <div class="action-box box-leadership">
+                <div class="box-title"><i class="fa-solid fa-handshake"></i> Liderança Inclusiva na Prática</div>
+                <p style="font-size: 13px; margin-bottom: 8px; color: var(--navy-900); font-weight: 600;">Algumas atitudes que fazem a diferença:</p>
+                <ul class="action-list">
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Distribuir oportunidades com base em competências e desempenho;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Estimular a participação de todos nas decisões técnicas;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Promover feedbacks objetivos e transparentes;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Reconhecer contribuições de forma imparcial e desenvolver novas lideranças;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Agir rapidamente diante de comportamentos discriminatórios;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Incentivar uma cultura baseada em respeito, colaboração e segurança psicológica.</li>
+                </ul>
+            </div>
+
+            <div class="action-box box-best-practices">
+                <div class="box-title"><i class="fa-solid fa-building"></i> Boas Práticas para as Organizações</div>
+                <ul class="action-list">
+                    <li><i class="fa-solid fa-check list-bullet"></i> Processos transparentes de recrutamento e promoção com acompanhamento de indicadores;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Programas de desenvolvimento e mentoria técnica;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Revisão periódica das políticas de gestão de pessoas e incentivo à participação em projetos estratégicos;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Capacitação contínua sobre diversidade, vieses inconscientes e liderança inclusiva;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Canais seguros para acolhimento e tratamento de situações de discriminação.</li>
+                </ul>
+            </div>
+
+            <!-- Checklist Interativo -->
+            <div class="action-box box-reflection">
+                <div class="box-title"><i class="fa-solid fa-clipboard-check"></i> Para refletir — Sua organização:</div>
+                <div class="checklist-item" onclick="toggleCheck('c5_1')">
+                    <input type="checkbox" id="c5_1">
+                    <label for="c5_1">Acompanha indicadores de diversidade?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c5_2')">
+                    <input type="checkbox" id="c5_2">
+                    <label for="c5_2">Possui mulheres em funções técnicas e operacionais?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c5_3')">
+                    <input type="checkbox" id="c5_3">
+                    <label for="c5_3">Oferece oportunidades iguais de desenvolvimento?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c5_4')">
+                    <input type="checkbox" id="c5_4">
+                    <label for="c5_4">Monitora promoções por gênero?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c5_5')">
+                    <input type="checkbox" id="c5_5">
+                    <label for="c5_5">Possui critérios claros para acesso à liderança?</label>
+                </div>
+            </div>
+
+            <div class="action-box box-key-message" style="margin-top: 14px;">
+                <div class="box-title"><i class="fa-solid fa-star"></i> Mensagem-chave</div>
+                <p>Os desafios enfrentados pelas mulheres não limitam apenas carreiras individuais. Eles reduzem o potencial inovador das organizações e comprometem a capacidade de desenvolver equipes preparadas para os desafios do setor.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 05 • Liderança e Boas Práticas</span>
+                <span class="page-number-tag">09</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p9)
+
+    # ---------------- PAGE 10: CAPÍTULO 6 ----------------
+    p10 = """
+    <div class="mag-page" id="page-10" data-page="10" data-title="Capítulo 6: Desenvolvimento Profissional e Carreira">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 06</span>
+                <span class="header-right-meta">Carreira & Sucessão</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-arrow-trend-up"></i> Ascensão Profissional</span>
+            <h2 class="chapter-title">Desenvolvimento Profissional e Oportunidades de Carreira</h2>
+
+            <div class="quote-highlight">
+                <p>"O talento abre portas. A equidade garante que todas as pessoas tenham a oportunidade de atravessá-las."</p>
+            </div>
+
+            <div class="section-subtitle"><i class="fa-solid fa-circle-info"></i> Entenda o tema & Importância para o setor</div>
+            <p class="editorial-lead">
+                O desenvolvimento profissional é resultado da combinação entre competências individuais, oportunidades oferecidas pela organização e experiências adquiridas ao longo da carreira. O setor de manutenção enfrenta desafios crescentes relacionados à sucessão técnica, transformação digital, confiabilidade e retenção de conhecimento. Desenvolver talentos diversos amplia a capacidade de formar especialistas e líderes.
+            </p>
+
+            <div class="section-subtitle"><i class="fa-solid fa-rocket"></i> O que impulsiona uma carreira?</div>
+            <div class="cards-grid-2" style="gap: 10px; margin-bottom: 16px;">
+                <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--navy-900);">
+                    <i class="fa-solid fa-diagram-project" style="color: var(--rose-500); margin-right: 6px;"></i> Acesso a projetos estratégicos & campo
+                </div>
+                <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--navy-900);">
+                    <i class="fa-solid fa-graduation-cap" style="color: var(--rose-500); margin-right: 6px;"></i> Capacitação técnica & certificações
+                </div>
+                <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--navy-900);">
+                    <i class="fa-solid fa-user-group" style="color: var(--rose-500); margin-right: 6px;"></i> Mentoria & patrocínio de carreira
+                </div>
+                <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--navy-900);">
+                    <i class="fa-solid fa-sliders" style="color: var(--rose-500); margin-right: 6px;"></i> Critérios transparentes de promoção
+                </div>
+            </div>
+
+            <div class="action-box box-reflection">
+                <div class="box-title"><i class="fa-solid fa-clipboard-check"></i> Para refletir — Na sua organização:</div>
+                <div class="checklist-item" onclick="toggleCheck('c6_1')">
+                    <input type="checkbox" id="c6_1">
+                    <label for="c6_1">Mulheres participam dos principais projetos?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c6_2')">
+                    <input type="checkbox" id="c6_2">
+                    <label for="c6_2">Existe equilíbrio na distribuição de treinamentos?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c6_3')">
+                    <input type="checkbox" id="c6_3">
+                    <label for="c6_3">As promoções seguem critérios transparentes?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c6_4')">
+                    <input type="checkbox" id="c6_4">
+                    <label for="c6_4">Há mulheres no plano de sucessão técnica e gerencial?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c6_5')">
+                    <input type="checkbox" id="c6_5">
+                    <label for="c6_5">Existem programas estruturados de mentoria?</label>
+                </div>
+            </div>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-lightbulb"></i> Mensagem-chave</div>
+                <p>Desenvolver talentos é preparar o futuro da organização. Garantir que esse desenvolvimento aconteça de forma equitativa é fortalecer a inovação, a sucessão e a sustentabilidade da manutenção e gestão de ativos.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 06 • Desenvolvimento Profissional</span>
+                <span class="page-number-tag">10</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p10)
+
+    # ---------------- PAGE 11: CAPÍTULO 7 ----------------
+    p11 = """
+    <div class="mag-page" id="page-11" data-page="11" data-title="Capítulo 7: Maternidade">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 07</span>
+                <span class="header-right-meta">Parentalidade & Retenção</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-person-breastfeeding"></i> Acolhimento & Carreira</span>
+            <h2 class="chapter-title">Maternidade</h2>
+            <p style="font-size: 15px; font-weight: 700; color: var(--rose-600); margin-top: -10px; margin-bottom: 16px;">
+                Construindo ambientes que valorizam pessoas e preservam talentos
+            </p>
+
+            <div class="quote-highlight">
+                <p>"A maternidade não reduz o potencial de uma profissional. Organizações inclusivas são aquelas capazes de reconhecer diferentes momentos da vida sem limitar oportunidades de desenvolvimento."</p>
+            </div>
+
+            <p class="editorial-lead">
+                No setor de manutenção e gestão de ativos, com atividades operacionais e jornadas estruturadas, o retorno da licença-maternidade costuma gerar preocupações. O desafio não está na maternidade, mas na ausência de condições organizacionais que permitam conciliar carreira e família.
+            </p>
+
+            <div class="action-box box-best-practices">
+                <div class="box-title"><i class="fa-solid fa-heart"></i> Boas Práticas Organizacionais</div>
+                <ul class="action-list">
+                    <li><i class="fa-solid fa-check list-bullet"></i> Programas estruturados de retorno à licença-maternidade com planejamento prévio;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Flexibilidade de jornada e salas de apoio à amamentação/aleitamento;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Mentoria para mães em retorno e capacitação das lideranças sobre vieses;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Suporte Psicológico</strong> para gestantes e mães, reduzindo desgastes emocionais;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Incentivo à <strong>corresponsabilidade parental</strong>, valorizando a participação dos pais.</li>
+                </ul>
+            </div>
+
+            <div class="action-box box-reflection">
+                <div class="box-title"><i class="fa-solid fa-clipboard-check"></i> Para refletir — Sua organização:</div>
+                <div class="checklist-item" onclick="toggleCheck('c7_1')">
+                    <input type="checkbox" id="c7_1">
+                    <label for="c7_1">Acompanha o índice de retorno após a licença-maternidade?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c7_2')">
+                    <input type="checkbox" id="c7_2">
+                    <label for="c7_2">Possui programas estruturados de acolhimento e suporte emocional?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c7_3')">
+                    <input type="checkbox" id="c7_3">
+                    <label for="c7_3">Monitora a evolução profissional das colaboradoras pós-licença?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c7_4')">
+                    <input type="checkbox" id="c7_4">
+                    <label for="c7_4">Incentiva a corresponsabilidade parental?</label>
+                </div>
+            </div>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-star"></i> Mensagem-chave</div>
+                <p>Valorizar a maternidade é preservar talentos, fortalecer a sucessão técnica e construir organizações capazes de desenvolver pessoas ao longo de toda a sua trajetória profissional.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 07 • Maternidade</span>
+                <span class="page-number-tag">11</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p11)
+
+    # ---------------- PAGE 12: CAPÍTULO 8 ----------------
+    p12 = """
+    <div class="mag-page" id="page-12" data-page="12" data-title="Capítulo 8: Maternidade Atípica">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 08</span>
+                <span class="header-right-meta">Inclusão Especializada</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-hands-holding-child"></i> Equidade & Acolhimento</span>
+            <h2 class="chapter-title">Maternidade Atípica</h2>
+
+            <div class="quote-highlight">
+                <p>"A equidade começa quando compreendemos que pessoas diferentes enfrentam desafios diferentes e, por isso, podem precisar de formas distintas de apoio para desenvolver plenamente seu potencial."</p>
+            </div>
+
+            <div class="section-subtitle"><i class="fa-solid fa-circle-info"></i> Entenda o tema</div>
+            <p class="editorial-lead">
+                A <strong>maternidade atípica</strong> refere-se à experiência de mães que cuidam de filhos com deficiência, doenças raras, transtornos do neurodesenvolvimento (como autismo e TDAH), condições crônicas de saúde ou outras necessidades específicas que demandam acompanhamento contínuo e cuidados diferenciados.
+            </p>
+
+            <p class="editorial-lead">
+                Essas famílias convivem com consultas médicas, terapias e adaptações constantes. Reconhecer essas necessidades não significa criar privilégios, mas oferecer condições compatíveis para que profissionais altamente qualificadas continuem gerando valor à organização.
+            </p>
+
+            <div class="cards-grid-2" style="margin: 16px 0;">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-ear-listen"></i></span>
+                        <h4 class="info-card-title">Liderança na Prática</h4>
+                    </div>
+                    <p>Escuta ativa e empática, construção conjunta de soluções, flexibilidade responsável e igualdade no acesso a oportunidades.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                        <h4 class="info-card-title">Apoio Organizacional</h4>
+                    </div>
+                    <p>Assistência psicológica, grupos internos de apoio, benefícios adaptados e capacitação sobre neurodiversidade e maternidade atípica.</p>
+                </div>
+            </div>
+
+            <div class="action-box box-reflection">
+                <div class="box-title"><i class="fa-solid fa-clipboard-check"></i> Para refletir — Sua organização:</div>
+                <div class="checklist-item" onclick="toggleCheck('c8_1')">
+                    <input type="checkbox" id="c8_1">
+                    <label for="c8_1">Reconhece a maternidade atípica como um tema de inclusão?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c8_2')">
+                    <input type="checkbox" id="c8_2">
+                    <label for="c8_2">Possui políticas de flexibilidade e apoio às famílias?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c8_3')">
+                    <input type="checkbox" id="c8_3">
+                    <label for="c8_3">Prepara as lideranças para lidar com diferentes realidades?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c8_4')">
+                    <input type="checkbox" id="c8_4">
+                    <label for="c8_4">Promove um ambiente psicologicamente seguro?</label>
+                </div>
+            </div>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-scale-balanced"></i> Mensagem-chave</div>
+                <p>Equidade não significa tratar todas as pessoas da mesma forma. Significa reconhecer diferentes necessidades para que todas tenham oportunidades reais de crescer, contribuir e prosperar.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 08 • Maternidade Atípica</span>
+                <span class="page-number-tag">12</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p12)
+
+    # ---------------- PAGE 13: CAPÍTULO 9 ----------------
+    p13 = """
+    <div class="mag-page" id="page-13" data-page="13" data-title="Capítulo 9: Barreiras Físicas">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 09</span>
+                <span class="header-right-meta">Infraestrutura & Segurança</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-helmet-safety"></i> Acessibilidade & Ergonomia</span>
+            <h2 class="chapter-title">Ambiente de Trabalho - Barreiras Físicas</h2>
+
+            <div class="quote-highlight">
+                <p>"Um ambiente inclusivo não exige que as pessoas se adaptem ao espaço. É o espaço que deve estar preparado para acolher a diversidade de pessoas que nele trabalham."</p>
+            </div>
+
+            <div class="section-subtitle"><i class="fa-solid fa-circle-info"></i> Entenda o tema</div>
+            <p class="editorial-lead">
+                Na indústria, muitas barreiras físicas existem porque instalações foram concebidas em épocas em que a força de trabalho era estritamente masculina. Com a ampliação da presença feminina na manutenção e engenharia, torna-se indispensável revisar equipamentos, uniformes e ambientes para assegurar integridade, ergonomia e produtividade.
+            </p>
+
+            <div class="action-box box-best-practices">
+                <div class="box-title"><i class="fa-solid fa-wrench"></i> Boas Práticas para as Organizações</div>
+                <ul class="action-list">
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>EPIs adaptados:</strong> fornecimento em diferentes tamanhos, modelagens e biotipos;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Uniformes e vestiários:</strong> instalações sanitárias seguras, confortáveis e privativas;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Ferramentas ergonômicas:</strong> redução de sobrecargas e esforços inadequados;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Salas de apoio à amamentação:</strong> infraestrutura higiênica e acolhedora;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> <strong>Engenharia de novos projetos:</strong> critérios de diversidade e ergonomia desde a concepção da planta.</li>
+                </ul>
+            </div>
+
+            <div class="action-box box-reflection">
+                <div class="box-title"><i class="fa-solid fa-clipboard-check"></i> Para refletir — Sua empresa:</div>
+                <div class="checklist-item" onclick="toggleCheck('c9_1')">
+                    <input type="checkbox" id="c9_1">
+                    <label for="c9_1">Possui EPIs desenvolvidos para diferentes biotipos?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c9_2')">
+                    <input type="checkbox" id="c9_2">
+                    <label for="c9_2">As instalações oferecem conforto e segurança para todos?</label>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck('c9_3')">
+                    <input type="checkbox" id="c9_3">
+                    <label for="c9_3">Os novos projetos industriais consideram critérios de inclusão desde a concepção?</label>
+                </div>
+            </div>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-shield-halved"></i> Mensagem-chave</div>
+                <p>Infraestrutura inclusiva é um investimento direto em segurança operacional, eficiência técnica e valorização genuína das pessoas.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 09 • Barreiras Físicas</span>
+                <span class="page-number-tag">13</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p13)
+
+    # ---------------- PAGE 14: CAPÍTULO 10 ----------------
+    p14 = """
+    <div class="mag-page" id="page-14" data-page="14" data-title="Capítulo 10: Barreiras Culturais">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 10</span>
+                <span class="header-right-meta">Transformação Cultural</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-users-rays"></i> Cultura & Comportamento</span>
+            <h2 class="chapter-title">Ambiente de Trabalho - Barreiras Culturais</h2>
+
+            <div class="quote-highlight">
+                <p>"As barreiras mais difíceis de superar nem sempre são as que vemos. Muitas estão presentes nas crenças, nos comportamentos e nas decisões do dia a dia."</p>
+            </div>
+
+            <div class="section-subtitle"><i class="fa-solid fa-circle-info"></i> Entenda o tema</div>
+            <p class="editorial-lead">
+                As barreiras culturais são atitudes, crenças, hábitos e práticas organizacionais que limitam, muitas vezes de forma inconsciente, o desenvolvimento profissional. Manifestam-se por estereótipos sobre papéis de gênero, exclusão de espaços informais de decisão e resistência a novos estilos de liderança.
+            </p>
+
+            <div class="cards-grid-2" style="margin: 16px 0;">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-user-shield"></i></span>
+                        <h4 class="info-card-title">Liderança Inclusiva</h4>
+                    </div>
+                    <p>Promove segurança psicológica, combate preconceitos, valoriza estilos diversos de liderança e intervém imediatamente diante de comportamentos inadequados.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <h4 class="info-card-title">Ações Institucionais</h4>
+                    </div>
+                    <p>Capacitação sobre vieses inconscientes, critérios objetivos de promoção, canais seguros de ouvidoria e pesquisas periódicas de clima organizacional.</p>
+                </div>
+            </div>
+
+            <div class="action-box box-reflection">
+                <div class="box-title"><i class="fa-solid fa-magnifying-glass"></i> Para refletir</div>
+                <p style="font-size: 15px; font-weight: 600; color: #78350F;">
+                    "As decisões na sua organização são influenciadas por competências técnicas e resultados comprovados ou por pressupostos e estereótipos inconscientes?"
+                </p>
+            </div>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-arrows-rotate"></i> Mensagem-chave</div>
+                <p>Transformar culturas significa transformar decisões. E decisões mais diversas fortalecem organizações mais preparadas para o futuro.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 10 • Barreiras Culturais</span>
+                <span class="page-number-tag">14</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p14)
+
+    # ---------------- PAGE 15: CAPÍTULO 11 ----------------
+    p15 = """
+    <div class="mag-page" id="page-15" data-page="15" data-title="Capítulo 11: Microagressões">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 11</span>
+                <span class="header-right-meta">Relações & Respeito</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-comment-slash"></i> Conscientização Diária</span>
+            <h2 class="chapter-title">Microagressões no Ambiente Técnico</h2>
+
+            <div class="quote-highlight">
+                <p>"Nem todo comportamento inadequado é intencional. Mas todo comportamento gera impacto."</p>
+            </div>
+
+            <p class="editorial-lead">
+                <strong>Microagressões</strong> são comentários, atitudes ou comportamentos sutis que reforçam estereótipos ou desvalorizam profissionais. Quando repetidas, corroem o sentimento de pertencimento e a confiança.
+            </p>
+
+            <div class="section-subtitle"><i class="fa-solid fa-list-check"></i> Exemplos Frequentes</div>
+            <div class="cards-grid-2" style="gap: 10px; margin-bottom: 16px;">
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 8px; padding: 10px; font-size: 13px; color: var(--navy-900);">
+                    ⚠️ Interromper repetidamente uma mulher durante reuniões técnicas.
+                </div>
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 8px; padding: 10px; font-size: 13px; color: var(--navy-900);">
+                    ⚠️ Presumir automaticamente função administrativa ou de apoio.
+                </div>
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 8px; padding: 10px; font-size: 13px; color: var(--navy-900);">
+                    ⚠️ Demonstrar surpresa exagerada diante de sua competência técnica.
+                </div>
+                <div style="background: var(--rose-50); border: 1px solid var(--rose-200); border-radius: 8px; padding: 10px; font-size: 13px; color: var(--navy-900);">
+                    ⚠️ Fazer comentários sobre aparência em vez de focar no trabalho.
+                </div>
+            </div>
+
+            <div class="cards-grid-2" style="margin-top: 10px;">
+                <div class="action-box box-leadership" style="margin: 0;">
+                    <div class="box-title"><i class="fa-solid fa-eye"></i> Se você presenciar:</div>
+                    <ul class="action-list" style="font-size: 12.5px;">
+                        <li>• Interrompa com respeito e devolva a palavra;</li>
+                        <li>• Restabeleça o crédito da ideia original;</li>
+                        <li>• Ofereça apoio e incentive o diálogo aberto.</li>
+                    </ul>
+                </div>
+                <div class="action-box box-best-practices" style="margin: 0;">
+                    <div class="box-title"><i class="fa-solid fa-rotate-left"></i> Se você praticou:</div>
+                    <ul class="action-list" style="font-size: 12.5px;">
+                        <li>• Escute sem defensividade;</li>
+                        <li>• Reconheça o impacto gerado;</li>
+                        <li>• Aprenda e ajuste seu comportamento.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="action-box box-key-message" style="margin-top: 14px;">
+                <div class="box-title"><i class="fa-solid fa-heart"></i> Mensagem-chave</div>
+                <p>A cultura organizacional é construída pelas pequenas atitudes do cotidiano.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 11 • Microagressões</span>
+                <span class="page-number-tag">15</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p15)
+
+    # ---------------- PAGE 16: CAPÍTULO 12 ----------------
+    p16 = """
+    <div class="mag-page" id="page-16" data-page="16" data-title="Capítulo 12: Homens como Aliados">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulo 12</span>
+                <span class="header-right-meta">Alianças & Liderança</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-people-arrows"></i> Engajamento Coletivo</span>
+            <h2 class="chapter-title">Homens como Aliados</h2>
+
+            <div class="quote-highlight">
+                <p>"Construir ambientes mais inclusivos não é responsabilidade de um grupo específico. É um compromisso coletivo."</p>
+            </div>
+
+            <div class="section-subtitle"><i class="fa-solid fa-circle-info"></i> Entenda o tema</div>
+            <p class="editorial-lead">
+                A promoção da diversidade de gênero depende do envolvimento de todas as pessoas. Como os homens ocupam a maioria das posições executivas e gerenciais na manutenção e engenharia, seu protagonismo como aliados é fundamental para acelerar a equidade.
+            </p>
+
+            <div class="cards-grid-3" style="gap: 12px; margin: 16px 0;">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-ear-listen"></i></span>
+                        <h5 class="info-card-title">Ouvir</h5>
+                    </div>
+                    <p>Escutar ativamente as experiências e desafios das colegas sem desmerecer.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-hand-holding-hand"></i></span>
+                        <h5 class="info-card-title">Patrocinar</h5>
+                    </div>
+                    <p>Compartilhar oportunidades e apoiar o crescimento de mulheres em campo e projetos.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-card-icon"><i class="fa-solid fa-shield"></i></span>
+                        <h5 class="info-card-title">Posicionar-se</h5>
+                    </div>
+                    <p>Não ser conivente com atitudes machistas ou piadas desrespeitosas.</p>
+                </div>
+            </div>
+
+            <div class="action-box box-leadership">
+                <div class="box-title"><i class="fa-solid fa-user-check"></i> Liderança Masculina na Prática</div>
+                <ul class="action-list">
+                    <li><i class="fa-solid fa-check list-bullet"></i> Distribuir posições de relevância com imparcialidade;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Estimular a formação de novas lideranças femininas na equipe;</li>
+                    <li><i class="fa-solid fa-check list-bullet"></i> Garantir que reuniões e decisões técnicas sejam espaços seguros para todos.</li>
+                </ul>
+            </div>
+
+            <div class="action-box box-key-message">
+                <div class="box-title"><i class="fa-solid fa-users"></i> Mensagem-chave</div>
+                <p>A diversidade cresce quando todas as pessoas participam ativamente da transformação.</p>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulo 12 • Homens como Aliados</span>
+                <span class="page-number-tag">16</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p16)
+
+    # ---------------- PAGE 17: CAPÍTULO 13 & 14 ----------------
+    p17 = """
+    <div class="mag-page" id="page-17" data-page="17" data-title="Capítulos 13 e 14: Comitê e Compromisso com o Futuro">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-bookmark"></i> Capítulos 13 & 14</span>
+                <span class="header-right-meta">Visão Institucional</span>
+            </div>
+
+            <div class="cards-grid-2" style="margin-bottom: 16px;">
+                <div style="background: linear-gradient(135deg, var(--rose-50), #FFFFFF); border: 1.5px solid var(--rose-200); border-radius: 12px; padding: 18px;">
+                    <span class="chapter-badge" style="margin-bottom: 8px;"><i class="fa-solid fa-network-wired"></i> Capítulo 13</span>
+                    <h3 style="font-family: var(--font-heading); font-size: 16px; color: var(--navy-900); margin-bottom: 8px;">O Papel do Comitê Feminino & Subcomitê DIA</h3>
+                    <p style="font-size: 13px; line-height: 1.55; color: var(--gray-700);">
+                        O Comitê Feminino da ABRAMAN atua como espaço permanente de diálogo, capacitação e fortalecimento da mulher na gestão de ativos. Pelo Subcomitê DIA, promove pesquisas, eventos e publicações para inspirar mudanças concretas no setor industrial.
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #EFF6FF, #FFFFFF); border: 1.5px solid #BFDBFE; border-radius: 12px; padding: 18px;">
+                    <span class="chapter-badge" style="background: white; border-color: var(--navy-600); color: var(--navy-800); margin-bottom: 8px;"><i class="fa-solid fa-bullseye"></i> Capítulo 14</span>
+                    <h3 style="font-family: var(--font-heading); font-size: 16px; color: var(--navy-900); margin-bottom: 8px;">Compromisso com o Futuro</h3>
+                    <p style="font-size: 13px; line-height: 1.55; color: var(--gray-700);">
+                        A transformação cultural é contínua e exige compromisso das empresas, lideranças e de cada profissional para construir ambientes colaborativos e prontos para o futuro.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Imagem Banner Institucional -->
+            <div style="border-radius: 12px; overflow: hidden; margin: 16px 0; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
+                <img src="BannerFeminino.jpg" alt="Comitê Feminino ABRAMAN" style="width: 100%; height: auto; display: block;">
+            </div>
+
+            <div class="action-box box-best-practices">
+                <div class="box-title"><i class="fa-solid fa-flag"></i> Esperamos que esta cartilha inspire as empresas a:</div>
+                <ul class="action-list">
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Fortalecer políticas e indicadores claros de diversidade;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Ampliar a participação feminina em todos os níveis e especialidades;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Desenvolver lideranças inclusivas e eliminar barreiras físicas e culturais;</li>
+                    <li><i class="fa-solid fa-circle-check list-bullet"></i> Promover ambientes seguros, respeitosos e colaborativos.</li>
+                </ul>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Capítulos 13 e 14 • Compromisso com o Futuro</span>
+                <span class="page-number-tag">17</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p17)
+
+    # ---------------- PAGE 18: PALAVRAS FINAIS ----------------
+    p18 = """
+    <div class="mag-page" id="page-18" data-page="18" data-title="Palavras Finais e Encerramento">
+        <div class="page-inner">
+            <div class="page-editorial-header">
+                <span class="header-left-tag"><i class="fa-solid fa-ribbon"></i> Mensagem de Encerramento</span>
+                <span class="header-right-meta">Palavras Finais</span>
+            </div>
+
+            <span class="chapter-badge"><i class="fa-solid fa-heart"></i> Mensagem Final</span>
+            <h2 class="chapter-title">Palavras Finais</h2>
+
+            <p class="editorial-lead">
+                A diversidade de gênero não representa apenas uma oportunidade de ampliar a representatividade feminina. Ela representa a possibilidade de construir organizações mais inovadoras, colaborativas, resilientes e preparadas para responder aos desafios de um setor em constante transformação.
+            </p>
+
+            <p class="editorial-lead">
+                Na manutenção e gestão de ativos, onde decisões técnicas impactam diretamente a segurança das pessoas, a confiabilidade dos ativos e a sustentabilidade dos negócios, ampliar a diversidade significa fortalecer a capacidade de aprender, inovar e evoluir continuamente.
+            </p>
+
+            <div class="quote-highlight" style="border-left-color: var(--rose-600); background: linear-gradient(135deg, var(--rose-50), #FFFFFF);">
+                <p>"Construir ambientes inclusivos não é responsabilidade exclusiva da liderança, do Comitê Feminino ou das áreas de gestão de pessoas. É um compromisso compartilhado por todos aqueles que acreditam que equipes diversas produzem soluções mais completas, decisões mais equilibradas e organizações mais fortes."</p>
+            </div>
+
+            <p class="editorial-lead">
+                Que esta cartilha seja um convite à reflexão, mas, sobretudo, <strong>à ação</strong>. Que cada organização encontre aqui inspiração para revisar práticas, desenvolver pessoas e construir uma cultura em que respeito, equidade e colaboração façam parte do cotidiano.
+            </p>
+
+            <p class="editorial-lead" style="font-weight: 600; color: var(--navy-900);">
+                Porque promover a diversidade de gênero é, acima de tudo, investir no futuro da manutenção, da gestão de ativos e das pessoas que fazem esse setor evoluir.
+            </p>
+
+            <div style="margin-top: 30px; text-align: center; border-top: 1.5px dashed var(--rose-300); padding-top: 20px;">
+                <div style="font-family: var(--font-heading); font-size: 15px; font-weight: 800; color: var(--navy-900);">COMITÊ FEMININO ABRAMAN</div>
+                <div style="font-size: 13px; font-weight: 600; color: var(--rose-600); margin-top: 4px;">Subcomitê Diversidade, Inclusão e Acessibilidade (DIA)</div>
+                <div style="font-size: 12px; color: var(--gray-600); margin-top: 4px;">Associação Brasileira de Manutenção e Gestão de Ativos</div>
+            </div>
+
+            <div class="page-editorial-footer">
+                <span class="footer-title">Comitê Feminino ABRAMAN • Palavras Finais</span>
+                <span class="page-number-tag">18</span>
+            </div>
+        </div>
+    </div>
+    """
+    pages_html.append(p18)
+
+    # ---------------- PAGE 19: CONTRACAPA (Full Bleed) ----------------
+    p19 = """
+    <div class="mag-page full-bleed-cover" id="page-19" data-page="19" data-title="Contracapa">
+        <img src="ChatGPT Image Aug 31, 2026, 07_59_24 PM.png" alt="Contracapa - Comitê Feminino ABRAMAN" class="cover-img">
+    </div>
+    """
+    pages_html.append(p19)
+
+    # Join pages
+    all_pages_html = "\n".join(pages_html)
+
+    # ---------------- JAVASCRIPT LOGIC ----------------
+    js_content = """
+    <script>
+        let currentPage = 1;
+        const totalPages = 19;
+        let isScrollMode = false;
+        let currentZoom = 1;
+        let isSpeaking = false;
+        let synth = window.speechSynthesis;
+        let currentUtterance = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedChecklist();
+            updatePaginationUI();
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT') return;
+                if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                    e.preventDefault();
+                    nextPage();
+                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    prevPage();
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    goToPage(1);
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    goToPage(totalPages);
+                }
+            });
+        });
+
+        function goToPage(page) {
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+
+            if (isScrollMode) {
+                const el = document.getElementById('page-' + page);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else {
+                document.querySelectorAll('.mag-page').forEach(p => p.classList.remove('active-page'));
+                const activeEl = document.getElementById('page-' + page);
+                if (activeEl) {
+                    activeEl.classList.add('active-page');
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            if (isSpeaking) {
+                stopTTS();
+            }
+
+            updatePaginationUI();
+            closeTOC();
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                goToPage(currentPage - 1);
+            }
+        }
+
+        function updatePaginationUI() {
+            document.getElementById('pageIndicator').innerText = `Pág. ${currentPage} / ${totalPages}`;
+            
+            // Highlight in TOC
+            document.querySelectorAll('.toc-list a').forEach((link, idx) => {
+                if (idx + 1 === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        function toggleMode() {
+            isScrollMode = !isScrollMode;
+            const btn = document.getElementById('btnMode');
+            if (isScrollMode) {
+                document.body.classList.add('mode-scroll');
+                btn.innerHTML = '<i class="fa-solid fa-book-open"></i> <span class="btn-text">Modo Revista</span>';
+                btn.classList.add('active');
+            } else {
+                document.body.classList.remove('mode-scroll');
+                btn.innerHTML = '<i class="fa-solid fa-scroll"></i> <span class="btn-text">Modo Leitura</span>';
+                btn.classList.remove('active');
+                goToPage(currentPage);
+            }
+        }
+
+        // Table of Contents
+        function toggleTOC() {
+            const drawer = document.getElementById('tocDrawer');
+            const backdrop = document.getElementById('tocBackdrop');
+            drawer.classList.toggle('open');
+            backdrop.classList.toggle('open');
+        }
+
+        function closeTOC() {
+            document.getElementById('tocDrawer').classList.remove('open');
+            document.getElementById('tocBackdrop').classList.remove('open');
+        }
+
+        // Zoom Controls
+        function zoomIn() {
+            if (currentZoom < 1.4) {
+                currentZoom += 0.1;
+                applyZoom();
+            }
+        }
+
+        function zoomOut() {
+            if (currentZoom > 0.8) {
+                currentZoom -= 0.1;
+                applyZoom();
+            }
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            applyZoom();
+        }
+
+        function applyZoom() {
+            document.querySelector('.magazine-viewport').style.transform = `scale(${currentZoom})`;
+            document.querySelector('.magazine-viewport').style.transformOrigin = 'top center';
+        }
+
+        // Fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`Erro ao entrar em tela cheia: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // TTS / Audio Narration
+        function toggleTTS() {
+            if (!synth) {
+                alert('Seu navegador não suporta leitura em voz alta.');
+                return;
+            }
+
+            if (isSpeaking) {
+                stopTTS();
+                return;
+            }
+
+            const activePageEl = document.getElementById('page-' + currentPage);
+            if (!activePageEl) return;
+
+            let textToRead = activePageEl.innerText;
+            if (!textToRead.trim()) return;
+
+            currentUtterance = new SpeechSynthesisUtterance(textToRead);
+            currentUtterance.lang = 'pt-BR';
+            currentUtterance.rate = 1.05;
+
+            currentUtterance.onstart = () => {
+                isSpeaking = true;
+                document.getElementById('ttsBar').classList.add('playing');
+                document.getElementById('btnTTS').classList.add('active');
+                document.getElementById('btnTTS').innerHTML = '<i class="fa-solid fa-volume-xmark"></i> <span class="btn-text">Parar Áudio</span>';
+            };
+
+            currentUtterance.onend = () => {
+                stopTTS();
+            };
+
+            currentUtterance.onerror = () => {
+                stopTTS();
+            };
+
+            synth.speak(currentUtterance);
+        }
+
+        function stopTTS() {
+            if (synth) {
+                synth.cancel();
+            }
+            isSpeaking = false;
+            document.getElementById('ttsBar').classList.remove('playing');
+            document.getElementById('btnTTS').classList.remove('active');
+            document.getElementById('btnTTS').innerHTML = '<i class="fa-solid fa-volume-high"></i> <span class="btn-text">Ouvir</span>';
+        }
+
+        // Checklist State Persistence
+        function toggleCheck(id) {
+            const chk = document.getElementById(id);
+            if (chk) {
+                chk.checked = !chk.checked;
+                saveChecklist();
+            }
+        }
+
+        function saveChecklist() {
+            const checks = {};
+            document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach(c => {
+                checks[c.id] = c.checked;
+            });
+            localStorage.setItem('cartilha_fem_checks', JSON.stringify(checks));
+        }
+
+        function loadSavedChecklist() {
+            const saved = localStorage.getItem('cartilha_fem_checks');
+            if (saved) {
+                try {
+                    const checks = JSON.parse(saved);
+                    for (let id in checks) {
+                        const el = document.getElementById(id);
+                        if (el) el.checked = checks[id];
+                    }
+                } catch(e) {}
+            }
+        }
+    </script>
+    """
+
+    # ---------------- FULL HTML DOCUMENT TEMPLATE ----------------
+    html_main = f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Digital: Diversidade de Gênero na Manutenção e Gestão de Ativos • ABRAMAN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        {css_common}
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="app-header">
+        <div class="brand-section">
+            <div class="brand-logo-badge">
+                <div class="brand-icon-circle"><i class="fa-solid fa-venus"></i></div>
+                <div class="brand-title-wrap">
+                    <span class="brand-main-title">ABRAMAN MULHER</span>
+                    <span class="brand-sub-title">Comitê Feminino • Subcomitê DIA</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-controls">
+            <button class="btn-ctrl" onclick="toggleTOC()" title="Abrir Sumário">
+                <i class="fa-solid fa-bars"></i> <span class="btn-text">Sumário</span>
+            </button>
+
+            <button class="btn-ctrl" id="btnMode" onclick="toggleMode()" title="Alternar entre modo revista e modo leitura contínua">
+                <i class="fa-solid fa-scroll"></i> <span class="btn-text">Modo Leitura</span>
+            </button>
+
+            <button class="btn-ctrl" id="btnTTS" onclick="toggleTTS()" title="Ler em voz alta (Áudio)">
+                <i class="fa-solid fa-volume-high"></i> <span class="btn-text">Ouvir</span>
+            </button>
+
+            <button class="btn-ctrl" onclick="zoomIn()" title="Aumentar Zoom">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </button>
+
+            <button class="btn-ctrl" onclick="zoomOut()" title="Diminuir Zoom">
+                <i class="fa-solid fa-magnifying-glass-minus"></i>
+            </button>
+
+            <button class="btn-ctrl" onclick="toggleFullscreen()" title="Tela Cheia">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+
+            <a href="print_magazine.html" target="_blank" class="btn-ctrl btn-accent" title="Versão A4 para Salvar em PDF ou Imprimir">
+                <i class="fa-solid fa-file-pdf"></i> <span class="btn-text">Gerar PDF</span>
+            </a>
+
+            <div class="page-indicator-pill" id="pageIndicator">Pág. 1 / 19</div>
+        </div>
+    </header>
+
+    <!-- Floating Arrow Navigators -->
+    <button class="floating-nav nav-prev" onclick="prevPage()" title="Página Anterior (Seta Esquerda)">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="floating-nav nav-next" onclick="nextPage()" title="Próxima Página (Seta Direita / Espaço)">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Table of Contents Drawer -->
+    <div class="toc-backdrop" id="tocBackdrop" onclick="closeTOC()"></div>
+    <aside class="toc-drawer" id="tocDrawer">
+        <div class="toc-header">
+            <h3><i class="fa-solid fa-book-bookmark"></i> Sumário</h3>
+            <button class="toc-close-btn" onclick="closeTOC()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="javascript:goToPage(1)"><span>Capa Oficial</span> <span>01</span></a></li>
+            <li><a href="javascript:goToPage(2)"><span>Mensagens Institucionais</span> <span>02</span></a></li>
+            <li><a href="javascript:goToPage(3)"><span>Sumário Geral</span> <span>03</span></a></li>
+            <li><a href="javascript:goToPage(4)"><span>Cap. 1: Por que esta cartilha?</span> <span>04</span></a></li>
+            <li><a href="javascript:goToPage(5)"><span>Cap. 2: Entendendo a Diversidade</span> <span>05</span></a></li>
+            <li><a href="javascript:goToPage(6)"><span>Cap. 3: Diversidade na Manutenção</span> <span>06</span></a></li>
+            <li><a href="javascript:goToPage(7)"><span>Cap. 4: Diversidade em Números</span> <span>07</span></a></li>
+            <li><a href="javascript:goToPage(8)"><span>Cap. 5: Desafios das Mulheres</span> <span>08</span></a></li>
+            <li><a href="javascript:goToPage(9)"><span>Cap. 5: Liderança Inclusiva</span> <span>09</span></a></li>
+            <li><a href="javascript:goToPage(10)"><span>Cap. 6: Desenvolvimento & Carreira</span> <span>10</span></a></li>
+            <li><a href="javascript:goToPage(11)"><span>Cap. 7: Maternidade</span> <span>11</span></a></li>
+            <li><a href="javascript:goToPage(12)"><span>Cap. 8: Maternidade Atípica</span> <span>12</span></a></li>
+            <li><a href="javascript:goToPage(13)"><span>Cap. 9: Barreiras Físicas</span> <span>13</span></a></li>
+            <li><a href="javascript:goToPage(14)"><span>Cap. 10: Barreiras Culturais</span> <span>14</span></a></li>
+            <li><a href="javascript:goToPage(15)"><span>Cap. 11: Microagressões</span> <span>15</span></a></li>
+            <li><a href="javascript:goToPage(16)"><span>Cap. 12: Homens como Aliados</span> <span>16</span></a></li>
+            <li><a href="javascript:goToPage(17)"><span>Cap. 13/14: Comitê & Futuro</span> <span>17</span></a></li>
+            <li><a href="javascript:goToPage(18)"><span>Palavras Finais</span> <span>18</span></a></li>
+            <li><a href="javascript:goToPage(19)"><span>Contracapa</span> <span>19</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- TTS Floating Status Bar -->
+    <div class="tts-status-bar" id="ttsBar">
+        <i class="fa-solid fa-circle-waveform-lines fa-fade" style="color: var(--rose-400); font-size: 16px;"></i>
+        <span>Reproduzindo áudio do capítulo em voz alta...</span>
+        <button onclick="stopTTS()" style="background: none; border: none; color: #CBD5E1; cursor: pointer; margin-left: 10px;">
+            <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Main Viewport -->
+    <main class="main-wrapper">
+        <div class="magazine-viewport">
+            {all_pages_html}
+        </div>
+    </main>
+
+    {js_content}
+</body>
+</html>
+"""
+
+    # ---------------- PRINT / PDF VERSION ----------------
+    css_print = """
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #FFFFFF;
+        color: #1E293B;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .print-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #0B192C;
+        color: white;
+        padding: 12px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 9999;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .print-btn {
+        background: #E11D48;
+        color: white;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    @media print {
+        .print-bar {
+            display: none !important;
+        }
+    }
+
+    .print-container {
+        width: 210mm;
+        margin: 0 auto;
+        padding-top: 60px;
+    }
+
+    @media print {
+        .print-container {
+            width: 210mm;
+            padding-top: 0;
+        }
+    }
+
+    .mag-page {
+        width: 210mm;
+        height: 297mm;
+        max-height: 297mm;
+        page-break-before: always;
+        position: relative;
+        background: white;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mag-page:first-child {
+        page-break-before: auto;
+    }
+
+    .mag-page.full-bleed-cover {
+        padding: 0;
+        background: #000;
+    }
+
+    .mag-page.full-bleed-cover img.cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .page-inner {
+        padding: 16mm 18mm 14mm;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .page-editorial-header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1.5px solid #FECDD3;
+        padding-bottom: 3mm;
+        margin-bottom: 5mm;
+        font-size: 10px;
+        font-weight: 700;
+        color: #E11D48;
+        text-transform: uppercase;
+    }
+
+    .chapter-badge {
+        display: inline-block;
+        background: #FFF1F2;
+        border-left: 4px solid #E11D48;
+        padding: 2mm 4mm;
+        font-size: 9.5px;
+        font-weight: 800;
+        color: #9F1239;
+        text-transform: uppercase;
+        margin-bottom: 2mm;
+    }
+
+    .chapter-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 19px;
+        font-weight: 800;
+        color: #0B192C;
+        line-height: 1.25;
+        margin-bottom: 3mm;
+    }
+
+    .section-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: #E11D48;
+        margin-top: 3mm;
+        margin-bottom: 2mm;
+    }
+
+    .quote-highlight {
+        background: #FFF1F2;
+        border-left: 4px solid #E11D48;
+        padding: 3.5mm 5mm;
+        border-radius: 0 6px 6px 0;
+        margin: 3mm 0;
+    }
+
+    .quote-highlight p {
+        font-family: 'Playfair Display', serif;
+        font-size: 12px;
+        font-style: italic;
+        color: #0B192C;
+        line-height: 1.45;
+    }
+
+    p.editorial-lead {
+        font-size: 11.5px;
+        line-height: 1.5;
+        color: #334155;
+        margin-bottom: 2.5mm;
+        text-align: justify;
+    }
+
+    .cards-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3mm;
+        margin: 3mm 0;
+    }
+
+    .cards-grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2.5mm;
+        margin: 2.5mm 0;
+    }
+
+    .info-card {
+        border: 1px solid #E2E8F0;
+        border-top: 3px solid #FB7185;
+        border-radius: 6px;
+        padding: 3mm;
+        background: #FFFFFF;
+    }
+
+    .info-card-header {
+        display: flex;
+        align-items: center;
+        gap: 2mm;
+        margin-bottom: 1.5mm;
+    }
+
+    .info-card-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        background: #FFE4E6;
+        color: #E11D48;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .info-card-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: #0B192C;
+    }
+
+    .info-card p {
+        font-size: 10px;
+        line-height: 1.4;
+        color: #475569;
+    }
+
+    .action-box {
+        border-radius: 6px;
+        padding: 3.5mm 4.5mm;
+        margin: 3mm 0;
+    }
+
+    .action-box.box-leadership {
+        background: #EFF6FF;
+        border-left: 4px solid #1E3A8A;
+    }
+
+    .action-box.box-best-practices {
+        background: #FFF1F2;
+        border-left: 4px solid #E11D48;
+    }
+
+    .action-box.box-key-message {
+        background: #0B192C;
+        color: white;
+    }
+
+    .action-box.box-reflection {
+        background: #FFFBEB;
+        border-left: 4px solid #F59E0B;
+    }
+
+    .box-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 2mm;
+    }
+
+    .action-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5mm;
+    }
+
+    .action-list li {
+        font-size: 10.5px;
+        line-height: 1.35;
+        color: #1E293B;
+    }
+
+    .checklist-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 2mm;
+        margin-bottom: 1.5mm;
+        font-size: 10.5px;
+        color: #78350F;
+    }
+
+    .stat-banner {
+        display: flex;
+        align-items: center;
+        gap: 4mm;
+        background: #FFF1F2;
+        border: 1px dashed #FDA4AF;
+        border-radius: 6px;
+        padding: 3mm;
+        margin: 2.5mm 0;
+    }
+
+    .stat-number {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 28px;
+        font-weight: 900;
+        color: #E11D48;
+        line-height: 1;
+    }
+
+    .stat-desc {
+        font-size: 10.5px;
+        line-height: 1.35;
+        color: #0B192C;
+    }
+
+    .broken-rung-diagram {
+        background: #0B192C;
+        border-radius: 6px;
+        padding: 3.5mm;
+        color: white;
+        margin: 2.5mm 0;
+    }
+
+    .broken-rung-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 11.5px;
+        font-weight: 800;
+        color: #FB7185;
+        margin-bottom: 2.5mm;
+        text-align: center;
+    }
+
+    .rung-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8mm;
+    }
+
+    .rung-item {
+        display: flex;
+        align-items: center;
+        gap: 2mm;
+    }
+
+    .rung-label {
+        width: 130px;
+        font-size: 9.5px;
+        color: #CBD5E1;
+        text-align: right;
+    }
+
+    .rung-progress-track {
+        flex: 1;
+        height: 15px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .rung-progress-fill {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 2mm;
+        font-size: 9px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .page-editorial-footer {
+        border-top: 1px solid #E2E8F0;
+        padding-top: 2.5mm;
+        display: flex;
+        justify-content: space-between;
+        font-size: 9.5px;
+        color: #64748B;
+    }
+
+    .page-editorial-footer .page-number-tag {
+        font-weight: 800;
+        color: #E11D48;
+        font-size: 11px;
+    }
+    """
+
+    html_print = f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Revista Digital ABRAMAN Mulher • Versão Impressão / PDF A4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        {css_print}
+    </style>
+</head>
+<body>
+    <div class="print-bar">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-print" style="color: #FB7185; font-size: 18px;"></i>
+            <strong>Revista Digital: Comitê Feminino ABRAMAN • Exportação PDF A4</strong>
+        </div>
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-download"></i> Imprimir / Salvar em PDF (Ctrl + P)
+        </button>
+    </div>
+
+    <div class="print-container">
+        {all_pages_html}
+    </div>
+</body>
+</html>
+"""
+
+    # Write files
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_main)
+    print("Created index.html")
+
+    with open("Cartilha Comitê versão WEB.html", "w", encoding="utf-8") as f:
+        f.write(html_main)
+    print("Created Cartilha Comitê versão WEB.html")
+
+    with open("print_magazine.html", "w", encoding="utf-8") as f:
+        f.write(html_print)
+    print("Created print_magazine.html")
+
+if __name__ == '__main__':
+    generate_html_files()

@@ -1,0 +1,418 @@
+[0] Diversidade de Gênero na Manutenção e Gestão de Ativos - Guia de Boas Práticas para Lideranças e Organizações
+[2] Comitê Feminino ABRAMAN
+[3] Subcomitê Diversidade, Inclusão e Acessibilidade (DIA)
+[5] Mensagem da Presidente da ABRAMAN
+[6] (Espaço institucional para mensagem da Presidência.)
+[7] Sugestão de direcionamento:
+[8] A manutenção e a gestão de ativos vivem um momento de transformação impulsionado pela inovação, pela digitalização e pelo desenvolvimento de pessoas. Nesse cenário, ampliar a diversidade de perspectivas é fundamental para fortalecer a capacidade das organizações de responder aos desafios atuais e futuros.
+[9] Acreditamos que promover ambientes inclusivos significa criar condições para que talentos diversos possam contribuir plenamente para a segurança, a confiabilidade e a sustentabilidade dos nossos ativos.
+[10] Esta cartilha representa mais um passo do compromisso da ABRAMAN com a valorização das pessoas, o fortalecimento das lideranças e a construção de um setor cada vez mais preparado para o futuro.
+[12] Mensagem do Comitê Feminino
+[13] Sugestão de direcionamento:
+[14] O Comitê Feminino da ABRAMAN nasceu com o propósito de ampliar a participação das mulheres na manutenção e na gestão de ativos, promovendo espaços de diálogo, desenvolvimento profissional e compartilhamento de experiências.
+[15] Por meio do Subcomitê Diversidade, Inclusão e Acessibilidade (DIA), buscamos estimular reflexões e disseminar boas práticas que contribuam para ambientes de trabalho mais inclusivos, respeitosos e colaborativos.
+[16] Esta cartilha é resultado desse compromisso coletivo. Mais do que apresentar conceitos, ela convida líderes, profissionais e organizações a refletirem sobre como pequenas mudanças de comportamento e decisões estruturadas podem fortalecer equipes, impulsionar a inovação e ampliar oportunidades para todos.
+[17] Construir ambientes mais diversos é uma responsabilidade compartilhada e um caminho para organizações mais preparadas para enfrentar os desafios do futuro.
+[19] CAPÍTULO 1
+[20] Por que esta cartilha?
+[21] As organizações vivem um momento de profundas transformações. Novas tecnologias, mudanças no perfil da força de trabalho, maior complexidade operacional e a necessidade crescente de inovação exigem ambientes capazes de reunir diferentes conhecimentos, experiências e perspectivas.
+[22] Nesse contexto, a diversidade de gênero deixa de ser apenas uma pauta relacionada à responsabilidade social para tornar-se um elemento estratégico para o fortalecimento das organizações.
+[23] No setor de manutenção e gestão de ativos, onde segurança, confiabilidade e excelência operacional são prioridades permanentes, construir equipes diversas significa ampliar a capacidade de análise, estimular soluções inovadoras e fortalecer a tomada de decisão.
+[24] Esta cartilha foi desenvolvida pelo Subcomitê Diversidade, Inclusão e Acessibilidade (DIA), do Comitê Feminino da ABRAMAN, com o objetivo de promover conhecimento, incentivar reflexões e compartilhar práticas que contribuam para ambientes mais inclusivos.
+[25] Ao longo dos próximos capítulos serão apresentados conceitos fundamentais, dados, desafios, exemplos e recomendações voltadas às lideranças e às organizações, sempre considerando a realidade da manutenção, da engenharia e da gestão de ativos.
+[26] Nosso propósito é contribuir para que a diversidade seja compreendida não apenas como um valor organizacional, mas como uma estratégia para fortalecer pessoas, processos e resultados.
+[27] Sugestão Imagens
+[30] CAPÍTULO 2
+[31] Entendendo a Diversidade de Gênero
+[32] Entenda o tema
+[33] As organizações são formadas por pessoas com diferentes histórias, experiências, competências e perspectivas. Essa diversidade representa uma fonte de aprendizado, inovação e desenvolvimento quando encontra um ambiente capaz de valorizar as diferenças e promover oportunidades equitativas.
+[34] Diversidade de gênero refere-se ao reconhecimento e ao respeito às diferentes identidades e expressões de gênero, assegurando que todas as pessoas tenham oportunidades de participação, desenvolvimento e crescimento profissional.
+[35] Mais do que ampliar a representatividade, promover a diversidade significa construir ambientes em que as diferenças sejam reconhecidas como um fator que fortalece a colaboração, a criatividade e a qualidade das decisões.
+[36] Quando diferentes perspectivas são consideradas, as organizações ampliam sua capacidade de compreender problemas complexos, identificar riscos e desenvolver soluções mais completas.
+[38] Diversidade, Inclusão, Equidade, Acessibilidade e Pertencimento
+[39] Embora frequentemente utilizados em conjunto, esses conceitos possuem significados complementares.
+[40] Diversidade
+[41] Refere-se à presença de pessoas com diferentes características, experiências, identidades e trajetórias.
+[42] É responder à pergunta:
+[43] Quem faz parte da organização?
+[44] Inclusão
+[45] Significa criar condições para que todas as pessoas participem ativamente dos processos, das decisões e das oportunidades existentes.
+[46] É responder à pergunta:
+[47] Quem consegue participar?
+[48] Equidade
+[49] Reconhece que diferentes pessoas podem necessitar de diferentes formas de apoio para alcançar oportunidades equivalentes.
+[50] Tratar todos de forma igual nem sempre significa promover justiça.
+[51] Equidade consiste em oferecer condições compatíveis com as necessidades de cada pessoa para que todos possam desenvolver plenamente seu potencial.
+[52] Acessibilidade
+[53] Corresponde à eliminação de barreiras físicas, comunicacionais, tecnológicas e atitudinais que dificultam a participação das pessoas.
+[54] Embora frequentemente associada às pessoas com deficiência, a acessibilidade beneficia todos os profissionais e contribui para ambientes mais seguros e eficientes.
+[55] Pertencimento
+[56] Pertencimento é o resultado esperado de todos esses elementos.
+[57] É quando as pessoas sentem que podem contribuir com autenticidade, são respeitadas por suas competências e reconhecidas como parte importante da organização.
+[58] Diversidade é convidar pessoas diferentes para a equipe.
+[59] Inclusão é garantir que elas participem.
+[60] Equidade é oferecer condições para que todas possam se desenvolver.
+[61] Pertencimento é fazer com que todas se sintam valorizadas.
+[62] Sugestão Imagens
+[64] CAPÍTULO 3
+[65] Diversidade de Gênero na Manutenção e Gestão de Ativos
+[66] Por que este tema importa?
+[67] Os setores de manutenção, engenharia e gestão de ativos desempenham papel estratégico na continuidade operacional das organizações. Suas decisões influenciam diretamente a disponibilidade dos ativos, a segurança das pessoas, a gestão de riscos, os custos operacionais e a sustentabilidade dos negócios.
+[68] Historicamente, essas áreas foram compostas predominantemente por profissionais do sexo masculino. Embora esse cenário venha mudando gradualmente, a participação feminina ainda permanece reduzida em diversas funções técnicas, operacionais e de liderança.
+[69] Promover a diversidade de gênero nesse contexto não significa apenas ampliar a representatividade feminina. Significa fortalecer a capacidade das organizações de reunir diferentes formas de pensar, analisar problemas sob múltiplas perspectivas e desenvolver soluções mais inovadoras para desafios cada vez mais complexos.
+[70] Estudos internacionais demonstram que equipes diversas apresentam melhor capacidade de resolução de problemas, maior criatividade, melhor gestão de riscos e decisões mais consistentes.
+[71] Na manutenção e gestão de ativos, onde pequenas decisões podem gerar impactos significativos sobre segurança, confiabilidade e desempenho operacional, ampliar a diversidade de perspectivas representa um importante diferencial competitivo.
+[72] Promover ambientes inclusivos significa ampliar o acesso aos talentos, fortalecer a inovação e preparar as organizações para responder aos desafios de um setor em constante evolução.
+[73] Para refletir
+[74] Sua organização possui diversidade suficiente para enfrentar problemas complexos sob diferentes perspectivas?
+[75] Mensagem-chave
+[76] A diversidade fortalece pessoas. Pessoas fortalecem processos. Processos fortalecem resultados.
+[78] CAPÍTULO 4
+[79] Diversidade de Gênero em Números
+[80] Os desafios relacionados à diversidade de gênero podem ser observados por meio de indicadores que revelam diferenças importantes na remuneração, na ocupação de cargos de liderança e nas oportunidades de desenvolvimento profissional.
+[81] Esses dados demonstram que a promoção da equidade ainda representa um desafio para organizações de diferentes setores, incluindo a manutenção e a gestão de ativos.
+[82] Diferença salarial
+[83] Segundo o 3º Relatório de Transparência Salarial e Critérios Remuneratórios, divulgado pelo Governo Federal com base na RAIS de 2024, as mulheres recebem, em média, 20,9% menos do que os homens nas empresas com 100 ou mais empregados.
+[85] Segundo o estudo Women in the Workplace, da McKinsey & Company e LeanIn.Org:
+[86] apenas 29% dos cargos de alta liderança são ocupados por mulheres;
+[87] para cada 100 homens promovidos ao primeiro cargo de gestão, apenas 81 mulheres recebem essa oportunidade;
+[88] quando analisado o recorte racial, apenas 53 mulheres negras são promovidas para cada 100 homens.
+[89] Esse fenômeno é conhecido como "Broken Rung" (Degrau Quebrado) e evidencia que a principal barreira à ascensão profissional ocorre logo no início da trajetória gerencial.
+[90] O que esses números revelam?
+[91] Os indicadores demonstram que o desafio da diversidade de gênero não está relacionado à competência das profissionais, mas às barreiras que influenciam sua trajetória ao longo da carreira.
+[92] Para organizações que atuam na manutenção e gestão de ativos, investir em equidade significa ampliar o acesso a talentos, fortalecer a inovação e construir equipes mais preparadas para responder aos desafios técnicos e estratégicos do setor.
+[93] CAPÍTULO 5
+[94] Os Desafios das Mulheres no Ambiente de Trabalho
+[95] "Os maiores desafios para a equidade de gênero nem sempre são visíveis. Muitos estão presentes nas decisões cotidianas, nas oportunidades que deixam de ser oferecidas e nos vieses que influenciam a forma como avaliamos pessoas e potencial."
+[97] Entenda o tema
+[98] Nas últimas décadas, a participação feminina no mercado de trabalho evoluiu de forma significativa, ampliando sua presença em diferentes setores da economia, inclusive em áreas técnicas, industriais e de liderança.
+[99] Apesar desse avanço, estudos nacionais e internacionais demonstram que ainda existem diferenças importantes relacionadas ao acesso às oportunidades, ao desenvolvimento profissional e à ocupação de posições estratégicas.
+[100] Na manutenção e gestão de ativos, essas diferenças tornam-se ainda mais evidentes. Trata-se de um setor historicamente masculino, caracterizado por atividades operacionais, ambientes industriais e funções técnicas que, durante muitos anos, foram associadas predominantemente aos homens.
+[101] Embora esse cenário esteja mudando, muitas profissionais ainda encontram desafios relacionados à representatividade, ao reconhecimento de suas competências, ao acesso a projetos estratégicos e à progressão na carreira.
+[102] Reconhecer essas barreiras não significa apontar culpados. Significa compreender que muitos dos obstáculos existentes são resultado de construções históricas e culturais e que podem ser transformados por meio de liderança, políticas organizacionais e mudanças de comportamento.
+[104] Por que isso importa para a manutenção e gestão de ativos?
+[105] A manutenção moderna depende de equipes multidisciplinares capazes de analisar problemas complexos, antecipar riscos e tomar decisões em ambientes de elevada criticidade.
+[106] Quando parte do potencial disponível no mercado encontra barreiras para ingressar, permanecer ou crescer profissionalmente, as organizações deixam de aproveitar competências que poderiam fortalecer sua capacidade técnica e sua competitividade.
+[107] Promover equidade significa ampliar o acesso aos talentos, enriquecer a diversidade de perspectivas e criar condições para que profissionais sejam reconhecidos por suas competências e resultados.
+[108] Mais do que uma questão de representatividade, trata-se de uma estratégia para fortalecer a inovação, a segurança operacional e a sustentabilidade das organizações.
+[110] Os desafios mais frequentes
+[111] Embora cada organização possua sua própria realidade, alguns desafios continuam sendo observados com frequência:
+[112] Representatividade reduzida
+[113] Em diversas empresas, especialmente em atividades operacionais e técnicas, as mulheres ainda representam uma parcela pequena da força de trabalho, o que pode reduzir referências profissionais, redes de apoio e oportunidades de desenvolvimento.
+[114] Estereótipos de gênero
+[115] Crenças sobre quais atividades seriam "mais adequadas" para homens ou mulheres ainda influenciam, consciente ou inconscientemente, decisões relacionadas à contratação, distribuição de atividades e promoção.
+[116] Viés inconsciente
+[117] Todos possuem vieses inconscientes.
+[118] Esses atalhos mentais podem influenciar avaliações de desempenho, decisões de recrutamento e identificação de potenciais sem que exista intenção de discriminar.
+[119] Reconhecê-los é o primeiro passo para reduzir seus impactos.
+[120] Desigualdade de oportunidades
+[121] O acesso a projetos estratégicos, atividades em campo, treinamentos especializados e posições de liderança nem sempre ocorre de forma equilibrada, comprometendo o desenvolvimento profissional ao longo da carreira.
+[122] Maternidade e responsabilidades de cuidado
+[123] Ainda é comum que responsabilidades familiares sejam associadas predominantemente às mulheres, gerando pressupostos sobre disponibilidade para viagens, projetos ou funções de maior responsabilidade.
+[124] Barreiras físicas e culturais
+[125] Infraestrutura inadequada, ausência de EPIs adaptados, estereótipos, microagressões e resistência à liderança feminina são exemplos de obstáculos que podem comprometer o sentimento de pertencimento e o desenvolvimento profissional.
+[127] Liderança Inclusiva na Prática
+[128] Lideranças desempenham papel decisivo na construção de ambientes mais equitativos.
+[129] Algumas atitudes fazem diferença:
+[130] distribuir oportunidades com base em competências e desempenho;
+[131] estimular a participação de todos nas decisões técnicas;
+[132] promover feedbacks objetivos e transparentes;
+[133] reconhecer contribuições de forma imparcial;
+[134] desenvolver novas lideranças;
+[135] agir rapidamente diante de comportamentos discriminatórios;
+[136] incentivar uma cultura baseada em respeito, colaboração e segurança psicológica.
+[137] A cultura organizacional é construída pelas decisões diárias da liderança.
+[139] Boas práticas para as organizações
+[140] Organizações comprometidas com a equidade podem fortalecer seus ambientes por meio de iniciativas como:
+[141] processos transparentes de recrutamento e promoção;
+[142] acompanhamento de indicadores de diversidade;
+[143] programas de desenvolvimento e mentoria;
+[144] revisão periódica das políticas de gestão de pessoas;
+[145] incentivo à participação feminina em projetos estratégicos;
+[146] capacitação contínua sobre diversidade, vieses inconscientes e liderança inclusiva;
+[147] canais seguros para acolhimento e tratamento de situações de discriminação.
+[149] Para refletir
+[150] Sua organização...
+[151] □ acompanha indicadores de diversidade?
+[152] □ possui mulheres em funções técnicas e operacionais?
+[153] □ oferece oportunidades iguais de desenvolvimento?
+[154] □ monitora promoções por gênero?
+[155] □ possui critérios claros para acesso à liderança?
+[157] Mensagem-chave
+[158] Os desafios enfrentados pelas mulheres não limitam apenas carreiras individuais. Eles reduzem o potencial inovador das organizações e comprometem a capacidade de desenvolver equipes cada vez mais preparadas para enfrentar os desafios da manutenção e da gestão de ativos.
+[160] CAPÍTULO 6
+[161] Desenvolvimento Profissional e Oportunidades de Carreira
+[162] "O talento abre portas. A equidade garante que todas as pessoas tenham a oportunidade de atravessá-las."
+[163] Entenda o tema
+[164] O desenvolvimento profissional é resultado da combinação entre competências individuais, oportunidades oferecidas pela organização e experiências adquiridas ao longo da carreira.
+[165] Em ambientes industriais e técnicos, esse desenvolvimento costuma estar associado à participação em projetos estratégicos, atividades em campo, treinamentos especializados, desafios operacionais e experiências de liderança.
+[166] Quando o acesso a essas oportunidades não ocorre de forma equilibrada, diferenças de desenvolvimento tendem a se acumular ao longo do tempo, reduzindo a representatividade feminina em posições técnicas e executivas.
+[167] Promover equidade significa garantir que todas as pessoas tenham acesso às condições necessárias para desenvolver seu potencial, independentemente de seu gênero.
+[168] Por que isso importa para a manutenção e gestão de ativos?
+[169] O setor enfrenta desafios crescentes relacionados à sucessão técnica, transformação digital, confiabilidade dos ativos e retenção de conhecimento.
+[170] Desenvolver talentos diversos amplia a capacidade das organizações de formar especialistas, preparar novas lideranças e fortalecer a continuidade operacional.
+[171] Equipes diversas trazem diferentes perspectivas para a solução de problemas, enriquecem os processos decisórios e contribuem para ambientes mais inovadores e colaborativos.
+[173] O que impulsiona uma carreira?
+[174] O crescimento profissional é influenciado por diversos fatores, entre eles:
+[175] acesso a projetos estratégicos;
+[176] participação em atividades de campo;
+[177] programas de capacitação técnica;
+[178] feedback contínuo;
+[179] mentoria e patrocínio de carreira;
+[180] networking profissional;
+[181] processos transparentes de promoção;
+[182] oportunidades de liderança.
+[183] Garantir que esses elementos estejam disponíveis de forma equitativa é essencial para ampliar a diversidade em todos os níveis da organização.
+[185] Liderança Inclusiva na Prática
+[186] Os líderes podem contribuir para o desenvolvimento de talentos ao:
+[187] identificar potenciais com base em competências e desempenho;
+[188] distribuir projetos estratégicos de forma equilibrada;
+[189] incentivar a participação em treinamentos e certificações;
+[190] promover conversas de desenvolvimento de carreira;
+[191] oferecer feedbacks frequentes e construtivos;
+[192] estimular mentorias e sucessão.
+[194] Boas práticas para as organizações
+[195] As organizações podem fortalecer a equidade no desenvolvimento profissional por meio de:
+[196] programas estruturados de mentoria;
+[197] iniciativas de patrocínio de carreira para mulheres em posições técnicas;
+[198] critérios transparentes para promoções e sucessão;
+[199] acompanhamento da participação feminina em programas de liderança;
+[200] indicadores de desenvolvimento e progressão de carreira;
+[201] incentivo à participação em eventos técnicos, congressos e associações profissionais.
+[203] Para refletir
+[204] Na sua organização...
+[205] □ mulheres participam dos principais projetos?
+[206] □ existe equilíbrio na distribuição de treinamentos?
+[207] □ as promoções seguem critérios transparentes?
+[208] □ há mulheres no plano de sucessão?
+[209] □ existem programas de mentoria?
+[211] Mensagem-chave
+[212] Desenvolver talentos é preparar o futuro da organização. Garantir que esse desenvolvimento aconteça de forma equitativa é fortalecer a inovação, a sucessão e a sustentabilidade da manutenção e da gestão de ativos.
+[214] Maternidade
+[215] Construindo ambientes que valorizam pessoas e preservam talentos
+[216] "A maternidade não reduz o potencial de uma profissional. Organizações inclusivas são aquelas capazes de reconhecer diferentes momentos da vida sem limitar oportunidades de desenvolvimento."
+[218] Entenda o tema
+[219] A maternidade faz parte da trajetória de muitas mulheres e representa uma experiência que pode trazer novos desafios pessoais e profissionais. Quando as organizações não possuem políticas, práticas e uma cultura voltada à equidade, esse momento pode impactar o desenvolvimento da carreira, o acesso a oportunidades e a permanência no mercado de trabalho.
+[220] No setor de manutenção e gestão de ativos, onde ainda predominam atividades operacionais, jornadas estruturadas e equipes reduzidas, esses desafios podem ser potencializados. Questões relacionadas ao retorno da licença-maternidade, participação em atividades de campo, viagens e disponibilidade para projetos costumam gerar preocupações tanto para as profissionais quanto para as lideranças.
+[221] Entretanto, é importante compreender que o desafio não está na maternidade, mas na ausência de condições organizacionais que permitam conciliar desenvolvimento profissional e responsabilidades familiares.
+[222] Empresas que investem em políticas de apoio à parentalidade fortalecem o engajamento, reduzem a rotatividade, ampliam a retenção de talentos e demonstram compromisso com uma cultura organizacional mais humana e sustentável.
+[224] Por que isso importa para a manutenção e gestão de ativos?
+[225] A perda de profissionais qualificadas representa um desafio para qualquer organização, especialmente em áreas técnicas, onde o desenvolvimento de competências exige anos de experiência.
+[226] Quando uma empresa cria barreiras ao retorno da maternidade ou reduz as oportunidades de desenvolvimento das mulheres nesse período, ela também compromete sua capacidade de reter conhecimento, formar lideranças e garantir a sucessão técnica.
+[227] Valorizar a maternidade significa preservar talentos, fortalecer equipes e assegurar que a experiência adquirida continue contribuindo para a evolução da organização.
+[229] Liderança Inclusiva na Prática
+[230] A experiência da maternidade é vivenciada de forma única por cada profissional. Por isso, o papel da liderança não é pressupor necessidades, mas estabelecer um diálogo aberto e respeitoso para compreender como apoiar esse momento.
+[231] Boas práticas incluem:
+[232] Planejar o retorno ao trabalho antes do término da licença, promovendo conversas sobre expectativas, necessidades e formas de apoio.
+[233] Garantir que treinamentos, projetos estratégicos e oportunidades de desenvolvimento continuem sendo oferecidos de maneira equitativa.
+[234] Considerar alternativas de flexibilidade quando compatíveis com a atividade desempenhada.
+[235] Manter uma comunicação transparente, respeitosa e livre de julgamentos.
+[236] Evitar pressupostos de que a maternidade reduz o comprometimento ou a disponibilidade da profissional.
+[237] Sensibilizar toda a equipe para compartilhar responsabilidades e fortalecer uma cultura de acolhimento.
+[239] Liderar com equidade significa compreender que apoiar diferentes momentos da vida fortalece equipes mais comprometidas, diversas e resilientes.
+[241] Boas práticas para as organizações
+[242] Algumas iniciativas que contribuem para uma cultura mais inclusiva incluem:
+[243] Programas estruturados de retorno à licença-maternidade.
+[244] Flexibilidade de jornada quando compatível com a atividade.
+[245] Programas de mentoria para mães em retorno à carreira.
+[246] Salas de apoio à amamentação e aleitamento.
+[247] Benefícios voltados à parentalidade.
+[248] Capacitação das lideranças sobre vieses relacionados à maternidade.
+[249] Monitoramento da retenção e do desenvolvimento profissional após a licença.
+[250] Suporte Psicológico para as gestantes e mães que retornam ao ambiente de trabalho, visando reduzir desgaste emocional pela nova jornada no trabalho e familiar.
+[251] Incentivo à corresponsabilidade parental, valorizando também a participação dos pais.
+[253] Para refletir
+[254] Sua organização...
+[255] ☐ acompanha o índice de retorno após a licença-maternidade?
+[256] ☐ possui programas estruturados de acolhimento?
+[257] ☐ monitora a evolução profissional das colaboradoras após a licença?
+[258] ☐ incentiva a corresponsabilidade parental?
+[260] Mensagem-chave
+[261] Valorizar a maternidade é preservar talentos, fortalecer a sucessão técnica e construir organizações capazes de desenvolver pessoas ao longo de toda a sua trajetória profissional.
+[263] Sugestão Imagens
+[266] CAPÍTULO 8
+[267] Maternidade Atípica
+[268] "A equidade começa quando compreendemos que pessoas diferentes enfrentam desafios diferentes e, por isso, podem precisar de formas distintas de apoio para desenvolver plenamente seu potencial."
+[270] Entenda o tema
+[271] A maternidade atípica refere-se à experiência de mães que cuidam de filhos com deficiência, doenças raras, transtornos do neurodesenvolvimento, condições crônicas de saúde ou outras necessidades específicas que demandam acompanhamento contínuo e cuidados diferenciados.
+[272] Essas famílias convivem com uma rotina que frequentemente envolve consultas médicas, terapias, atendimentos multidisciplinares e adaptações constantes, exigindo planejamento, disponibilidade e equilíbrio entre responsabilidades familiares e profissionais.
+[273] No ambiente corporativo, especialmente em setores como manutenção e gestão de ativos, onde muitas funções exigem presença em campo e horários estruturados, essa realidade pode representar desafios adicionais.
+[274] Reconhecer essas necessidades não significa criar privilégios, mas oferecer condições compatíveis para que profissionais altamente qualificadas possam continuar contribuindo para suas equipes e organizações.
+[278] Por que isso importa para a manutenção e gestão de ativos?
+[279] O setor depende de profissionais experientes, capazes de tomar decisões em ambientes complexos e de elevada criticidade.
+[280] Perder talentos por falta de políticas inclusivas representa um custo significativo para as organizações, tanto em conhecimento quanto em continuidade operacional.
+[281] Criar condições para que mães atípicas permaneçam e se desenvolvam profissionalmente fortalece a retenção de talentos, reduz a rotatividade e demonstra maturidade na gestão de pessoas.
+[283] Liderança Inclusiva na Prática
+[284] Uma liderança inclusiva compreende que cada colaboradora possui uma realidade única.
+[285] Boas práticas incluem:
+[286] Desenvolver escuta ativa e empática.
+[287] Construir soluções em conjunto, respeitando as necessidades da profissional e as demandas da operação.
+[288] Avaliar possibilidades de flexibilidade quando compatíveis com a função.
+[289] Garantir igualdade de acesso a oportunidades de desenvolvimento.
+[290] Evitar pressupostos sobre disponibilidade ou comprometimento.
+[291] Promover uma cultura de respeito e acolhimento entre toda a equipe.
+[292] Empatia não significa reduzir expectativas. Significa oferecer condições para que cada profissional possa alcançar seu melhor desempenho.
+[294] Boas práticas para as organizações
+[295] As organizações podem fortalecer o apoio às mães atípicas por meio de:
+[296] Políticas de flexibilidade compatíveis com as atividades exercidas.
+[297] Programas de assistência psicológica e apoio emocional.
+[298] Benefícios voltados às famílias de crianças com necessidades específicas.
+[299] Capacitação das lideranças sobre maternidade atípica.
+[300] Grupos internos de apoio e compartilhamento de experiências.
+[301] Critérios transparentes de desenvolvimento e promoção.
+[302] Avaliação periódica das políticas de inclusão.
+[304] Para refletir
+[305] Sua organização...
+[306] ☐ reconhece a maternidade atípica como um tema de inclusão?
+[307] ☐ possui políticas de apoio às famílias?
+[308] ☐ prepara as lideranças para lidar com diferentes realidades?
+[309] ☐ promove um ambiente psicologicamente seguro?
+[311] Mensagem-chave
+[312] Equidade não significa tratar todas as pessoas da mesma forma. Significa reconhecer diferentes necessidades para que todas tenham oportunidades reais de crescer, contribuir e prosperar.
+[314] Sugestão Imagens
+[322] CAPÍTULO 9
+[323] Ambiente de Trabalho - Barreiras Físicas
+[324] "Um ambiente inclusivo não exige que as pessoas se adaptem ao espaço. É o espaço que deve estar preparado para acolher a diversidade de pessoas que nele trabalham."
+[325] Entenda o tema
+[326] As barreiras físicas são obstáculos presentes na infraestrutura, nos equipamentos, nas ferramentas ou na organização do ambiente de trabalho que podem dificultar ou limitar a participação plena, segura e confortável das pessoas em suas atividades.
+[327] Na indústria, essas barreiras nem sempre são percebidas porque muitos ambientes foram concebidos em uma época em que a força de trabalho era predominantemente masculina. Com o aumento da participação feminina nas áreas de manutenção, operação e engenharia, torna-se necessário revisar instalações, equipamentos e práticas para garantir que todos os profissionais possam desempenhar suas funções com segurança, conforto e autonomia.
+[328] Eliminar barreiras físicas não significa apenas adequar instalações. Significa reconhecer que ambientes mais acessíveis também são mais seguros, eficientes e preparados para receber talentos diversos.
+[330] Por que isso importa para a manutenção e gestão de ativos?
+[331] A manutenção depende de condições adequadas para a execução das atividades.
+[332] Infraestruturas mal planejadas podem comprometer:
+[333] a segurança operacional;
+[334] a ergonomia;
+[335] a produtividade;
+[336] a permanência de profissionais qualificados.
+[337] Investir em ambientes inclusivos reduz riscos, melhora a experiência dos colaboradores e fortalece a cultura de segurança.
+[340] Liderança Inclusiva na Prática
+[341] As lideranças podem contribuir ao:
+[342] identificar limitações da infraestrutura durante visitas de campo;
+[343] incentivar que a equipe reporte dificuldades sem receio;
+[344] envolver diferentes perfis de profissionais em avaliações de melhorias;
+[345] considerar ergonomia e acessibilidade no planejamento das atividades;
+[346] atuar como patrocinadores das melhorias junto às áreas responsáveis.
+[348] Boas práticas para as organizações
+[349] EPIs em diferentes tamanhos, modelagens e condições físicas.
+[350] Uniformes adequados para diferentes biotipos e condição.
+[351] Vestiários e sanitários compatíveis com a diversidade da força de trabalho.
+[352] Ferramentas ergonomicamente adequadas.
+[353] Salas de apoio à amamentação.
+[354] Inclusão da perspectiva da diversidade nos projetos em novas instalações.
+[356] Para refletir
+[357] Sua empresa...
+[358] ☐ Possui EPIs desenvolvidos para diferentes biotipos?
+[359] ☐ As instalações oferecem conforto e segurança para todos?
+[360] ☐ Os novos projetos consideram critérios de inclusão desde a concepção?
+[362] Mensagem-chave
+[363] Infraestrutura inclusiva é um investimento em segurança, eficiência operacional e valorização das pessoas.
+[367] CAPÍTULO 10
+[368] Ambiente de Trabalho - Barreiras Culturais
+[369] Frase de abertura
+[370] "As barreiras mais difíceis de superar nem sempre são as que vemos. Muitas estão presentes nas crenças, nos comportamentos e nas decisões do dia a dia."
+[372] Entenda o tema
+[373] As barreiras culturais são atitudes, crenças, hábitos e práticas organizacionais que limitam, muitas vezes de forma inconsciente, o desenvolvimento profissional e a participação plena das pessoas.
+[374] Diferentemente das barreiras físicas, elas não são visíveis. Manifestam-se por meio de estereótipos, expectativas sobre papéis de gênero, exclusão de espaços de decisão ou resistência à diversidade de estilos de liderança.
+[375] Na manutenção e gestão de ativos, essas barreiras podem influenciar desde a contratação até a distribuição de projetos estratégicos e a ocupação de cargos de liderança.
+[376] Transformar essa realidade exige liderança, diálogo e compromisso institucional.
+[378] Liderança Inclusiva na Prática
+[379] Uma liderança inclusiva:
+[380] promove ambientes psicologicamente seguros;
+[381] valoriza diferentes estilos de liderança;
+[382] distribui oportunidades com base em competências;
+[383] combate preconceitos e estereótipos;
+[384] reconhece contribuições de forma imparcial;
+[385] intervém diante de comportamentos inadequados.
+[388] Boas práticas para as organizações
+[389] Capacitação contínua sobre diversidade e vieses inconscientes.
+[390] Critérios transparentes para promoção e sucessão.
+[391] Indicadores de diversidade.
+[392] Programas de desenvolvimento de lideranças femininas.
+[393] Canais seguros para relatos de discriminação.
+[394] Avaliações periódicas do clima organizacional.
+[396] Para refletir
+[397] As decisões da sua organização são influenciadas por competências ou por pressupostos?
+[399] Mensagem-chave
+[400] Transformar culturas significa transformar decisões. E decisões mais diversas fortalecem organizações mais preparadas para o futuro.
+[402] CAPÍTULO 11
+[403] Microagressões
+[405] "Nem todo comportamento inadequado é intencional. Mas todo comportamento pode gerar impacto."
+[407] Entenda o tema
+[408] Microagressões são comentários, atitudes ou comportamentos, muitas vezes sutis e involuntários, que reforçam estereótipos ou desvalorizam pessoas e grupos.
+[409] Quando repetidas ao longo do tempo, podem comprometer o sentimento de pertencimento, reduzir a confiança e afetar o desenvolvimento profissional.
+[410] No ambiente técnico, essas situações costumam ocorrer em reuniões, atividades de campo, processos decisórios e interações cotidianas.
+[411] Reconhecer esses comportamentos é um passo essencial para fortalecer uma cultura baseada no respeito.
+[413] Exemplos
+[414] Interromper repetidamente uma mulher durante uma reunião.
+[415] Presumir que ela exerce função administrativa.
+[416] Demonstrar surpresa diante de sua competência técnica.
+[417] Atribuir seu sucesso a fatores externos.
+[418] Fazer comentários sobre aparência em contextos profissionais.
+[419] Pressupor indisponibilidade para projetos por ser mãe.
+[421] Liderança Inclusiva na Prática
+[422] Líderes devem:
+[423] garantir espaço de fala para todos;
+[424] reconhecer publicamente contribuições;
+[425] corrigir comportamentos inadequados com respeito;
+[426] incentivar comunicação inclusiva;
+[427] promover feedback baseado em fatos.
+[429] Como agir quando presenciar uma microagressão
+[430] Se você presenciar uma situação:
+[431] interrompa o comportamento de forma respeitosa;
+[432] devolva o crédito à pessoa cuja contribuição foi ignorada;
+[433] ofereça apoio após a situação;
+[434] incentive o diálogo.
+[435] Se perceber que praticou uma microagressão:
+[436] escute;
+[437] reconheça o impacto;
+[438] aprenda;
+[439] ajuste seu comportamento.
+[441] Mensagem-chave
+[442] A cultura organizacional é construída pelas pequenas atitudes do cotidiano.
+[444] CAPÍTULO 12
+[445] Homens como Aliados
+[446] "Construir ambientes mais inclusivos não é responsabilidade de um grupo específico. É um compromisso coletivo."
+[448] Entenda o tema
+[449] A promoção da diversidade de gênero depende do envolvimento de todas as pessoas.
+[450] Os homens ocupam hoje grande parte das posições de liderança na manutenção e gestão de ativos e, por isso, possuem papel fundamental na construção de ambientes mais inclusivos.
+[451] Ser aliado significa utilizar sua posição para ampliar oportunidades, promover respeito e contribuir para uma cultura organizacional baseada na equidade.
+[453] Como ser um aliado
+[454] Ouvir diferentes perspectivas.
+[455] Valorizar competências.
+[456] Compartilhar oportunidades.
+[457] Combater comportamentos discriminatórios.
+[458] Reconhecer vieses inconscientes.
+[459] Incentivar o desenvolvimento de novas lideranças.
+[461] Liderança Inclusiva na Prática
+[462] Lideranças masculinas podem:
+[463] patrocinar carreiras;
+[464] incentivar participação feminina em projetos estratégicos;
+[465] promover ambientes seguros;
+[466] distribuir oportunidades de forma equilibrada;
+[467] reconhecer talentos independentemente do gênero.
+[469] Mensagem-chave
+[470] A diversidade cresce quando todas as pessoas participam da transformação.
+[472] CAPÍTULO 13
+[473] O Papel do Comitê Feminino e do Subcomitê DIA
+[474] O Comitê Feminino da ABRAMAN atua como um espaço permanente de diálogo, desenvolvimento e fortalecimento da participação feminina na manutenção e gestão de ativos.
+[475] Por meio do Subcomitê Diversidade, Inclusão e Acessibilidade (DIA), promove estudos, pesquisas, eventos e materiais técnicos que contribuem para ampliar o conhecimento e disseminar boas práticas para o setor.
+[476] Mais do que discutir desafios, o Comitê busca inspirar mudanças concretas nas organizações, fortalecendo a liderança, a inovação e a construção de ambientes mais inclusivos.
+[478] CAPÍTULO 14
+[479] Compromisso com o Futuro
+[480] A transformação cultural é um processo contínuo.
+[481] Ela exige o compromisso das organizações, das lideranças e de cada profissional.
+[482] Esperamos que esta cartilha inspire empresas a:
+[483] fortalecer políticas de diversidade;
+[484] ampliar a participação feminina;
+[485] desenvolver lideranças inclusivas;
+[486] eliminar barreiras físicas e culturais;
+[487] promover ambientes de trabalho seguros, respeitosos e colaborativos.
+[488] Acreditamos que organizações mais diversas estarão mais preparadas para enfrentar os desafios da transformação digital, da sustentabilidade e da gestão de ativos do futuro.
+[490] PALAVRAS FINAIS
+[491] A diversidade de gênero não representa apenas uma oportunidade de ampliar a representatividade feminina.
+[492] Ela representa a possibilidade de construir organizações mais inovadoras, colaborativas, resilientes e preparadas para responder aos desafios de um setor em constante transformação.
+[493] Na manutenção e gestão de ativos, onde decisões técnicas impactam diretamente a segurança das pessoas, a confiabilidade dos ativos e a sustentabilidade dos negócios, ampliar a diversidade significa fortalecer a capacidade de aprender, inovar e evoluir continuamente.
+[494] Construir ambientes inclusivos não é responsabilidade exclusiva da liderança, do Comitê Feminino ou das áreas de gestão de pessoas. É um compromisso compartilhado por todos aqueles que acreditam que equipes diversas produzem soluções mais completas, decisões mais equilibradas e organizações mais fortes.
+[495] Que esta cartilha seja um convite à reflexão, mas, sobretudo, à ação.
+[496] Que cada organização encontre aqui inspiração para revisar práticas, desenvolver pessoas e construir uma cultura em que respeito, equidade e colaboração façam parte do cotidiano.
+[497] Porque promover a diversidade de gênero é, acima de tudo, investir no futuro da manutenção, da gestão de ativos e das pessoas que fazem esse setor evoluir.
