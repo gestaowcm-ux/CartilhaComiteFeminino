@@ -1282,52 +1282,71 @@ def build_spread_magazine():
             </div>
 
             <span class="chapter-badge"><i class="fa-solid fa-book-open"></i> Fundamentos</span>
-            <h2 class="chapter-title">Entendendo a Diversidade de Gênero</h2>
+            <h2 class="chapter-title" style="margin-bottom: 6px;">Entendendo a Diversidade de Gênero</h2>
 
-            <p class="editorial-lead">
-                <strong>Diversidade de gênero</strong> refere-se ao reconhecimento e ao respeito às diferentes identidades e expressões de gênero, assegurando oportunidades de participação, desenvolvimento e crescimento profissional.
+            <p class="editorial-lead" style="margin-bottom: 8px; font-size: 11.5px; line-height: 1.45;">
+                <strong>Diversidade de gênero</strong> refere-se ao reconhecimento e respeito às diferentes identidades e expressões de gênero, assegurando oportunidades equitativas de participação, desenvolvimento e liderança.
             </p>
 
-            <!-- Foto Oficial Extraída da Proposta -->
-            <div class="editorial-img-card">
-                <img src="assets/img_cap2_diversidade.jpg" alt="Diversidade e Inclusão na Prática">
-                <div class="editorial-img-caption">
-                    <i class="fa-solid fa-camera"></i> Mulheres e Liderança Técnica na Gestão de Ativos
+            <!-- Layout Editorial Split 2 Colunas: Imagem Completa sem cortes + Conceitos Fundamentais -->
+            <div style="display: flex; gap: 10px; align-items: stretch; margin: 4px 0 6px 0; flex: 1;">
+                <!-- Coluna Esquerda: Imagem Original 100% visível, sem cortes e sem distorção -->
+                <div style="flex: 0 0 42%; display: flex; flex-direction: column;">
+                    <div class="editorial-img-card" style="margin: 0; flex: 1; display: flex; flex-direction: column; background: #0F172A; border-radius: 8px; overflow: hidden; border: 1px solid #CBD5E1; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
+                        <img src="assets/img_cap2_diversidade.jpg" alt="Diversidade e Inclusão na Prática" style="width: 100%; height: 100%; object-fit: contain; background: #0D1B2A; display: block;">
+                        <div class="editorial-img-caption" style="padding: 4px 8px; font-size: 9.5px; background: #F8FAFC;">
+                            <i class="fa-solid fa-camera"></i> Mulheres na Liderança Técnica
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Conceitos Fundamentais Estruturados -->
+                <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 4px;">
+                    <div class="info-card" style="padding: 5px 8px; margin: 0;">
+                        <div class="info-card-header" style="margin-bottom: 2px;">
+                            <span class="info-card-icon" style="font-size: 11px; width: 20px; height: 20px;"><i class="fa-solid fa-users"></i></span>
+                            <h4 class="info-card-title" style="font-size: 11px;">Diversidade</h4>
+                        </div>
+                        <p style="font-size: 10px; line-height: 1.35; margin: 0;">Presença de diferentes trajetórias. <em>"Quem faz parte?"</em></p>
+                    </div>
+
+                    <div class="info-card" style="padding: 5px 8px; margin: 0;">
+                        <div class="info-card-header" style="margin-bottom: 2px;">
+                            <span class="info-card-icon" style="font-size: 11px; width: 20px; height: 20px;"><i class="fa-solid fa-door-open"></i></span>
+                            <h4 class="info-card-title" style="font-size: 11px;">Inclusão</h4>
+                        </div>
+                        <p style="font-size: 10px; line-height: 1.35; margin: 0;">Condições reais para atuação ativa. <em>"Quem participa?"</em></p>
+                    </div>
+
+                    <div class="info-card" style="padding: 5px 8px; margin: 0;">
+                        <div class="info-card-header" style="margin-bottom: 2px;">
+                            <span class="info-card-icon" style="font-size: 11px; width: 20px; height: 20px;"><i class="fa-solid fa-scale-balanced"></i></span>
+                            <h4 class="info-card-title" style="font-size: 11px;">Equidade</h4>
+                        </div>
+                        <p style="font-size: 10px; line-height: 1.35; margin: 0;">Apoio proporcional às necessidades de cada pessoa.</p>
+                    </div>
+
+                    <div class="info-card" style="padding: 5px 8px; margin: 0;">
+                        <div class="info-card-header" style="margin-bottom: 2px;">
+                            <span class="info-card-icon" style="font-size: 11px; width: 20px; height: 20px;"><i class="fa-solid fa-universal-access"></i></span>
+                            <h4 class="info-card-title" style="font-size: 11px;">Acessibilidade</h4>
+                        </div>
+                        <p style="font-size: 10px; line-height: 1.35; margin: 0;">Eliminação de barreiras físicas e comunicacionais.</p>
+                    </div>
+
+                    <div class="info-card" style="padding: 5px 8px; margin: 0; background: #FFF1F2; border-color: #FECDD3;">
+                        <div class="info-card-header" style="margin-bottom: 2px;">
+                            <span class="info-card-icon" style="font-size: 11px; width: 20px; height: 20px; background: #FFE4E6; color: #E11D48;"><i class="fa-solid fa-heart"></i></span>
+                            <h4 class="info-card-title" style="font-size: 11px; color: #9F1239;">Pertencimento</h4>
+                        </div>
+                        <p style="font-size: 10px; line-height: 1.35; margin: 0; color: #881337;">Sentir-se valorizado e respeitado com autenticidade.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="cards-grid-2" style="gap: 6px; margin: 6px 0;">
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-users"></i></span>
-                        <h4 class="info-card-title">Diversidade</h4>
-                    </div>
-                    <p>Presença de diferentes trajetórias. <em>"Quem faz parte?"</em></p>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-door-open"></i></span>
-                        <h4 class="info-card-title">Inclusão</h4>
-                    </div>
-                    <p>Condições para participar ativamente. <em>"Quem participa?"</em></p>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-scale-balanced"></i></span>
-                        <h4 class="info-card-title">Equidade</h4>
-                    </div>
-                    <p>Apoio compatível com necessidades reais de cada pessoa.</p>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-card-header">
-                        <span class="info-card-icon"><i class="fa-solid fa-universal-access"></i></span>
-                        <h4 class="info-card-title">Acessibilidade</h4>
-                    </div>
-                    <p>Eliminação de barreiras físicas e comunicacionais.</p>
-                </div>
+            <!-- Síntese Editorial -->
+            <div class="quote-highlight" style="padding: 5px 10px; margin: 4px 0 0 0; font-size: 10.5px; border-left-width: 3px;">
+                <p style="margin: 0;"><em>"Diversidade é convidar para a equipe. Inclusão é garantir que todos participem com plenitude."</em></p>
             </div>
 
             <div class="page-editorial-footer">
