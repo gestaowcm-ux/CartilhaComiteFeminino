@@ -105,7 +105,8 @@ def build_a4_magazine():
     .a4-page.full-bleed img {
         width: 210mm !important;
         height: 297mm !important;
-        object-fit: fill !important;
+        object-fit: cover !important;
+        object-position: center center !important;
         display: block !important;
     }
 
