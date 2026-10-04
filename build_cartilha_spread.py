@@ -1063,29 +1063,28 @@ def build_spread_magazine():
                 </div>
             </div>
 
-            <div class="action-box box-leadership" style="margin-bottom: 8px;">
-                <div class="box-title"><i class="fa-solid fa-landmark"></i> Mensagem da Presidente da ABRAMAN</div>
-                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
-                    A manutenção e a gestão de ativos vivem um momento de transformação impulsionado pela inovação, pela digitalização e pelo desenvolvimento de pessoas. Nesse cenário, ampliar a diversidade de perspectivas é fundamental para responder aos desafios atuais e futuros.
+            <div class="action-box box-leadership" style="margin-bottom: 8px; border-left: 4px solid var(--rose-600);">
+                <div class="box-title" style="color: var(--rose-700);"><i class="fa-solid fa-comments"></i> Mensagem Institucional</div>
+                <p class="editorial-lead" style="font-size: 10.5px; margin-bottom: 4px; text-align: justify;">
+                    Esta cartilha nasce com um propósito claro: contribuir para ambientes de trabalho mais inclusivos, respeitosos e preparados para reconhecer e desenvolver o talento das mulheres na Manutenção e na Gestão de Ativos.
                 </p>
-                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
-                    Promover ambientes inclusivos significa criar condições para que talentos diversos contribuam plenamente para a segurança, confiabilidade e sustentabilidade dos nossos ativos.
+                <p class="editorial-lead" style="font-size: 10.5px; margin-bottom: 4px; text-align: justify;">
+                    A presença feminina nesses setores vem crescendo, mas ampliar essa participação exige mais do que contratar mulheres. É necessário criar condições para que elas entrem, permaneçam, cresçam e ocupem espaços de protagonismo.
                 </p>
-                <p class="editorial-lead" style="font-size: 11px; font-weight: 600; color: var(--abraman-blue);">
-                    Esta cartilha representa mais um passo da ABRAMAN com a valorização das pessoas e o fortalecimento das lideranças.
+                <p class="editorial-lead" style="font-size: 10.5px; margin-bottom: 4px; text-align: justify;">
+                    Por isso, reunimos nesta cartilha boas práticas que percorrem toda essa jornada: desde processos de atração e contratação mais equitativos, passando por acolhimento, desenvolvimento, liderança e retenção, até a construção de um ambiente seguro, respeitoso e livre de barreiras.
                 </p>
-            </div>
-
-            <div class="action-box box-best-practices">
-                <div class="box-title"><i class="fa-solid fa-comments"></i> Mensagem do Comitê Feminino</div>
-                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
-                    O Comitê Feminino da ABRAMAN nasceu com o propósito de ampliar a participação feminina na gestão de ativos, promovendo espaços de diálogo e desenvolvimento.
+                <p class="editorial-lead" style="font-size: 10.5px; margin-bottom: 4px; text-align: justify;">
+                    Nosso objetivo não é apenas orientar, mas provocar reflexão e estimular mudanças concretas nas organizações. A diversidade fortalece a capacidade de inovar, decidir, solucionar problemas e gerar resultados sustentáveis.
                 </p>
-                <p class="editorial-lead" style="font-size: 11px; margin-bottom: 4px;">
-                    Por meio do Subcomitê DIA, buscamos estimular reflexões e disseminar práticas que construam ambientes de trabalho mais inclusivos, colaborativos e preparados para o futuro.
+                <p class="editorial-lead" style="font-size: 10.5px; margin-bottom: 4px; text-align: justify;">
+                    Que esta cartilha seja uma ferramenta para empresas e profissionais que acreditam que mais mulheres na Manutenção e na Gestão de Ativos significam mais perspectivas, mais competência e mais futuro para o nosso setor.
                 </p>
-                <p class="editorial-lead" style="font-size: 11px; font-weight: 600; color: var(--rose-700);">
-                    Construir ambientes mais diversos é uma responsabilidade compartilhada por todo o setor.
+                <p class="editorial-lead" style="font-size: 10.5px; margin-bottom: 6px; font-weight: 700; color: var(--rose-600);">
+                    Juntas, podemos transformar oportunidades em caminhos e presença em protagonismo.
+                </p>
+                <p style="font-size: 10px; font-weight: 800; color: var(--abraman-navy); text-align: right; margin: 0; padding-top: 4px; border-top: 1px dashed var(--rose-200);">
+                    — Gizele Aparecida Felizardo e Débora Cristina Faria de Araújo
                 </p>
             </div>
 
@@ -2062,8 +2061,11 @@ def build_spread_magazine():
             </div>
 
             <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(253, 164, 175, 0.25); border-radius: 10px; padding: 18px; margin: 8px 0; backdrop-filter: blur(8px);">
-                <p style="font-family: var(--font-serif); font-size: 13.5px; font-style: italic; text-align: center; line-height: 1.55; color: #FFFFFF;">
-                    "A transformação cultural é feita de atitudes, respeito e oportunidades. Promover a diversidade é investir no futuro da gestão de ativos."
+                <p style="font-family: var(--font-serif); font-size: 13px; text-align: justify; line-height: 1.6; color: #FFFFFF; margin-bottom: 10px;">
+                    "Acreditamos em uma sociedade e empresas sem barreiras, onde as competências e a paixão pela excelência sejam critérios de valorização."
+                </p>
+                <p style="font-family: var(--font-serif); font-size: 13px; text-align: justify; line-height: 1.6; color: #FFE4E6; margin: 0;">
+                    "Comprometemo-nos a abrir caminhos, acolher talentos e transformar as empresas brasileiras em ambientes plurais, inovadores e seguros para todos e todas."
                 </p>
             </div>
 
